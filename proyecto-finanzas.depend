@@ -1,4 +1,27 @@
 # depslib dependency file v1.0
-1729809385 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/main.cpp
+1716390337 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/main.cpp
 	<iostream>
+	"app.h"
+
+1729809778 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/app.h
+	"productoManager.h"
+	"empleadoManager.h"
+	"ventaManager.h"
+	"proveedorManager.h"
+	"informes.h"
+
+1718557890 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/funcionesGlobales.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	<iostream>
+	<cstdlib>
+
+1717856819 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/funcionesGlobales.h
+	<iostream>
+	<cstring>
+
+1729809873 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/app.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"app.h"
 

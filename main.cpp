@@ -2,8 +2,12 @@
 
 using namespace std;
 
-int main()
-{
-    cout << "Hello world!" << endl;
+#include "app.h"
+
+ int main()
+ {
+   App menu;
+   menu.MenuPrincipal();
+
     return 0;
-}
+ }
