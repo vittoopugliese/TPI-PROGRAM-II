@@ -20,8 +20,8 @@ using namespace std;
     Movimiento();
 
     //SETS
-    void setIdMovimiento(int numero);
-    void setIdTipo(bool tipo);
+    void setIdMovimiento(int idMovimiento);
+    void setIdTipo(bool idTipo);
     void setIdUsuario(int idUsuario);
     void setIdCategoria(int idCategoria);
     void setFecha(Fecha fecha);
@@ -38,6 +38,6 @@ using namespace std;
     Fecha getFecha();
     float getImporte();
     bool getRecurrencia();
-    const char getDescripcion();
+    const char *getDescripcion();
     bool getEstado();
  };

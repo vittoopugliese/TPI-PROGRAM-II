@@ -28,8 +28,8 @@ Movimiento::Movimiento(){
 
 //SETS
 void Movimiento::setIdMovimiento(int idMovimiento){_idMovimiento = idMovimiento;}
-void Movimiento::setIdTipo(bool tipo){_idTipo = idTipo;}
-void Movimiento::setIdUsuario(int idUsuario){_idUsuarip = idUsuario;}
+void Movimiento::setIdTipo(bool idTipo){_idTipo = idTipo;}
+void Movimiento::setIdUsuario(int idUsuario){_idUsuario = idUsuario;}
 void Movimiento::setIdCategoria(int idCategoria){_idCategoria = idCategoria;}
 void Movimiento::setFecha(Fecha fecha){_fecha = fecha;}
 void Movimiento::setImporte(float importe){_importe = importe;}
