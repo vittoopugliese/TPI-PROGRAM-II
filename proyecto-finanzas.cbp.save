@@ -34,9 +34,16 @@
 		</Compiler>
 		<Unit filename="app.cpp" />
 		<Unit filename="app.h" />
+		<Unit filename="categoria.cpp" />
+		<Unit filename="categoriaArchivo.cpp" />
+		<Unit filename="categoriaManager.cpp" />
 		<Unit filename="funcionesGlobales.cpp" />
 		<Unit filename="funcionesGlobales.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="movimiento.cpp" />
+		<Unit filename="movimiento.h" />
+		<Unit filename="movimientoArchivo.cpp" />
+		<Unit filename="movimientoManager.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

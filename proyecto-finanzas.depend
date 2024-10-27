@@ -25,3 +25,23 @@
 	"funcionesGlobales.h"
 	"app.h"
 
+1729813856 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoria.cpp
+
+1729813856 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaArchivo.cpp
+
+1729813856 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.cpp
+
+1729811151 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoArchivo.cpp
+
+1729811078 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoManager.cpp
+
+1729953074 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimiento.cpp
+	<iostream>
+	"movimiento.h"
+	"funcionesGlobales.h"
+
+1729953073 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimiento.h
+	"fecha.h"
+
+1715802206 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/fecha.h
+
