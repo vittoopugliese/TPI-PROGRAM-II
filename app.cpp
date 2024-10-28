@@ -8,6 +8,7 @@ using namespace std;
    int opcion;
     while(true)
     {
+
       clear();
       cout << "  MENU PRINCIPAL" << endl;
       cout << "-----------------" << endl;
