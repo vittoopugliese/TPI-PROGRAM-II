@@ -14,6 +14,7 @@ Movimiento::Movimiento(int idMovimiento, bool idTipo, int idUsuario, int idCateg
     strcpy(_descripcion, descripcion);
     _estado = estado;
 };
+
 Movimiento::Movimiento(){
     _idMovimiento = 0;
     _idTipo = 0;  // 0-Credito | 1-Debito

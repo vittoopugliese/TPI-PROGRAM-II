@@ -45,3 +45,82 @@
 
 1715802206 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/fecha.h
 
+1730152558 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\funcionesglobales.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	<iostream>
+	<cstdlib>
+
+1730152558 h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\funcionesglobales.h
+	<iostream>
+	<cstring>
+
+1730162800 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\main.cpp
+	<iostream>
+	"app.h"
+
+1730163137 h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\app.h
+	"productoManager.h"
+	"empleadoManager.h"
+	"ventaManager.h"
+	"proveedorManager.h"
+	"informes.h"
+
+1730163286 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\app.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"app.h"
+	"menu.h"
+
+1730152558 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\categoria.cpp
+
+1730152558 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\categoriaarchivo.cpp
+
+1730152558 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\categoriamanager.cpp
+
+1730152558 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\fecha.cpp
+	<iostream>
+	"fecha.h"
+	<ctime>
+
+1730152558 h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\fecha.h
+
+1730152558 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\movimientoarchivo.cpp
+
+1730152558 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\movimientomanager.cpp
+	"movimientoManager.h"
+	<iostream>
+
+1730152558 h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\movimientomanager.h
+	<string>
+
+1730163112 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\menu.cpp
+	<iostream>
+	<string>
+	"menu.h"
+	"rlutil.h"
+
+1730161302 h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\menu.h
+
+1571584340 h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1730161263 source:h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\movimiento.cpp
+	<iostream>
+	"movimiento.h"
+	"funcionesGlobales.h"
+
+1730152558 h:\salchy\utn\cursada 2024\prog ii\tpi-program-ii\movimiento.h
+	"fecha.h"
+

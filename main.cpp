@@ -1,13 +1,10 @@
 #include <iostream>
-
 using namespace std;
-
 #include "app.h"
 
- int main()
- {
-   App menu;
-   menu.MenuPrincipal();
+int main() {
+    App app;
+    app.inicio();
 
     return 0;
  }
