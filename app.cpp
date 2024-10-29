@@ -5,27 +5,30 @@ using namespace std;
 #include "menu.h"
 
 void App::inicio() {
-    system("cls");
-    Menu menu("SISTEMA DE FINANZAS PERSONALES");
+    while (true) {
+        system("cls");
+        Menu menu("SISTEMA DE FINANZAS PERSONALES");
 
-    menu.addItem("INICIAR SESION");
-    menu.addItem("REGISTRARSE");
-    menu.addItem("SALIR");
+        menu.addItem("INICIAR SESION");
+        menu.addItem("REGISTRARSE");
+        menu.addItem("SALIR");
 
-    menu.showMenu();
+        menu.showMenu();
 
-    int seleccion = menu.getSelection();
+        int seleccion = menu.getSelection();
 
-    switch (seleccion) {
-        case 1: {
-            iniciarSesion();
-            break;
-        };
-        case 2: {
-            registrarse();
-            break;
-        };
-        case 3: {
+        switch (seleccion) {
+            case 1: {
+                iniciarSesion();
+                break;
+            };
+            case 2: {
+                registrarse();
+                break;
+            };
+            case 3: {
+                break;
+            }
             break;
         }
     }
@@ -34,10 +37,10 @@ void App::inicio() {
 void App::iniciarSesion() {
     system("cls");
 
-    Usuario usuarioNuevo;
-    if (!usuarioNuevo.registrarUsuarioNuevo()) {
-        return;
-    }
+    //Usuario usuarioNuevo;
+    //if (!usuarioNuevo.registrarUsuarioNuevo()) {
+    //    return;
+    //}
     MenuPrincipal();
 }
 
