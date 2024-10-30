@@ -9,10 +9,7 @@ CategoriaArchivo::CategoriaArchivo(const char *nombreArchivo) {
 
 bool CategoriaArchivo::guardarArchivo(Categoria categoria) {
    FILE *p = fopen(_nombreArchivo, "ab");
-   if (p==nullptr)
-   {
-     return false;
-   }
+   if (p==nullptr) return false;
 
    bool escribio = fwrite(&categoria, sizeof(Categoria), 1, p);
    fclose(p);
@@ -23,10 +20,8 @@ bool CategoriaArchivo::guardarArchivo(Categoria categoria) {
 int CategoriaArchivo::contarRegistros() {
    Categoria categoria;
    FILE *p = fopen(_nombreArchivo, "rb");
-   if (p==nullptr)
-   {
-     return false;
-   }
+   if (p==nullptr) return false;
+
    int contador = 0;
    while (fread (&categoria, sizeof(Categoria), 1,p)==1)
    {
@@ -39,11 +34,9 @@ int CategoriaArchivo::contarRegistros() {
  Categoria CategoriaArchivo::leerRegistro(int numero)
  {
    FILE *p = fopen(_nombreArchivo, "rb");
-   if (p==nullptr)
-   {
-     return Categoria();
-   }
+   if (p==nullptr) return Categoria();
    Categoria aux;
+
    fseek(p,numero*sizeof(Categoria), 0);
    fread(&aux, sizeof(Categoria), 1,p);
    fclose(p);
@@ -67,10 +60,8 @@ int CategoriaArchivo::contarRegistros() {
  bool CategoriaArchivo::modificar(Categoria categoria, int pos)
  {
    FILE *p = fopen(_nombreArchivo, "rb+");
-   if (p==nullptr)
-   {
-     return false;
-   }
+   if (p==nullptr) return false;
+
    fseek(p,pos*sizeof(categoria), 0);
    bool escribio = fwrite(&categoria, sizeof(Categoria), 1,p);
    fclose(p);

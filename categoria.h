@@ -2,19 +2,29 @@
 #include <cstring>
 using namespace std;
 
-class Categoria {
+class Categoria{
     private:
-        int _tipoDeMovimiento;
+        int _tipoMovimiento; //0-Credito | 1-Debito
         int _idCategoria;
-        char _nombreCategoria[20];
+        char _nombre[20];
         char _descripcion[50];
+        bool _estado;
     public:
-        //void GenerarInforme();
-        Categoria(int tipoDeMovimiento, char nombreCategoria[20], char descripcion[50]);
+        //CONSTRUCTORES
+        Categoria(int tipoMovimiento, int idCategoria, char nombre[20], char descripcion[50], bool estado);
         Categoria();
 
-        const char *getNombreCategoria();
+        //SET
+        void setTipoMovimiento(int tipoMovimiento);
+        void setIdCategoria(int idCategoria);
+        void setNombre(const char *nombre);
+        void setDescripcion(const char *categoria);
+        void setEstado(bool estado);
+
+        //GET
+        int getTipoMovimiento();
         int getIdCategoria();
-        void setNombreCategoria(const char *nombre);
-        void setDescripcionCategoria(const char *categoria);
+        const char *getNombre();
+        const char *getDescripcion();
+        bool getEstado();
 };

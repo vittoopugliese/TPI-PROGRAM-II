@@ -27,17 +27,17 @@ using namespace std;
       {
        case 1:
         {
-          //subMenuP.menuProducto();
+          //subMenuMovimientos.menu();
         }
         break;
        case 2:
         {
-          //subMenuV.menuVentas();
+          subMenuCategorias.menu();
           break;
         }
        case 3:
         {
-          //subMenuE.menuEmpleado();
+          //subMenuInformes.menu();
           break;
         }
         break;

@@ -9,9 +9,9 @@ class CategoriaManager {
         void modificar();
 
     public:
-        void menuCategorias();
+        void menu();
         Categoria Cargar();
         void Mostrar (Categoria categoria);
-        void mostrarPorIdCategoria(); // a definir
+        void buscarPorIdCategoria(); // a definir
         void baja();
 };

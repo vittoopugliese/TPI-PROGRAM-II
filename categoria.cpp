@@ -3,31 +3,30 @@
 #include "categoriaManager.h"
 using namespace std;
 
-Categoria::Categoria(int tipoDeMovimiento, char nombreCategoria[20], char descripcion[50]) {
-    _tipoDeMovimiento = tipoDeMovimiento;
-    strcpy(_nombreCategoria, nombreCategoria);
+//CONSTRUCTORES
+Categoria::Categoria(int tipoDeMovimiento, int idCategoria,char nombre[20], char descripcion[50], bool estado) {
+    _tipoMovimiento = tipoDeMovimiento;
+    strcpy(_nombre, nombre);
     strcpy(_descripcion, descripcion);
+    _estado = estado;
 }
 
 Categoria::Categoria() {
-    _tipoDeMovimiento = 0;
-    strcpy(_nombreCategoria, "S/N");
+    _tipoMovimiento = 0;
+    strcpy(_nombre, "S/N");
     strcpy(_descripcion, "S/N");
 }
 
-const char *Categoria::getNombreCategoria() {
-    return _nombreCategoria;
-}
+//SET
+void Categoria::setTipoMovimiento(int tipoMovimiento) {_tipoMovimiento = tipoMovimiento;}
+void Categoria::setIdCategoria(int idCategoria) {_idCategoria = idCategoria;}
+void Categoria::setNombre(const char *nombre) {strcpy(_nombre, nombre);}
+void Categoria::setDescripcion(const char *categoria) {strcpy(_descripcion, categoria);}
+void Categoria::setEstado(bool estado) {_estado = estado;}
 
-void Categoria::setNombreCategoria(const char *nombre) {
-    strcpy(_nombreCategoria, nombre);
-}
-
-
-void Categoria::setDescripcionCategoria(const char *categoria) {
-    strcpy(_descripcion, categoria);
-}
-
-int Categoria::getIdCategoria() {
-    return _idCategoria;
-}
+//GET
+int Categoria::getTipoMovimiento() {return _tipoMovimiento;}
+int Categoria::getIdCategoria() {return _idCategoria;}
+const char *Categoria::getNombre() {return _nombre;}
+const char *Categoria::getDescripcion() {return _descripcion;}
+bool Categoria::getEstado(){return _estado;}
