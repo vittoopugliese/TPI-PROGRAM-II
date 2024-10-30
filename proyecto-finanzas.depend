@@ -45,3 +45,77 @@
 
 1715802206 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/fecha.h
 
+1730250406 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"app.h"
+
+1730250406 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\funcionesglobales.h
+	<iostream>
+	<cstring>
+
+1730250406 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.h
+	"productoManager.h"
+	"empleadoManager.h"
+	"ventaManager.h"
+	"proveedorManager.h"
+	"informes.h"
+
+1730250406 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\funcionesglobales.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	<iostream>
+	<cstdlib>
+
+1730250406 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\main.cpp
+	<iostream>
+	"app.h"
+
+1730253890 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.cpp
+	<iostream>
+	<cstring>
+	"funcionesGlobales.h"
+	"categoria.h"
+	"categoriaManager.h"
+
+1730250406 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.cpp
+	<iostream>
+	"fecha.h"
+	<ctime>
+
+1730250406 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.h
+
+1730250406 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.cpp
+	<iostream>
+	"movimiento.h"
+	"funcionesGlobales.h"
+
+1730250406 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.h
+	"fecha.h"
+
+1730254172 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientoarchivo.cpp
+
+1730254180 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.cpp
+
+1730250406 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.h
+	<string>
+
+1730253731 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoria.cpp
+	<iostream>
+	"categoria.h"
+	"categoriaManager.h"
+
+1730253667 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoria.h
+	<cstring>
+
+1730253465 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.h
+	"categoriaArchivo.h"
+
+1730252337 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriaarchivo.h
+	"categoria.h"
+
+1730253764 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriaarchivo.cpp
+	<iostream>
+	"categoria.h"
+	"categoriaArchivo.h"
+
