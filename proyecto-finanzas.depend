@@ -27,7 +27,7 @@
 	"funcionesGlobales.h"
 	"app.h"
 
-1730330848 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoria.cpp
+1730410530 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoria.cpp
 	<iostream>
 	"categoria.h"
 	"categoriaManager.h"
@@ -37,7 +37,7 @@
 	"categoria.h"
 	"categoriaArchivo.h"
 
-1730410089 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.cpp
+1730415105 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.cpp
 	<iostream>
 	<cstring>
 	"funcionesGlobales.h"

@@ -22,13 +22,13 @@ Categoria CategoriaManager::Cargar(){
     aux.setTipoMovimiento(tipoMovimiento);
 
     cout << "Nombre: ";
-    cargarCadena(nombre, 19, true); // Salta directamente a descripcion???
+    cargarCadena(nombre, 19, true);
     aux.setNombre(nombre);
 
     cout << "Descripcion: ";
     cargarCadena(descripcion, 49);
     aux.setDescripcion(descripcion);
-   
+
     aux.setEstado(true);
 
     return aux;
