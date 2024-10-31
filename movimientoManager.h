@@ -7,7 +7,7 @@ public:
     void cargar();
     void mostrar();
     void mostrarTodos();
-    void menuEmpleado();
+    void menu();
 };
 
 #endif

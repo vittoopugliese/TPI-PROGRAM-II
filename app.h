@@ -11,7 +11,7 @@
 
  class App{
     private:
-        //MovimientoManager subMenuMovimientos;
+        MovimientoManager subMenuMovimientos;
         CategoriaManager subMenuCategorias;
    /*
     ProductoManager subMenuP;

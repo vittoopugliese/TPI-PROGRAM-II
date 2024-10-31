@@ -14,8 +14,7 @@ using namespace std;
       cout << "1 - MOVIMIENTOS" << endl;
       cout << "2 - CATEGORIAS" << endl;
       cout << "3 - INFORMES" << endl;
-      cout << "4 - ???" << endl;
-      cout << "5 - Logout" << endl;
+      cout << "5 - LOGOUT" << endl;
       cout << endl;
       cout << "0 - PARA SALIR" << endl;
       cout << "-----------------" << endl;
@@ -27,7 +26,7 @@ using namespace std;
       {
        case 1:
         {
-          //subMenuMovimientos.menu();
+          subMenuMovimientos.menu();
         }
         break;
        case 2:
@@ -48,7 +47,7 @@ using namespace std;
         break;
         case 5:
         {
-          //subMenuInformes.MenuInforme();
+            // log out
         }
         break;
        case 0:
