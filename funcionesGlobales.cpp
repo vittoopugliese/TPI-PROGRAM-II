@@ -32,24 +32,25 @@ void pausa() {
 }
 
 //CARGAR CADENA
- void cargarCadena(char *palabra, int tamano)
- {
+void cargarCadena(char *palabra, int tamano, bool limpiarBuffer){
     int i=0;
-    fflush(stdin);
+    if(limpiarBuffer){
+        cin.ignore();
+    }
     for (i=0; i<tamano; i++)
-   {
-     palabra[i]=cin.get();
-     if (palabra[i]=='\n')
-     {
-        break;
-     }
-   }
+    {
+        palabra[i]=cin.get();
+        if (palabra[i]=='\n')
+        {
+            break;
+        }
+    }
     palabra[i]='\0';
     fflush(stdin);
- }
+}
 
 int ingresoEntero(){
-    
+
     int num;
     cin >> num;
 
@@ -60,5 +61,5 @@ int ingresoEntero(){
         cin >> num;
     }
 
-    return num; 
+    return num;
 }
