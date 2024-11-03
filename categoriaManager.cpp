@@ -22,18 +22,20 @@ Categoria CategoriaManager::Cargar(){
     aux.setTipoMovimiento(tipoMovimiento);
 
     cout << "Nombre: ";
-    cargarCadena(nombre, 19); // Salta directamente a descripcion???
+    cargarCadena(nombre, 19, true);
     aux.setNombre(nombre);
 
     cout << "Descripcion: ";
     cargarCadena(descripcion, 49);
     aux.setDescripcion(descripcion);
 
+    aux.setEstado(true);
+
     return aux;
 }
 
 void CategoriaManager::Mostrar(Categoria categoria){
-    if (categoria.getEstado()){
+    if (categoria.getEstado() || true){
         cout << "Tipo: " << categoria.getTipoMovimiento() << endl;
         cout << "ID: " << categoria.getIdCategoria() << endl;
         cout << "Nombre: " << categoria.getNombre() << endl;

@@ -8,13 +8,14 @@ Categoria::Categoria(int tipoDeMovimiento, int idCategoria,char nombre[20], char
     _tipoMovimiento = tipoDeMovimiento;
     strcpy(_nombre, nombre);
     strcpy(_descripcion, descripcion);
-    _estado = estado;
+    _estado = true;
 }
 
 Categoria::Categoria() {
     _tipoMovimiento = 0;
     strcpy(_nombre, "S/N");
     strcpy(_descripcion, "S/N");
+    _estado = true;
 }
 
 //SET
