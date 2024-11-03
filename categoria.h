@@ -11,7 +11,7 @@ class Categoria{
         bool _estado;
     public:
         //CONSTRUCTORES
-        Categoria(int tipoMovimiento, int idCategoria, char nombre[20], char descripcion[50], bool estado);
+        Categoria(int tipoMovimiento, int idCategoria, char nombre[20], char descripcion[50], bool estado=true);
         Categoria();
 
         //SET
