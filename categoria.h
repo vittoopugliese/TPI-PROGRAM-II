@@ -8,6 +8,8 @@ class Categoria{
         int _idCategoria;
         char _nombre[20];
         char _descripcion[50];
+        //bool tipoRecurrencia[X]; //mensual, bimestral, semestral
+        //bool mesRecurrencia[12];
         bool _estado;
     public:
         //CONSTRUCTORES
