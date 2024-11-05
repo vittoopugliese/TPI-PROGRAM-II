@@ -10,7 +10,7 @@ private:
   Fecha _fecha;
   float _importe;
   bool _recurrencia;
-  int _tipoDeRecurrencia; // 0-Mensual | 1-Bimestral | 2-Anual
+  int _tipoDeRecurrencia; // 0-Unico, 1-Mensual, 2-Bimestral, 3-Anual
   char _descripcion[100];
   bool _estado;
 

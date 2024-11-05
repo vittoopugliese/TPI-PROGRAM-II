@@ -179,7 +179,7 @@ void CategoriaManager::mostrarTodasInline(){
 
     cout << "Lista de categorias disponibles:" << endl << endl;
 
-    for(int i = 0; i<cantReg; i++){
+    for(int i = 0; i < cantReg; i++){
         aux = _archivo.leerRegistro(i);
         if(aux.getEstado()) cout << aux.getIdCategoria() << " - " << aux.getNombre() << endl;
     }
@@ -197,7 +197,7 @@ string CategoriaManager::getNombreCategoria(int idCategoria){
     return "NO SE ENCONTRO LA CATEGORIA";
 }
 
-void CategoriaManager::menu()
+void CategoriaManager::mostrarMenuDeCategorias()
  {
   int opcion;
     while(true){

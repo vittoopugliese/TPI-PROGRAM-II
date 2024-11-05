@@ -6,11 +6,13 @@ using namespace std;
 
 class MovimientoManager{
 public:
-    void cargar();
-    void mostrar(Movimiento reg);
-    void mostrarTodos();
-    void eliminarTodos();
-    void menu();
+    void cargarMovimiento();
+    void mostrarMovimiento(Movimiento reg);
+    void eliminarMovimiento();
+    void mostrarTodosLosMovimientos();
+    void eliminarTodosLosMovimientos();
+    void mostrarMenuDeMovimientos();
+    void abrirFiltrosDeMovimientos();
 };
 
 #endif

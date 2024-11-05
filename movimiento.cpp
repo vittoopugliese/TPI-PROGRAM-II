@@ -25,7 +25,7 @@ Movimiento::Movimiento(){
     _fecha = Fecha();
     _importe = 0;
     _recurrencia = 0;
-    _tipoDeRecurrencia = 0; // 0-Mensual | 1-Bimestral | 2-Anual
+    _tipoDeRecurrencia = 0; // 0-Unico, 1-Mensual, 2-Bimestral, 3-Anual
     strcpy(_descripcion, "S/D"); // SD = Sin Descripcion
     _estado = true;
 };
@@ -55,9 +55,10 @@ bool Movimiento::getEstado(){return _estado;}
 int Movimiento::getTipoDeRecurrencia(){return _tipoDeRecurrencia;}
 string Movimiento::getNombreDeRecurrencia(){
     switch(_tipoDeRecurrencia){
-        case 0: return "Mensual";
-        case 1: return "Bimestral";
-        case 2: return "Anual";
+        case 0: return "Unico";
+        case 1: return "Mensual";
+        case 2: return "Bimestral";
+        case 3: return "Anual";
         default: return "Sin Recurrencia";
     }
 }
