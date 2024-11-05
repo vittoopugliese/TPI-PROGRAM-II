@@ -4,11 +4,13 @@
 #include "funcionesGlobales.h"
 #include <iostream>
 #include "movimientoArchivo.h"
+#include "categoriaManager.h"
 using namespace std;
 
 void MovimientoManager::cargar() {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     Movimiento aux;
+    CategoriaManager categoriaManager;
 
     int mes;
     int anio;
@@ -17,7 +19,7 @@ void MovimientoManager::cargar() {
     float subtotalDia = 0;
     float subtotalMes = 0;
 
-    cout << "Ingrese el anio de lo movimientos a cargar (0 para salir): ";
+    cout << "Ingrese el anio de los movimientos a cargar (0 - Salir): ";
     cin >> anio;
 
     if(anio == 0) return;
@@ -41,46 +43,36 @@ void MovimientoManager::cargar() {
 
     for(int dia = 1; dia <= cantidadDeDiasEnElMes; dia++) {
         clear();
-        cout << "Dia: " << dia << endl;
+        cout << "Anio " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
         cout << "------------------------------------" << endl;
 
         subtotalDia = 0;
-        int respuesta = 1;
+        char seguirCargandoMovimientos = 'S';
 
-        while(respuesta == 1) {
-            int categoria;
-            cout << "Ingrese el ID de categoria (0 para no registrar movimientos): ";
-            cin >> categoria;
+        while(toupper(seguirCargandoMovimientos) == 'S') {
+            categoriaManager.mostrarTodasInline();
+            cout << endl << "Ingrese el ID de categoria (0 - No registrar movimientos): ";
+            int idCategoria = ingresoEntero();
+            if(idCategoria == 0) break;
 
-            if(categoria == 0) break;
+            clear();
+            int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
+            cout << "Anio " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
+            cout << "------------------------------------" << endl;
+            cout << "Categoria Seleccionada: " << idCategoria << " - " << categoriaManager.getNombreCategoria(idCategoria) << " - " << (tipoMovimiento == 0 ? "Credito" : "Debito") << endl;
 
-            // Genero el ID del dia, logica a discutir...
-            int idMovimiento = (mes * 1000) + (dia * 10) + archivoMovimiento.contarRegistros() + 1;
+            int idMovimiento = aux.generarIdDeMovimiento(mes, dia);
             aux.setIdMovimiento(idMovimiento);
 
-            int tipoMovimiento;
-            cout << "Tipo de movimiento (0-Credito, 1-Debito): ";
-            cin >> tipoMovimiento;
-
-            while(tipoMovimiento != 0 && tipoMovimiento != 1) {
-                cout << "Tipo invalido. Ingrese 0 para Credito o 1 para Debito: ";
-                cin >> tipoMovimiento;
-            }
-
             aux.setIdTipo(tipoMovimiento);
-            aux.setIdCategoria(categoria);
+            aux.setIdCategoria(idCategoria);
 
             float importe;
             cout << "Ingrese el importe del movimiento: $";
             cin >> importe;
 
             while(importe < 0) {
-                // Aca podemos validar la categoria y su tipo con el monto ingresado
-                // si se ingresa un monto positivo y la categoria es DEBITO, deberiamos
-                // mostrar el mensaje de que se esta ingresando al reves.
-                // o sino, no darle importancia al signo y calcular si es un monto que RESTA
-                // si la categoria es debito... a debatir
-                cout << "El importe no puede ser negativo. Ingrese nuevamente: $";
+                cout << "Si el importe suma o resta, lo decide el tipo de movimiento que esta includido en la categoria. Ingrese nuevamente: $";
                 cin >> importe;
             }
 
@@ -103,7 +95,23 @@ void MovimientoManager::cargar() {
             char recurrente;
             cout << "Es un movimiento recurrente? (S/N): ";
             cin >> recurrente;
+
+            while(toupper(recurrente) != 'S' && toupper(recurrente) != 'N') {
+                cout << "Opcion invalida. Ingrese S para SI o N para NO: ";
+                cin >> recurrente;
+            }
+
             aux.setRecurrencia(toupper(recurrente) == 'S');
+
+            cout << "Ingrese el tipo de recurrencia (0-Mensual, 1-Bimestral, 2-Anual): ";
+            int tipoDeRecurrencia = ingresoEntero();
+
+            while(tipoDeRecurrencia < 0 || tipoDeRecurrencia > 2) {
+                cout << "Tipo de recurrencia invalido. Ingrese 0 para Mensual, 1 para Bimestral o 2 para Anual: ";
+                int tipoDeRecurrencia = ingresoEntero();
+            }
+
+            aux.setTipoDeRecurrencia(tipoDeRecurrencia);
 
             char descripcion[100];
             cout << "Ingrese descripcion: ";
@@ -115,16 +123,23 @@ void MovimientoManager::cargar() {
 
             // Guardo el movimiento en el archivo
             if(archivoMovimiento.guardarArchivo(aux)) {
-                cout << "Movimiento guardado exitosamente!" << endl << endl;
+                cout << endl << "Movimiento guardado exitosamente!" << endl << endl;
             } else {
-                cout << "Error al guardar el movimiento." << endl << endl;
+                cout << endl << "Error al guardar el movimiento." << endl << endl;
             }
 
             cout << "Subtotal del dia: $" << subtotalDia << endl;
             cout << "------------------------------------" << endl;
 
-            cout << "Cargar otro movimiento para este dia? (1-Si, 0-No): ";
-            cin >> respuesta;
+            cout << "Cargar otro movimiento para este dia? (S/N): ";
+            cin >> seguirCargandoMovimientos;
+
+            while(toupper(seguirCargandoMovimientos) != 'S' && toupper(seguirCargandoMovimientos) != 'N') {
+                cout << "Opcion invalida. Ingrese S para cargar otro movimiento o N para finalizar: ";
+                cin >> seguirCargandoMovimientos;
+            }
+
+            clear();
         }
 
         cout << "Total del dia " << dia << ": $" << subtotalDia << endl;
@@ -138,14 +153,17 @@ void MovimientoManager::cargar() {
 }
 
 void MovimientoManager::mostrar(Movimiento reg) {
+    CategoriaManager categoriaManager;
+
     if(reg.getEstado()) {
         cout << "ID Movimiento: " << reg.getIdMovimiento() << endl;
         cout << "Fecha: " << reg.getFecha().toString() << endl;
-        cout << "Categoria: " << reg.getIdCategoria() << endl;
+        cout << "Categoria: " << reg.getIdCategoria() << " - " << categoriaManager.getNombreCategoria(reg.getIdCategoria()) << endl;
         cout << "Tipo: " << (reg.getIdTipo() == 0 ? "Credito" : "Debito") << endl;
         cout << "Importe: $" << reg.getImporte() << endl;
         cout << "Descripcion: " << reg.getDescripcion() << endl;
         cout << "Recurrente: " << (reg.getRecurrencia() ? "Si" : "No") << endl;
+        cout << "Tipo de Recurrencia: " << reg.getTipoDeRecurrencia() << " - " << reg.getNombreDeRecurrencia() << endl;
         cout << "-------------------------------" << endl;
     }
 }
@@ -203,13 +221,12 @@ void MovimientoManager::menu() {
 
     while(true) {
         clear();
-        cout << "--- MOVIMIENTOS ---" << endl;
-        cout << "----------------------" << endl;
+        cout << "----- MOVIMIENTOS -----" << endl;
         cout << "1 - CARGAR MOVIMIENTOS" << endl;
         cout << "2 - MOSTRAR TODOS" << endl;
         cout << "3 - ELIMINAR TODOS" << endl;
-        cout << "0 - VOLVER" << endl;
-        cout << "----------------------" << endl;
+        cout << "0 - SALIR" << endl;
+        cout << "-----------------------" << endl;
 
         cout << "INGRESE OPCION: ";
         cin >> opcion;

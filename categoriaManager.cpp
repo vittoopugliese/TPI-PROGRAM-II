@@ -161,21 +161,54 @@ void CategoriaManager::modificar(){
     }
 }
 
+int CategoriaManager::getTipoDeMovimientoFromIdCategoria(int idCategoria){
+    Categoria aux;
+    int posicion = _archivo.buscar(idCategoria);
+
+    if (posicion >= 0){
+        aux = _archivo.leerRegistro(posicion);
+        return aux.getTipoMovimiento();
+    }
+
+    return -1;
+}
+
+void CategoriaManager::mostrarTodasInline(){
+    int cantReg = _archivo.contarRegistros();
+    Categoria aux;
+
+    cout << "Lista de categorias disponibles:" << endl << endl;
+
+    for(int i = 0; i<cantReg; i++){
+        aux = _archivo.leerRegistro(i);
+        if(aux.getEstado()) cout << aux.getIdCategoria() << " - " << aux.getNombre() << endl;
+    }
+}
+
+string CategoriaManager::getNombreCategoria(int idCategoria){
+    Categoria aux;
+    int posicion = _archivo.buscar(idCategoria);
+
+    if (posicion >= 0){
+        aux = _archivo.leerRegistro(posicion);
+        return aux.getNombre();
+    }
+
+    return "NO SE ENCONTRO LA CATEGORIA";
+}
 
 void CategoriaManager::menu()
  {
   int opcion;
     while(true){
         clear();
-        cout << "   CATEGORIAS" << endl;
-        cout << "----------------" << endl;
-        cout << "1 - Ingresar nueva categoria" << endl;
-        cout << "2 - BAJA" << endl;
-        cout << "3 - Mostrar todas las categorias" << endl;
-        cout << "4 - Editar categoria existente" << endl;
-        cout << endl;
-        cout << "0 - PARA SALIR" << endl;
-        cout << "----------------" << endl;
+        cout << "----- CATEGORIAS -----" << endl;
+        cout << "1 - CREAR NUEVA" << endl;
+        cout << "2 - ELIMINAR EXISTENTE" << endl;
+        cout << "3 - MOSTRAR TODAS" << endl;
+        cout << "4 - EDITAR EXISTENTE" << endl;
+        cout << "0 - SALIR" << endl;
+        cout << "----------------------" << endl;
         cout << "INGRESE UNA OPCION: ";
         //cin >> opcion;
         opcion = ingresoEntero();

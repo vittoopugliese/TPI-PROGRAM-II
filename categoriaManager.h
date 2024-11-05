@@ -14,4 +14,7 @@ class CategoriaManager {
         void Mostrar (Categoria categoria);
         void buscarPorIdCategoria(); // a definir
         void baja();
+        int getTipoDeMovimientoFromIdCategoria(int idCategoria);
+        void mostrarTodasInline();
+        string getNombreCategoria(int idCategoria);
 };
