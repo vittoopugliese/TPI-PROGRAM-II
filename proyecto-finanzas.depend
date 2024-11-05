@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1730330848 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/main.cpp
+1730761791 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/main.cpp
 	<iostream>
 	"app.h"
 
-1730330848 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/app.h
+1730761791 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/app.h
 	"movimientoManager.h"
 	"categoriaManager.h"
 	"productoManager.h"
@@ -12,53 +12,63 @@
 	"proveedorManager.h"
 	"informes.h"
 
-1730410192 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/funcionesGlobales.cpp
+1730761791 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/funcionesGlobales.cpp
 	<iostream>
 	"funcionesGlobales.h"
 	<iostream>
 	<cstdlib>
 
-1730410184 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/funcionesGlobales.h
+1730761791 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/funcionesGlobales.h
 	<iostream>
 	<cstring>
 
-1730330848 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/app.cpp
+1730818078 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/app.cpp
 	<iostream>
 	"funcionesGlobales.h"
 	"app.h"
 
-1730410530 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoria.cpp
+1730761791 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoria.cpp
 	<iostream>
 	"categoria.h"
 	"categoriaManager.h"
 
-1730330848 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaArchivo.cpp
+1730761791 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaArchivo.cpp
 	<iostream>
 	"categoria.h"
 	"categoriaArchivo.h"
 
-1730415105 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.cpp
+1730819095 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.cpp
 	<iostream>
 	<cstring>
 	"funcionesGlobales.h"
 	"categoria.h"
 	"categoriaManager.h"
 
-1730330848 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoArchivo.cpp
+1730762273 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoArchivo.cpp
+	"movimientoArchivo.h"
+	<cstdio>
+	<string.h>
 
-1730330848 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoManager.cpp
+1730818078 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoManager.cpp
 	"movimientoManager.h"
+	"movimiento.h"
+	"fecha.h"
+	"funcionesGlobales.h"
 	<iostream>
+	"movimientoArchivo.h"
+	"categoriaManager.h"
 
-1730300536 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimiento.cpp
+1730818078 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimiento.cpp
 	<iostream>
 	"movimiento.h"
 	"funcionesGlobales.h"
+	"movimientoArchivo.h"
 
-1730250235 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimiento.h
+1730818078 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimiento.h
 	"fecha.h"
 
-1730250235 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/fecha.h
+1730762273 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/fecha.h
+	<string>
 
 1730250406 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.cpp
 	<iostream>
@@ -134,20 +144,24 @@
 	"categoria.h"
 	"categoriaArchivo.h"
 
-1730330848 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.h
+1730818078 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.h
 	"categoriaArchivo.h"
 
-1730330848 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaArchivo.h
+1730761791 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaArchivo.h
 	"categoria.h"
 
-1730410455 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoria.h
+1730818078 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoria.h
 	<cstring>
 
-1730250235 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/fecha.cpp
+1730761791 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/fecha.cpp
 	<iostream>
 	"fecha.h"
 	<ctime>
 
-1730330848 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoManager.h
+1730818078 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoManager.h
 	<string>
+	"movimiento.h"
+
+1730762273 /home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoArchivo.h
+	"movimiento.h"
 

@@ -36,7 +36,8 @@ Categoria CategoriaManager::Cargar(){
 
 void CategoriaManager::Mostrar(Categoria categoria){
     if (categoria.getEstado() || true){
-        cout << "Tipo: " << categoria.getTipoMovimiento() << endl;
+        cout << "Tipo: ";
+        cout << (categoria.getTipoMovimiento()==0 ? "Credito (+)" : "Debito (-)") << endl;
         cout << "ID: " << categoria.getIdCategoria() << endl;
         cout << "Nombre: " << categoria.getNombre() << endl;
         cout << "Descripcion: " << categoria.getDescripcion() << endl;
