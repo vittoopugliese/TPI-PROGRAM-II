@@ -1,2 +1,7 @@
 .vscode
 build
+obj
+bin
+proyecto-finanzas.depend
+proyecto-finanzas.layout
+proyecto-finanzas.layout.save
