@@ -342,41 +342,51 @@ void MovimientoManager::eliminarMovimiento() {
         return;
     }
 
-    int idMovimiento;
-    cout << "Ingrese el ID del movimiento a eliminar (0-Salir, 1-Listar Todos): ";
-    idMovimiento = ingresoEntero();
+    int opcion;
+    cout << "Elija una opcion:\n1-Ingresar ID\n2-Listar Todos\n0-Salir\n";
+    opcion = ingresoEntero();
 
-    if(idMovimiento == 0) return;
+    if(opcion == 0) return;
 
-    if(idMovimiento == 1) {
-        mostrarTodosLosMovimientos();
-        return;
+    bool existe= false;
+    if(opcion == 1){
+        clear();
+        int id;
+        cout << "Ingrese el ID:" << endl;
+        id = ingresoEntero();
+
+        for (int i = 0; i < cantidad; i++) {
+            Movimiento reg = archivoMovimiento.leer(i);
+            if(reg.getIdMovimiento()==id){
+                existe = true;
+                int confirmar;
+                cout << "Esta seguro que desea eliminar el movimiento?\n1-Si\n2-No\n";
+                confirmar = ingresoEntero();
+
+                if(confirmar == 1) {
+                    reg.setEstado(false);
+                    if(archivoMovimiento.modificar(reg, id)){
+                        cout << "Movimiento eliminado exitosamente." << endl;
+                    } else {cout << "Hubo un error al intentar eliminar el movimiento." << endl;
+
+                        pausa();
+                        return;
+                    }
+                }
+            }
+        }
     }
-
-    Movimiento reg = archivoMovimiento.leer(idMovimiento);
-
-    if(reg.getIdMovimiento() == 0) {
+    if(!existe) {
         cout << "No se encontro el movimiento con el ID ingresado." << endl;
         pausa();
         return;
     }
 
-    cout << "Esta seguro que desea eliminar el movimiento? (S/N): ";
-    char confirmar;
-    cin >> confirmar;
-
-    if(toupper(confirmar) != 'S') {
-        cout << "Operacion cancelada." << endl;
-        pausa();
+    if(opcion == 2) {
+        cout << "----------------------------------------" << endl;
+        mostrarTodosLosMovimientos();
         return;
     }
-
-    reg.setEstado(false);
-
-    if(archivoMovimiento.modificar(reg, idMovimiento)) cout << "Movimiento eliminado exitosamente." << endl;
-    else cout << "Hubo un error al intentar eliminar el movimiento." << endl;
-
-    pausa();
 }
 
 void MovimientoManager::eliminarTodosLosMovimientos() {
