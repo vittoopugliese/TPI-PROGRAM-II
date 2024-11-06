@@ -37,7 +37,7 @@
 	"categoria.h"
 	"categoriaArchivo.h"
 
-1730819095 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.cpp
+1730906360 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/categoriaManager.cpp
 	<iostream>
 	<cstring>
 	"funcionesGlobales.h"
@@ -49,7 +49,7 @@
 	<cstdio>
 	<string.h>
 
-1730818078 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoManager.cpp
+1730912843 source:/home/juli/Documents/UTN/1-Progra2-2024/PROYECTO/movimientoManager.cpp
 	"movimientoManager.h"
 	"movimiento.h"
 	"fecha.h"

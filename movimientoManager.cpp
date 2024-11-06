@@ -19,19 +19,20 @@ void MovimientoManager::cargarMovimiento() {
     float subtotalDia = 0;
     float subtotalMes = 0;
 
-    cout << "Año de los movimientos (0-Salir): ";
-    cin >> anio;
+    cout << "Anio de los movimientos (0-Salir): ";
+    anio = ingresoEntero();
 
     if(anio == 0) return;
 
     cout << "Mes de los movimientos (1-12): ";
-    cin >> mes;
+    mes = ingresoEntero();
 
     while(mes < 1 || mes > 12) {
         cout << "Mes incorrecto. Por favor entre 1-12: ";
-        cin >> mes;
+        mes = ingresoEntero();
     }
 
+    /*
     if(mes == 2) {
         if(anio % 4 == 0) cantidadDeDiasEnElMes = 29;
         else cantidadDeDiasEnElMes = 28;
@@ -40,10 +41,11 @@ void MovimientoManager::cargarMovimiento() {
     } else {
         cantidadDeDiasEnElMes = 31;
     }
+    */
 
     for(int dia = 1; dia <= cantidadDeDiasEnElMes; dia++) {
         clear();
-        cout << "Año " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
+        cout << "Anio " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
         cout << "---------------------------------------" << endl;
 
         subtotalDia = 0;
@@ -74,7 +76,7 @@ void MovimientoManager::cargarMovimiento() {
             cin >> importe;
 
             while(importe < 0) {
-                cout << "Si el importe suma o resta, lo decide el tipo de movimiento que esta includido en la categoria. Ingrese nuevamente: $";
+                cout << "No se admiten montos negativos, ya que esto se infiere por la categoria. Ingrese nuevamente: $";
                 cin >> importe;
             }
 
@@ -107,7 +109,7 @@ void MovimientoManager::cargarMovimiento() {
             int tipoDeRecurrencia = 0;
 
             if(toupper(recurrente) == 'S') {
-                cout << "Ingrese el tipo de recurrencia (0-Unico, 1-Mensual, 2-Bimestral, 3-Anual): ";
+                cout << "Ingrese el tipo de recurrencia:\n0-Unico\n1-Mensual\n2-Bimestral\n3-Anual\n";
                 int tipoDeRecurrencia = ingresoEntero();
 
                 while(tipoDeRecurrencia < 0 || tipoDeRecurrencia > 2) {
@@ -228,16 +230,17 @@ void MovimientoManager::abrirFiltrosDeMovimientos() {
     while(seguirFiltrando) {
         int cantidadDeRegistrosFiltrados = 0;
 
-        cout << "---- FILTRANDO POR ----" << endl;
+        cout << "---- FILTRAR POR... ---" << endl;
         cout << "1 - TIPO DE MOVIMIENTO" << endl;
         cout << "2 - CATEGORIA" << endl;
         cout << "3 - FECHA" << endl;
         cout << "4 - MOSTRAR TODOS" << endl;
         cout << "0 - SALIR" << endl;
-        cout << "-------------------" << endl;
+        cout << "------------------------" << endl;
 
         cout << "INGRESE OPCION: ";
-        cin >> opcion;
+        //cin >> opcion;
+        opcion = ingresoEntero();
 
         clear();
 
@@ -247,67 +250,75 @@ void MovimientoManager::abrirFiltrosDeMovimientos() {
                 return;
             case 1: {  
                     int tipoMovimiento;
-                    cout << "Ingrese el tipo de movimiento (0-Credito, 1-Debito): ";
-                    cin >> tipoMovimiento;
-
+                    cout << "Ingrese el tipo de movimiento:\n0-Credito\n1-Debito\n";
+                    tipoMovimiento = ingresoEntero();
+                    
+                    clear();
+                    
+                    cout << "----------------------------------------" << endl;
+                    bool hayRegistros = false;
                     for(int i = 0; i < cantidad; i++) {
                         Movimiento reg = archivoMovimiento.leer(i);
 
                         if(reg.getIdTipo() == tipoMovimiento && reg.getEstado()) {
-                            cantidadDeRegistrosFiltrados++;
+                            hayRegistros = true;
                             mostrarMovimiento(reg);
                         }
-
-                        if(cantidadDeRegistrosFiltrados == 0) {
-                            cout << "No hay movimientos para el tipo seleccionado." << endl;
-                        }
-
-                        cantidadDeRegistrosFiltrados = 0;
                     }
+                    if(!hayRegistros) {
+                        cout << "No hay movimientos del tipo ";
+                        (tipoMovimiento==0 ? cout << "Credito." : cout << "Debito.");
+                    }
+                    pausa();
+                    clear();
                 }
                 break;
             case 2: {  
                     int idCategoria;
-                    cout << "Ingrese el ID de la categoria: ";
-                    cin >> idCategoria;
+                    cout << "Ingrese el ID de la categoria:" << endl;
+                    // TODO: Mostrar categorias existentes al usuario
+                    idCategoria = ingresoEntero();
+                    cout << "----------------------------------------" << endl;
 
+                    bool hayRegistros = false;
                     for(int i = 0; i < cantidad; i++) {
                         Movimiento reg = archivoMovimiento.leer(i);
 
                         if(reg.getIdCategoria() == idCategoria && reg.getEstado()) {
+                            hayRegistros = true;
                             mostrarMovimiento(reg);
                         }
-
-                        if(cantidadDeRegistrosFiltrados == 0) {
-                            cout << "No hay movimientos para la categoria seleccionada." << endl;
-                        }
-
-                        cantidadDeRegistrosFiltrados = 0;
                     }
+                    if(!hayRegistros) {
+                        cout << "No hay movimientos para el ID seleccionado." << endl;
+                    }
+                    pausa();
+                    clear();
                 }
 
                 break;
             case 3: {  
-                    cout << "Filtrando por año: "; int anio = ingresoEntero();
-                    cout << "Filtrando por mes: "; int mes = ingresoEntero();
+                    cout << "Ingrese el anio: "; int anio = ingresoEntero();
+                    cout << "Ingrese el mes: "; int mes = ingresoEntero();
 
                     clear();
                     cout << "Movimientos de la fecha " << mes << "/" << anio << endl;
+                    cout << "----------------------------------------" << endl;
 
+                    bool hayRegistros = false;
                     for(int i = 0; i < cantidad; i++) {
                         Movimiento reg = archivoMovimiento.leer(i);
                         
                         if(reg.getFecha().getMes() == mes && reg.getFecha().getAnio() == anio && reg.getEstado()) {
-                            cantidadDeRegistrosFiltrados++;
+                            hayRegistros = true;
                             mostrarMovimiento(reg);
                         }
-
-                        if(cantidadDeRegistrosFiltrados == 0) {
-                            cout << "No hay movimientos para la fecha seleccionada." << endl;
-                        }
-
-                        cantidadDeRegistrosFiltrados = 0;
                     }
+                    if(!hayRegistros) {
+                        cout << "No hay movimientos para la fecha seleccionada." << endl;
+                    }
+                    pausa();
+                    clear();
                 }
                 break;
             case 4:
@@ -333,7 +344,7 @@ void MovimientoManager::eliminarMovimiento() {
 
     int idMovimiento;
     cout << "Ingrese el ID del movimiento a eliminar (0-Salir, 1-Listar Todos): ";
-    cin >> idMovimiento;
+    idMovimiento = ingresoEntero();
 
     if(idMovimiento == 0) return;
 
@@ -362,11 +373,8 @@ void MovimientoManager::eliminarMovimiento() {
 
     reg.setEstado(false);
 
-    if(archivoMovimiento.modificar(reg, idMovimiento)) {
-        cout << "Movimiento eliminado exitosamente." << endl;
-    } else {
-        cout << "Hubo un error al intentar eliminar el movimiento." << endl;
-    }
+    if(archivoMovimiento.modificar(reg, idMovimiento)) cout << "Movimiento eliminado exitosamente." << endl;
+    else cout << "Hubo un error al intentar eliminar el movimiento." << endl;
 
     pausa();
 }
@@ -407,14 +415,15 @@ void MovimientoManager::mostrarMenuDeMovimientos() {
         cout << "----- MOVIMIENTOS -----" << endl;
         cout << "1 - NUEVO MOVIMIENTO" << endl;
         cout << "2 - MOSTRAR TODOS" << endl;
-        cout << "3 - FILTRAR MOVIMIENTOS" << endl;
-        cout << "4 - ELIMINAR MOVIMIENTO" << endl;
+        cout << "3 - FILTRAR" << endl;
+        cout << "4 - ELIMINAR POR ID" << endl;
         cout << "5 - ELIMINAR TODOS" << endl;
         cout << "0 - SALIR" << endl;
         cout << "-----------------------" << endl;
 
         cout << "INGRESE OPCION: ";
-        cin >> opcion;
+        //cin >> opcion;
+        opcion = ingresoEntero();
 
         clear();
 
