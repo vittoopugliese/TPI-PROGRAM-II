@@ -1,6 +1,7 @@
 #pragma once
 #include "movimientoManager.h"
 #include "categoriaManager.h"
+#include "usuario.h"
 /*
 #include "productoManager.h"
 #include "empleadoManager.h"
@@ -22,5 +23,6 @@
     */
 
    public:
-    void MenuPrincipal();
+    void MenuPrincipal(const Usuario &user);
+    void menuApp();
  };
