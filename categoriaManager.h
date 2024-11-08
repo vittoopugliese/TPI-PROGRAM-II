@@ -9,7 +9,7 @@ class CategoriaManager {
         void modificar();
 
     public:
-        void mostrarMenuDeCategorias();
+        void menu();
         Categoria Cargar();
         void Mostrar (Categoria categoria);
         void buscarPorIdCategoria(); // a definir

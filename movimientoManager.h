@@ -11,7 +11,7 @@ public:
     void eliminarMovimiento();
     void mostrarTodosLosMovimientos();
     void eliminarTodosLosMovimientos();
-    void mostrarMenuDeMovimientos();
+    void menu();
     void abrirFiltrosDeMovimientos();
 };
 

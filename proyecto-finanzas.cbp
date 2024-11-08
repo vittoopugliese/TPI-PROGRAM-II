@@ -48,8 +48,15 @@
 		<Unit filename="movimiento.cpp" />
 		<Unit filename="movimiento.h" />
 		<Unit filename="movimientoArchivo.cpp" />
+		<Unit filename="movimientoArchivo.h" />
 		<Unit filename="movimientoManager.cpp" />
 		<Unit filename="movimientoManager.h" />
+		<Unit filename="usuario.cpp" />
+		<Unit filename="usuario.h" />
+		<Unit filename="usuarioArchivo.cpp" />
+		<Unit filename="usuarioArchivo.h" />
+		<Unit filename="usuarioManager.cpp" />
+		<Unit filename="usuarioManager.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

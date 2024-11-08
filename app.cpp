@@ -16,9 +16,8 @@ void App::MenuPrincipal(const Usuario &user) {
         cout << "1 - MOVIMIENTOS" << endl;
         cout << "2 - CATEGORIAS" << endl;
         cout << "3 - INFORMES" << endl;
-        cout << "5 - LOGOUT" << endl;
         cout << endl;
-        cout << "0 - PARA SALIR" << endl;
+        cout << "0 - LOGOUT" << endl;
         cout << "-----------------" << endl;
 
         cout << "INGRESE UNA OPCION: ";
@@ -43,13 +42,11 @@ void App::MenuPrincipal(const Usuario &user) {
               //subMenuProveedor.menuProveedor();
             }
             break;
-            case 5:
-            {
-                // log out
-            }
-            break;
            case 0:
             {
+                clear();
+                cout << "Saliste del sistema." << endl;
+                pausa();
               return;
             }
             break;
@@ -74,6 +71,7 @@ void App::menuApp() {
         cout << "  SISTEMA DE FINANZAS PERSONALES" << endl;
         cout << "-----------------" << endl;
         cout << "1 - INGRESAR" << endl;
+        cout << "2 - REGISTRARSE" << endl;
         cout << endl;
         cout << "0 - PARA SALIR" << endl;
         cout << "-----------------" << endl;
@@ -96,24 +94,31 @@ void App::menuApp() {
                 if (usuario.getUsuarioID() == -1) {
                     clear();
                     cout << "El usuario no existe." << endl;
-                    cout << "Creando nuevo usuario nuevo..." << endl;
-                    cout << endl;
-                    usuario = mgmtUsuarios.registrarUsuario();
-                } else {
-                    cout << "Ingrese la contraseña de su usuario: ";
-                    cin >> password;
+                    pausa();
+                    break;
+                }
+                cout << "Ingrese la contraseña de su usuario: ";
+                cin >> password;
 
-                    if (!usuario.validarPassword(password)) {
-                        cout << "Contraseña invalida." << endl;
-                        pausa();
-                        break;
-                    }
+                if (!usuario.validarPassword(password)) {
+                    cout << "Contraseña invalida." << endl;
+                    pausa();
+                    break;
                 }
                 MenuPrincipal(usuario);
                 break;
             }
-            default: {
+            case 2: {
+                Usuario usuario = mgmtUsuarios.registrarUsuario();
+                MenuPrincipal(usuario);
                 break;
+                }
+            case 0: {
+                exit(-1);
+            }
+            default: {
+                 cout << "OPCION INCORRECTA" << endl;
+                pausa();
             }
         }
     }

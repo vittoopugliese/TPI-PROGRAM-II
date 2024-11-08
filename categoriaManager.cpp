@@ -174,7 +174,7 @@ int CategoriaManager::getTipoDeMovimientoFromIdCategoria(int idCategoria){
     return -1;
 }
 
-void CategoriaManager::mostrarTodasInline(){
+void CategoriaManager::mostrarTodasInline() {
     int cantReg = _archivo.contarRegistros();
     Categoria aux;
 
@@ -198,7 +198,7 @@ string CategoriaManager::getNombreCategoria(int idCategoria){
     return "NO SE ENCONTRO LA CATEGORIA";
 }
 
-void CategoriaManager::mostrarMenuDeCategorias()
+void CategoriaManager::menu()
  {
   int opcion;
     while(true){

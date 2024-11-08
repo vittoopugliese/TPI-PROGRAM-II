@@ -23,9 +23,11 @@ Usuario UsuarioManager::registrarUsuario() {
 
     Usuario newUser(userName, userPassword);
     mgmtArchivoUsuario.guardarUsuario(newUser);
+    std::cout << "----------------------------------------" << std::endl;
     std::cout << "Se creo el usuario de forma exitosa." << std::endl;
     std::cout << "Tu numero de usuario es: " << newUser.getUsuarioID() << std::endl;
     std::cout << "Guarda este numero en un lugar seguro. sin el no podras acceder al sistema" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
     pausa();
     return newUser;
     //std::cout << "getPassword = " << newUser.getPassword() << std::endl;

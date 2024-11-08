@@ -166,9 +166,9 @@ void MovimientoManager::mostrarMovimiento(Movimiento reg) {
     if(reg.getEstado()) {
         cout << "Importe $" << reg.getImporte() << endl;
         cout << "Movimiento " << reg.getIdMovimiento() << " - " << reg.getFecha().toString() << endl;
-        cout << "Categoria " << reg.getIdCategoria() << " - " 
+        cout << "Categoria " << reg.getIdCategoria() << " - "
             << categoriaManager.getNombreCategoria(reg.getIdCategoria()) << (reg.getIdTipo() == 0 ? " - Credito" : " - Debito") << endl;
-        cout << "Recurrente: " << (reg.getRecurrencia() ? "Si" : "No") 
+        cout << "Recurrente: " << (reg.getRecurrencia() ? "Si" : "No")
             << " - Recurrencia: " << reg.getNombreDeRecurrencia() << endl;
         cout << "Descripcion: " << reg.getDescripcion() << endl;
         cout << "-------------------------------------" << endl;
@@ -248,13 +248,13 @@ void MovimientoManager::abrirFiltrosDeMovimientos() {
             case 0:
                 seguirFiltrando = false;
                 return;
-            case 1: {  
+            case 1: {
                     int tipoMovimiento;
                     cout << "Ingrese el tipo de movimiento:\n0-Credito\n1-Debito\n";
                     tipoMovimiento = ingresoEntero();
-                    
+
                     clear();
-                    
+
                     cout << "----------------------------------------" << endl;
                     bool hayRegistros = false;
                     for(int i = 0; i < cantidad; i++) {
@@ -273,7 +273,7 @@ void MovimientoManager::abrirFiltrosDeMovimientos() {
                     clear();
                 }
                 break;
-            case 2: {  
+            case 2: {
                     int idCategoria;
                     cout << "Ingrese el ID de la categoria:" << endl;
                     // TODO: Mostrar categorias existentes al usuario
@@ -297,7 +297,7 @@ void MovimientoManager::abrirFiltrosDeMovimientos() {
                 }
 
                 break;
-            case 3: {  
+            case 3: {
                     cout << "Ingrese el anio: "; int anio = ingresoEntero();
                     cout << "Ingrese el mes: "; int mes = ingresoEntero();
 
@@ -308,7 +308,7 @@ void MovimientoManager::abrirFiltrosDeMovimientos() {
                     bool hayRegistros = false;
                     for(int i = 0; i < cantidad; i++) {
                         Movimiento reg = archivoMovimiento.leer(i);
-                        
+
                         if(reg.getFecha().getMes() == mes && reg.getFecha().getAnio() == anio && reg.getEstado()) {
                             hayRegistros = true;
                             mostrarMovimiento(reg);
@@ -417,7 +417,7 @@ void MovimientoManager::eliminarTodosLosMovimientos() {
     pausa();
 }
 
-void MovimientoManager::mostrarMenuDeMovimientos() {
+void MovimientoManager::menu() {
     int opcion;
 
     while(true) {
