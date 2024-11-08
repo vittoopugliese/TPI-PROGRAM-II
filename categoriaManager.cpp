@@ -84,7 +84,6 @@ void CategoriaManager::baja(){
     cin >> id;
     cout << endl;
 
-    int cantidad = _archivo.contarRegistros();
     int posicion = _archivo.buscar(id);
     if (posicion >= 0 && categoria.getIdCategoria() != 0){
         Categoria aux = _archivo.leerRegistro(posicion);
@@ -120,7 +119,6 @@ void CategoriaManager::modificar(){
     cin >> id;
     cout << endl;
 
-    int cantidad = _archivo.contarRegistros();
     int posicion = _archivo.buscar(id);
     if (posicion >= 0){
         Categoria aux = _archivo.leerRegistro(posicion);
@@ -207,47 +205,44 @@ void CategoriaManager::menu()
         cout << "1 - CREAR NUEVA" << endl;
         cout << "2 - ELIMINAR EXISTENTE" << endl;
         cout << "3 - MOSTRAR TODAS" << endl;
-        cout << "4 - EDITAR EXISTENTE" << endl;
+        cout << "4 - EDITAR EXISTENTE" << endl << endl;
         cout << "0 - SALIR" << endl;
         cout << "----------------------" << endl;
         cout << "INGRESE UNA OPCION: ";
         //cin >> opcion;
         opcion = ingresoEntero();
         clear();
-        switch (opcion)
-        {
+        switch (opcion){
             case 1:
                 {
                     Categoria aux = Cargar();
                     _archivo.guardarArchivo(aux);
+                    break;
                 }
-                break;
             case 2:
                 {
                     baja();
+                    break;
                 }
-                break;
             case 3:
                 {
                     mostrarTodos();
+                    break;
                 }
-                break;
             case 4:
                 {
                     modificar();
+                    break;
                 }
-                break;
             case 0:
                 {
                     return;
                 }
-                break;
             default:
                 {
                     cout << "OPCION INCORRECTA" << endl;
                 }
         }
-        pausa();
         clear();
     }
     return;

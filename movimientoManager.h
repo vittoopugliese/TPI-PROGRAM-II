@@ -1,18 +1,14 @@
-#ifndef MOVIMIENTO_MANAGER_H
-#define MOVIMIENTO_MANAGER_H
+#pragma once
 #include <string>
 #include "movimiento.h"
 using namespace std;
 
 class MovimientoManager{
 public:
-    void cargarMovimiento();
-    void mostrarMovimiento(Movimiento reg);
+    void cargar();
+    void mostrar(Movimiento reg);
     void eliminarMovimiento();
-    void mostrarTodosLosMovimientos();
-    void eliminarTodosLosMovimientos();
-    void menu();
+    void mostrarTodos();
     void abrirFiltrosDeMovimientos();
+    void menu();
 };
-
-#endif
