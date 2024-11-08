@@ -12,18 +12,14 @@ void MovimientoManager::cargar() {
     Movimiento aux;
     CategoriaManager categoriaManager;
 
-    int mes;
-    int anio;
-    int cantidadDeDiasEnElMes = 30;
-
     float subtotalDia = 0;
     float subtotalMes = 0;
 
-    cout << "Anio de los movimientos (0-Salir): ";
+    int anio;
+    cout << "Anio de los movimientos: ";
     anio = ingresoEntero();
 
-    if(anio == 0) return;
-
+    int mes;
     cout << "Mes de los movimientos (1-12): ";
     mes = ingresoEntero();
 
@@ -32,7 +28,9 @@ void MovimientoManager::cargar() {
         mes = ingresoEntero();
     }
 
-    for(int dia = 1; dia <= cantidadDeDiasEnElMes; dia++) {
+    Fecha fecha(1, mes, anio);
+
+    for(int dia = 1; dia <= fecha.getDiasMes(); dia++) {
         clear();
         cout << "Anio " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
         cout << "---------------------------------------" << endl;
