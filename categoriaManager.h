@@ -15,5 +15,5 @@ class CategoriaManager {
         int getTipoDeMovimientoFromIdCategoria(int idCategoria);
         void mostrarTodasInline();
         string getNombreCategoria(int idCategoria);
-        void menu();
+        void menu(const Usuario &user);
 };

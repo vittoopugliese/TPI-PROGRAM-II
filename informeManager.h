@@ -4,7 +4,7 @@ using namespace std;
 
 class InformeManager{
 public:
-    void menu();
+    void menu(const Usuario &user);
     void mostrarBalanceMensual();
     void mostrarIngresosPorCategoria();
     void mostrarEgresosPorCategoria();

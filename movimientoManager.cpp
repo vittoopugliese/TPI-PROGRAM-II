@@ -365,7 +365,7 @@ void MovimientoManager::eliminarMovimiento() {
     }
 }
 
-void MovimientoManager::menu() {
+void MovimientoManager::menu(const Usuario &user) {
     int opcion;
 
     while(true) {

@@ -3,7 +3,7 @@
 #include "informeManager.h"
 using namespace std;
 
-void InformeManager::menu() {
+void InformeManager::menu(const Usuario &user) {
     int opcion;
 
     while (true) {

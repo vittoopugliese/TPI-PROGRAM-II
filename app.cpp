@@ -6,7 +6,7 @@
 using namespace std;
 #include "app.h"
 
-void App::menuApp() {
+void App::menuLogin() {
     int opcion;
     UsuarioArchivo mgmtArchivoUsuario;
     UsuarioManager mgmtUsuarios;
@@ -79,6 +79,7 @@ void App::MenuPrincipal(const Usuario &user) {
     while (true) {
         clear();
         cout << "Bienvenido " << user.getNombreUsuario() << "!" << endl;
+        cout << "-----------------" << endl;
         cout << "  MENU PRINCIPAL " << endl;
         cout << "-----------------" << endl;
         cout << "1 - MOVIMIENTOS" << endl;
@@ -94,17 +95,17 @@ void App::MenuPrincipal(const Usuario &user) {
         switch (opcion) {
             case 1:
                 {
-                    subMenuMovimientos.menu();
+                    subMenuMovimientos.menu(user);
                     break;
                 }
             case 2:
                 {
-                    subMenuCategorias.menu();
+                    subMenuCategorias.menu(user);
                     break;
                 }
             case 3:
                 {
-                    subMenuInformes.menu();
+                    subMenuInformes.menu(user);
                     break;
                 }
             case 0:

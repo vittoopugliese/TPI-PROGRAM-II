@@ -10,5 +10,5 @@ public:
     void eliminarMovimiento();
     void mostrarTodos();
     void abrirFiltrosDeMovimientos();
-    void menu();
+    void menu(const Usuario &user);
 };

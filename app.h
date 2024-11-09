@@ -2,13 +2,14 @@
 #include "movimientoManager.h"
 #include "categoriaManager.h"
 #include "informeManager.h"
-#include "usuario.h"
+#include "usuarioManager.h"
+
 class App {
 private:
-   MovimientoManager subMenuMovimientos;
-   CategoriaManager subMenuCategorias;
-   InformeManager subMenuInformes;
+    MovimientoManager subMenuMovimientos;
+    CategoriaManager subMenuCategorias;
+    InformeManager subMenuInformes;
 public:
-   void MenuPrincipal(const Usuario &user);
-   void menuApp();
+    void menuLogin();
+    void MenuPrincipal(const Usuario &user);
 };

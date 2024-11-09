@@ -196,7 +196,7 @@ string CategoriaManager::getNombreCategoria(int idCategoria){
     return "NO SE ENCONTRO LA CATEGORIA";
 }
 
-void CategoriaManager::menu()
+void CategoriaManager::menu(const Usuario &user)
  {
   int opcion;
     while(true){
