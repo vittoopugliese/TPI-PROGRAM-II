@@ -6,6 +6,74 @@
 using namespace std;
 #include "app.h"
 
+void App::menuApp() {
+    int opcion;
+    UsuarioArchivo mgmtArchivoUsuario;
+    UsuarioManager mgmtUsuarios;
+    while (true) {
+        clear();
+
+        cout << "SISTEMA DE FINANZAS" << endl;
+        cout << "   PERSONALES" << endl;
+        cout << "-------------------" << endl;
+        cout << "1 - INGRESAR" << endl;
+        cout << "2 - REGISTRARSE" << endl;
+        cout << endl;
+        cout << "0 - PARA SALIR" << endl;
+        cout << "-------------------" << endl;
+
+        cout << "INGRESE UNA OPCION: ";
+
+        opcion = ingresoEntero();
+        clear();
+
+        switch (opcion) {
+            case 1: 
+                {
+                    int userID;
+                    std::string password;
+
+                    cout << "Ingrese su ID de usuario: ";
+                    userID = ingresoEntero();
+
+                    Usuario usuario;
+                    usuario = mgmtArchivoUsuario.leerUsuario(userID);
+                    if (usuario.getUsuarioID() == -1) {
+                        clear();
+                        cout << "El usuario no existe." << endl;
+                        pausa();
+                        break;
+                    }
+                    cout << "Ingrese su contrasenia: ";
+                    cin >> password;
+
+                    if (!usuario.validarPassword(password)) {
+                        cout << "Contrasenia invalida." << endl;
+                        pausa();
+                        break;
+                    }
+                    MenuPrincipal(usuario);
+                    break;
+                }
+            case 2:
+                {
+                    Usuario usuario = mgmtUsuarios.registrarUsuario();
+                    MenuPrincipal(usuario);
+                    break;
+                }
+            case 0:
+                {
+                    exit(-1);
+                }
+            default:
+                {
+                    cout << "OPCION INCORRECTA" << endl;
+                    pausa();
+                }
+        }
+    }
+}
+
 void App::MenuPrincipal(const Usuario &user) {
     int opcion;
     while (true) {
@@ -24,102 +92,36 @@ void App::MenuPrincipal(const Usuario &user) {
         opcion = ingresoEntero();
         clear();
         switch (opcion) {
-            case 1: {
-                subMenuMovimientos.menu();
+            case 1:
+                {
+                    subMenuMovimientos.menu();
+                    break;
                 }
-                break;
-            case 2: {
-                subMenuCategorias.menu();
-                break;
-            }
-           case 3:
-            {
-              subMenuInformes.menu();
-              break;
-            }
-           case 4:
-            {
-              //subMenuProveedor.menuProveedor();
-            }
-            break;
-           case 0:
-            {
-                clear();
-                cout << "Saliste del sistema." << endl;
-                pausa();
-              return;
-            }
-            break;
-           default:
-            {
-              cout << "OPCION INCORRECTA" << endl;
-              pausa();
-            }
-          }
-      clear();
-    }
-   return;
- }
-
-void App::menuApp() {
-    int opcion;
-    UsuarioArchivo mgmtArchivoUsuario;
-    UsuarioManager mgmtUsuarios;
-    while (true) {
-        clear();
-
-        cout << "  SISTEMA DE FINANZAS PERSONALES" << endl;
-        cout << "-----------------" << endl;
-        cout << "1 - INGRESAR" << endl;
-        cout << "2 - REGISTRARSE" << endl;
-        cout << endl;
-        cout << "0 - PARA SALIR" << endl;
-        cout << "-----------------" << endl;
-
-        cout << "INGRESE UNA OPCION: ";
-
-        opcion = ingresoEntero();
-        clear();
-
-        switch (opcion) {
-            case 1: {
-                int userID;
-                std::string password;
-
-                cout << "Ingrese su identificacion: ";
-                userID = ingresoEntero();
-
-                Usuario usuario;
-                usuario = mgmtArchivoUsuario.leerUsuario(userID);
-                if (usuario.getUsuarioID() == -1) {
+            case 2:
+                {
+                    subMenuCategorias.menu();
+                    break;
+                }
+            case 3:
+                {
+                    subMenuInformes.menu();
+                    break;
+                }
+            case 0:
+                {
                     clear();
-                    cout << "El usuario no existe." << endl;
+                    cout << "Saliste del sistema." << endl;
                     pausa();
-                    break;
+                    return;
                 }
-                cout << "Ingrese la contrase�a de su usuario: ";
-                cin >> password;
-
-                if (!usuario.validarPassword(password)) {
-                    cout << "Contrase�a invalida." << endl;
+                break;
+            default:
+                {
+                    cout << "OPCION INCORRECTA" << endl;
                     pausa();
-                    break;
                 }
-                MenuPrincipal(usuario);
-                break;
-            }
-            case 2: {
-                Usuario usuario = mgmtUsuarios.registrarUsuario();
-                MenuPrincipal(usuario);
-                break;
-                }
-            case 0: {
-                exit(-1);
-            }
-            default: {
-                 cout << "OPCION INCORRECTA" << endl;
-                pausa();
-            }
         }
+        clear();
     }
+    return;
 }

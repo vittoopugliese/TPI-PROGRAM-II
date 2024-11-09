@@ -6,6 +6,8 @@ class InformeManager{
 public:
     void menu();
     void mostrarBalanceMensual();
+    void mostrarIngresosPorCategoria();
+    void mostrarEgresosPorCategoria();
 };
 
 #endif
