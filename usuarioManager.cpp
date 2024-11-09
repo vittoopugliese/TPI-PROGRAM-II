@@ -15,20 +15,21 @@ Usuario UsuarioManager::registrarUsuario() {
     std::string userName;
     std::string userPassword;
 
-    std::cout << "Ingrese un nombre de usuario: ";
+    std::cout << "Nombre de usuario: ";
     std::cin >> userName;
 
-    std::cout << "Ingrese una contraseña: ";
+    std::cout << "Contrasenia: ";
     std::cin >> userPassword;
 
     Usuario newUser(userName, userPassword);
     mgmtArchivoUsuario.guardarUsuario(newUser);
     std::cout << "----------------------------------------" << std::endl;
-    std::cout << "Se creo el usuario de forma exitosa." << std::endl;
+    std::cout << "Usuario creado exitosamente!" << std::endl;
     std::cout << "Tu numero de usuario es: " << newUser.getUsuarioID() << std::endl;
-    std::cout << "Guarda este numero en un lugar seguro. sin el no podras acceder al sistema" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "Guarda este numero en un lugar seguro." << std::endl;
+    std::cout << "Deberas usarlo luego para poder ingresar." << std::endl;
     std::cout << "----------------------------------------" << std::endl;
     pausa();
     return newUser;
-    //std::cout << "getPassword = " << newUser.getPassword() << std::endl;
 }

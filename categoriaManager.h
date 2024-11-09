@@ -5,16 +5,15 @@ using namespace std;
 class CategoriaManager {
     private:
         CategoriaArchivo _archivo = CategoriaArchivo("categorias.dat");
-        void mostrarTodos();
         void modificar();
-
     public:
-        void menu();
         Categoria Cargar();
         void Mostrar (Categoria categoria);
+        void baja(); // Eliminar
+        void mostrarTodos();
         void buscarPorIdCategoria(); // a definir
-        void baja();
         int getTipoDeMovimientoFromIdCategoria(int idCategoria);
         void mostrarTodasInline();
         string getNombreCategoria(int idCategoria);
+        void menu();
 };

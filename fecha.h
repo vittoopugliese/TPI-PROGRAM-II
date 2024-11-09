@@ -7,6 +7,7 @@ class Fecha{
         int _dia;
         int _mes;
         int _anio;
+        int _diasPorMes[12]={31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
     public:
         Fecha();
@@ -20,6 +21,7 @@ class Fecha{
         int getDia();
         int getMes();
         int getAnio();
+        int getDiasMes();
         //-----------
         void Cargar();
         void Mostrar();

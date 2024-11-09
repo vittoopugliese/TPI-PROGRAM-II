@@ -22,15 +22,16 @@ Fecha::Fecha(int dia, int mes, int anio)
     } else {
         cout << "INGRESE UNA FECHA VALIDA";
     }
+
+    validar();
 }
 
 void Fecha::validar(){
-    int diasMeses[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
     if(_mes==2 && (_anio%4)==0){ //Agrego 1 dia a Febrero si es bisisesto
-        diasMeses[1]++;
+        _diasPorMes[1]++;
     }
 
-    if(!(_dia >= 1 && _dia <= diasMeses[_mes-1])
+    if(!(_dia >= 1 && _dia <= _diasPorMes[_mes-1])
         || !(_mes >=1 && _mes <= 12)
         || !(_anio > 0)
     )
@@ -50,6 +51,7 @@ void Fecha::setAnio(int anio){_anio = anio;}
 int Fecha::getDia(){return _dia;}
 int Fecha::getMes(){return _mes;}
 int Fecha::getAnio(){return _anio;}
+int Fecha::getDiasMes(){return _diasPorMes[_mes-1];}
 
 void Fecha::Cargar()
 {
