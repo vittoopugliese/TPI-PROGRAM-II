@@ -34,7 +34,7 @@ void App::MenuPrincipal(const Usuario &user) {
             }
            case 3:
             {
-              //subMenuInformes.menu();
+              subMenuInformes.menu();
               break;
             }
            case 4:
@@ -97,11 +97,11 @@ void App::menuApp() {
                     pausa();
                     break;
                 }
-                cout << "Ingrese la contraseña de su usuario: ";
+                cout << "Ingrese la contraseï¿½a de su usuario: ";
                 cin >> password;
 
                 if (!usuario.validarPassword(password)) {
-                    cout << "Contraseña invalida." << endl;
+                    cout << "Contraseï¿½a invalida." << endl;
                     pausa();
                     break;
                 }
