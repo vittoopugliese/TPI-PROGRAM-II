@@ -1,9 +1,7 @@
 #include <iostream>
 using namespace std;
-#include <cstring>
-#include "funcionesGlobales.h"
-#include "categoria.h"
 #include "categoriaManager.h"
+#include "funcionesGlobales.h"
 
 Categoria CategoriaManager::Cargar(){
     Categoria aux;

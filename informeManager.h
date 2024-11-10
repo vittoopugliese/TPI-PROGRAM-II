@@ -1,6 +1,6 @@
-#ifndef INFORME_MANAGER_H
-#define INFORME_MANAGER_H
+#pragma once
 using namespace std;
+#include "usuarioManager.h"
 
 class InformeManager{
 public:
@@ -9,5 +9,3 @@ public:
     void mostrarIngresosPorCategoria();
     void mostrarEgresosPorCategoria();
 };
-
-#endif
