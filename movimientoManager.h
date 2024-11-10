@@ -1,14 +1,20 @@
 #pragma once
-#include <string>
 #include "movimiento.h"
+#include "movimientoArchivo.h"
+#include "usuarioManager.h"
+#include <string>
 using namespace std;
 
 class MovimientoManager{
 public:
+    void menu(const Usuario &user);
     void cargar();
     void mostrar(Movimiento reg);
     void eliminarMovimiento();
     void mostrarTodos();
-    void abrirFiltrosDeMovimientos();
-    void menu();
+    //-------FILTROS------
+    void menuFiltros();
+    void porTipo();
+    void porCategoria();
+    void porFecha();
 };

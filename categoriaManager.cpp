@@ -1,9 +1,7 @@
 #include <iostream>
 using namespace std;
-#include <cstring>
-#include "funcionesGlobales.h"
-#include "categoria.h"
 #include "categoriaManager.h"
+#include "funcionesGlobales.h"
 
 Categoria CategoriaManager::Cargar(){
     Categoria aux;
@@ -196,7 +194,7 @@ string CategoriaManager::getNombreCategoria(int idCategoria){
     return "NO SE ENCONTRO LA CATEGORIA";
 }
 
-void CategoriaManager::menu()
+void CategoriaManager::menu(const Usuario &user)
  {
   int opcion;
     while(true){
