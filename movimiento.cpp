@@ -4,7 +4,7 @@ using namespace std;
 #include "funcionesGlobales.h"
 #include "movimientoArchivo.h"
 
-Movimiento::Movimiento(int idMovimiento, bool idTipo, int idUsuario, int idCategoria, Fecha fecha, float importe, bool recurrencia, const char *descripcion, bool estado){
+Movimiento::Movimiento(int idMovimiento, bool idTipo, int idUsuario, int idCategoria, Fecha fecha, float importe, bool recurrencia, const char *descripcion, bool estado, bool esFijo){
     _idMovimiento = idMovimiento;
     _idTipo = idTipo;
     _idUsuario = idUsuario;
@@ -15,6 +15,7 @@ Movimiento::Movimiento(int idMovimiento, bool idTipo, int idUsuario, int idCateg
     _tipoDeRecurrencia = 0;
     strcpy(_descripcion, descripcion);
     _estado = estado;
+    _esFijo = esFijo; // LO AGREGUE PARA INDICADORES, NECESITO IDENTIFICAR QUE ES FIJO
 };
 
 Movimiento::Movimiento(){
@@ -28,7 +29,9 @@ Movimiento::Movimiento(){
     _tipoDeRecurrencia = 0; // 0-Unico, 1-Mensual, 2-Bimestral, 3-Anual
     strcpy(_descripcion, "S/D"); // SD = Sin Descripcion
     _estado = true;
+    _esFijo = false; // 0-No es fijo, 1-Es fijo
 };
+
 
 // SETTERS
 void Movimiento::setIdMovimiento(int idMovimiento){_idMovimiento = idMovimiento;}
@@ -38,9 +41,10 @@ void Movimiento::setIdCategoria(int idCategoria){_idCategoria = idCategoria;}
 void Movimiento::setFecha(Fecha fecha){_fecha = fecha;}
 void Movimiento::setImporte(float importe){_importe = importe;}
 void Movimiento::setRecurrencia(bool recurrencia){_recurrencia = recurrencia;}
+void Movimiento::setTipoDeRecurrencia(int tipoDeRecurrencia){_tipoDeRecurrencia = tipoDeRecurrencia;}
 void Movimiento::setDescripcion(const char *descripcion){strcpy(_descripcion, descripcion);}
 void Movimiento::setEstado(bool estado){_estado = estado;}
-void Movimiento::setTipoDeRecurrencia(int tipoDeRecurrencia){_tipoDeRecurrencia = tipoDeRecurrencia;}
+void Movimiento::setEsFijo(bool esFijo){_esFijo = esFijo;}
 
 // GETTERS
 int Movimiento::getIdMovimiento(){return _idMovimiento;}
@@ -49,10 +53,10 @@ int Movimiento::getIdUsuario(){return _idUsuario;}
 int Movimiento::getIdCategoria(){return _idCategoria;}
 Fecha Movimiento::getFecha(){return _fecha;}
 float Movimiento::getImporte(){return _importe;}
+int Movimiento::getTipoDeRecurrencia(){return _tipoDeRecurrencia;}
 bool Movimiento::getRecurrencia(){return _recurrencia;}
 const char* Movimiento::getDescripcion(){return _descripcion;}
 bool Movimiento::getEstado(){return _estado;}
-int Movimiento::getTipoDeRecurrencia(){return _tipoDeRecurrencia;}
 string Movimiento::getNombreDeRecurrencia(){
     switch(_tipoDeRecurrencia){
         case 0: return "Unico";
@@ -62,6 +66,7 @@ string Movimiento::getNombreDeRecurrencia(){
         default: return "Sin Recurrencia";
     }
 }
+bool Movimiento::getEsFijo(){return _esFijo;}
 
 int Movimiento::generarIdDeMovimiento(int mes, int dia){
     MovimientoArchivo archivoMovimiento("movimientos.dat");

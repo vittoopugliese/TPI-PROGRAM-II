@@ -44,6 +44,8 @@
 		<Unit filename="fecha.h" />
 		<Unit filename="funcionesGlobales.cpp" />
 		<Unit filename="funcionesGlobales.h" />
+		<Unit filename="informeManager.cpp" />
+		<Unit filename="informeManager.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="movimiento.cpp" />
 		<Unit filename="movimiento.h" />
