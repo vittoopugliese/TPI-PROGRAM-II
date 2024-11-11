@@ -1,6 +1,7 @@
 #include <iostream>
 #include "funcionesGlobales.h"
 #include "informeManager.h"
+#include "indicadores.h"
 using namespace std;
 
 void InformeManager::menu(const Usuario &user) {
@@ -12,7 +13,9 @@ void InformeManager::menu(const Usuario &user) {
         cout << "1 - BALANCE MENSUAL O ANUAL" << endl;
         cout << "2 - INGRESOS POR CATEGORIA" << endl;
         cout << "3 - EGRESOS POR CATEGORIA" << endl;
-        cout << "4 - GASTOS POR USUARIO (ADMIN)" << endl << endl;
+        cout << "4 - INDICADORES" << endl;
+        //cout << "5 - GASTOS POR USUARIO (ADMIN)" << endl << endl;
+
         cout << "0 - SALIR" << endl;
         cout << "-----------------------" << endl;
 
@@ -32,6 +35,10 @@ void InformeManager::menu(const Usuario &user) {
                 mostrarEgresosPorCategoria();
                 break;
             case 4:
+                mostrarIndicadores();
+                break;
+            case 5:
+                //mostrarGastosPorUsuario();
                 break;
             case 0:
                 return;
@@ -45,13 +52,18 @@ void InformeManager::menu(const Usuario &user) {
 };
 
 void InformeManager::mostrarBalanceMensual() {
-        
+
 };
 
-void InformeManager::mostrarIngresosPorCategoria() {
+void InformeManager::mostrarIngresosPorCategoria() { //Juli
 
 }
 
-void InformeManager::mostrarEgresosPorCategoria() {
+void InformeManager::mostrarEgresosPorCategoria() { //Juli
 
+}
+
+void InformeManager::mostrarIndicadores() { // Fran
+    Indicadores aux;
+    aux.showIndicadores();
 }

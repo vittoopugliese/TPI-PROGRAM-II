@@ -47,6 +47,12 @@ void MovimientoManager::cargar() {
 
             clear();
             int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
+            
+            int esFijo;
+            cout << "Es un monto fijo? \n 0-No \n 1-Si \n";
+            esFijo = ingresoEntero();
+            aux.setEsFijo(esFijo);
+
             cout << "Anio " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
             cout << "------------------------------------" << endl;
             cout << "Categoria Seleccionada: " << idCategoria << " - " << categoriaManager.getNombreCategoria(idCategoria) << " - de tipo " << (tipoMovimiento == 0 ? "Credito" : "Debito") << endl;

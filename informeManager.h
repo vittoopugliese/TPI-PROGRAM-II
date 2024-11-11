@@ -8,4 +8,5 @@ public:
     void mostrarBalanceMensual();
     void mostrarIngresosPorCategoria();
     void mostrarEgresosPorCategoria();
+    void mostrarIndicadores();
 };

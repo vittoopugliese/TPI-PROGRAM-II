@@ -28,7 +28,7 @@ void App::menuLogin() {
         clear();
 
         switch (opcion) {
-            case 1: 
+            case 1:
                 {
                     int userID;
                     std::string password;
@@ -85,6 +85,7 @@ void App::MenuPrincipal(const Usuario &user) {
         cout << "1 - MOVIMIENTOS" << endl;
         cout << "2 - CATEGORIAS" << endl;
         cout << "3 - INFORMES" << endl;
+
         cout << endl;
         cout << "0 - LOGOUT" << endl;
         cout << "-----------------" << endl;
