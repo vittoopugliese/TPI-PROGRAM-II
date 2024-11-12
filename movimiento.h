@@ -45,7 +45,4 @@ public:
     int getTipoDeRecurrencia();
     string getNombreDeRecurrencia();
     bool getEsFijo(); // LO AGREGUE PARA INDICADORES, NECESITO IDENTIFICAR QUE ES FIJO
-
-    // EXTRA
-    int generarIdDeMovimiento(int mes, int dia);
 };

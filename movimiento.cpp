@@ -67,8 +67,3 @@ string Movimiento::getNombreDeRecurrencia(){
     }
 }
 bool Movimiento::getEsFijo(){return _esFijo;}
-
-int Movimiento::generarIdDeMovimiento(int mes, int dia){
-    MovimientoArchivo archivoMovimiento("movimientos.dat");
-    return (mes * 1000) + (dia * 10) + archivoMovimiento.contarRegistros() + 1;
-}

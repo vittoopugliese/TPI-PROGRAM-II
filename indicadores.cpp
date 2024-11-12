@@ -1,11 +1,9 @@
-#include "indicadores.h"
 #include <iostream>
 #include <vector>
 #include <cstring>
-#include "movimientoArchivo.h"  // Incluye MovimientoArchivo para acceder a sus métodos
+#include "indicadores.h"
+#include "movimientoManager.h"  // Incluye MovimientoArchivo para acceder a sus métodos
 #include "funcionesGlobales.h"
-
-//Indicadores::Indicadores(MovimientoManager* mManager) : movimientoManager(mManager) {}
 
 float Indicadores::calcularRelacionIngresoGasto() {
     float ingresosTotales = 0;
@@ -40,7 +38,7 @@ void Indicadores::calcularDistribucionGastos(float &gastosFijos, float &gastosVa
         if (movimiento.getIdTipo() == 1) { // Gasto
             gastosTotales += movimiento.getImporte();
 
-            // Aquí asumimos que existe un método esGastoFijo() que verifica el tipo de gasto
+            // Aquí asumimos que existe un método getEsFijo() que verifica el tipo de gasto
             if (movimiento.getEsFijo()) {
                 gastosFijos += movimiento.getImporte();
             } else {

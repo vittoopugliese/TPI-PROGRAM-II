@@ -23,7 +23,7 @@ void MovimientoManager::cargar() {
     mes = ingresoEntero();
 
     while(mes < 1 || mes > 12) {
-        cout << "Mes incorrecto. Por favor entre 1-12: ";
+        cout << "Mes incorrecto. Por favor, entre 1-12: ";
         mes = ingresoEntero();
     }
 
@@ -31,44 +31,55 @@ void MovimientoManager::cargar() {
 
     for(int dia = 1; dia <= fecha.getDiasMes(); dia++) {
         clear();
-        cout << "Anio " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
+        cout << "Dia " << dia << " | Mes " << mes << " | Anio " << anio  << endl;
         cout << "---------------------------------------" << endl;
 
         subtotalDia = 0;
-        char seguirCargandoMovimientos = 'S';
+        int seguirCargando = 1;
 
-        while(toupper(seguirCargandoMovimientos) == 'S') {
+        while(seguirCargando == 1){
             categoriaManager.mostrarTodasInline();
-            cout << endl << "Ingrese el ID de categoria (0-No registrar movimientos, 1-Salir): ";
+            cout << endl << "Ingrese el ID de categoria: ";
             int idCategoria = ingresoEntero();
-
-            if(idCategoria == 0) break;
-            if(idCategoria == 1) return;
-
+            while(idCategoria < 1 || idCategoria > 20) {
+                cout << "Opcion invalida.";
+                idCategoria = ingresoEntero();
+            }
+            aux.setIdCategoria(idCategoria);
             clear();
             int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
-            
+            aux.setIdTipo(tipoMovimiento);
+
             int esFijo;
-            cout << "Es un monto fijo? \n 0-No \n 1-Si \n";
+            cout << "Es un monto fijo? \n 1-Si \n 2-No \n";
             esFijo = ingresoEntero();
-            aux.setEsFijo(esFijo);
+            while(esFijo < 1 || esFijo > 2) {
+                cout << "Opcion invalida.";
+                idCategoria = ingresoEntero();
+            }
+            (esFijo==1 ? aux.setEsFijo(true) : aux.setEsFijo(false) );
 
-            cout << "Anio " << anio << " - Mes " << mes << " - Dia: " << dia << endl;
+            clear();
+
+            cout << "Dia " << dia << " | Mes " << mes << " | Anio " << anio  << endl;
             cout << "------------------------------------" << endl;
-            cout << "Categoria Seleccionada: " << idCategoria << " - " << categoriaManager.getNombreCategoria(idCategoria) << " - de tipo " << (tipoMovimiento == 0 ? "Credito" : "Debito") << endl;
+            cout << "Categoria: " << categoriaManager.getNombreCategoria(idCategoria) << " | Tipo: " << (tipoMovimiento == 0 ? "Credito" : "Debito") << endl;
 
-            int idMovimiento = aux.generarIdDeMovimiento(mes, dia);
+            int idMovimiento= archivoMovimiento.contarRegistros();
             aux.setIdMovimiento(idMovimiento);
 
-            aux.setIdTipo(tipoMovimiento);
-            aux.setIdCategoria(idCategoria);
 
             float importe;
-            cout << "Ingrese el importe del movimiento: $";
-            cin >> importe;
+            cout << "Ingrese el importe: $";
+            cin >> importe; // FALTA VERIFICACION
 
+            bool primero = true;
             while(importe < 0) {
-                cout << "No se admiten montos negativos, ya que esto se infiere por la categoria. Ingrese nuevamente: $";
+                if (primero) {
+                    cout << "No se admiten montos negativos, ya que esto se infiere por la categoria." << endl; 
+                    primero = false;
+                }
+                cout << "Ingrese nuevamente: $";
                 cin >> importe;
             }
 
@@ -83,35 +94,30 @@ void MovimientoManager::cargar() {
             }
 
             Fecha fecha;
-            fecha.setMes(mes);
             fecha.setDia(dia);
+            fecha.setMes(mes);
             fecha.setAnio(anio);
             aux.setFecha(fecha);
 
-            char recurrente;
-            cout << "Es un movimiento recurrente? (S/N): ";
-            cin >> recurrente;
+            int respuesta;
+            cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
+            respuesta = ingresoEntero();
 
-            while(toupper(recurrente) != 'S' && toupper(recurrente) != 'N') {
-                cout << "Opcion invalida. Ingrese S para SI o N para NO: ";
-                cin >> recurrente;
-            }
-
-            aux.setRecurrencia(toupper(recurrente) == 'S');
+            (respuesta == 1 ? aux.setRecurrencia(true) : aux.setRecurrencia(false));
             int tipoDeRecurrencia = 0;
 
-            if(toupper(recurrente) == 'S') {
-                cout << "Ingrese el tipo de recurrencia:\n0-Unico\n1-Mensual\n2-Bimestral\n3-Anual\n";
+            if(respuesta == 1) {
+                cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
                 int tipoDeRecurrencia = ingresoEntero();
 
-                while(tipoDeRecurrencia < 0 || tipoDeRecurrencia > 2) {
-                    cout << "Tipo de recurrencia incorrecto. (0-Unico, 1-Mensual, 2-Bimestral, 3-Anual): ";
+                while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
+                    cout << "Tipo de recurrencia incorrecto. \n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
                     tipoDeRecurrencia = ingresoEntero();
                 }
 
+                aux.setTipoDeRecurrencia(tipoDeRecurrencia-1);
             }
 
-            aux.setTipoDeRecurrencia(tipoDeRecurrencia);
 
             char descripcion[100];
             cout << "Ingrese descripcion: ";
@@ -131,12 +137,12 @@ void MovimientoManager::cargar() {
             cout << "Subtotal del dia: $" << subtotalDia << endl;
             cout << "------------------------------------" << endl;
 
-            cout << "Cargar otro movimiento para este dia? (S/N): ";
-            cin >> seguirCargandoMovimientos;
+            cout << "Cargar otro movimiento para este dia? \n 1-Si \n 2-No \n";
+            seguirCargando = ingresoEntero();
 
-            while(toupper(seguirCargandoMovimientos) != 'S' && toupper(seguirCargandoMovimientos) != 'N') {
-                cout << "Opcion invalida. Ingrese S para cargar otro movimiento o N para finalizar: ";
-                cin >> seguirCargandoMovimientos;
+            while(seguirCargando < 1 || seguirCargando > 2) {
+                cout << "Opcion invalida.";
+                cin >> seguirCargando;
             }
 
             clear();
@@ -158,10 +164,15 @@ void MovimientoManager::mostrar(Movimiento reg) {
     if(reg.getEstado()) {
         cout << "Importe $" << reg.getImporte() << endl;
         cout << "ID " << reg.getIdMovimiento() << " - " << reg.getFecha().toString() << endl;
-        cout << "Categoria " << reg.getIdCategoria() << " - "
-            << categoriaManager.getNombreCategoria(reg.getIdCategoria()) << (reg.getIdTipo() == 0 ? " - Credito" : " - Debito") << endl;
-        cout << "Recurrente: " << (reg.getRecurrencia() ? "Si" : "No")
-            << " - Recurrencia: " << reg.getNombreDeRecurrencia() << endl;
+        cout << "Categoria: " << categoriaManager.getNombreCategoria(reg.getIdCategoria()) << endl;
+        cout << "Tipo " << (reg.getIdTipo() == 0 ? " - Credito" : " - Debito") << endl;
+        cout << "Recurrente: ";
+        if (reg.getRecurrencia()) {
+            cout << "Si" << endl;
+            cout << "Recurrencia: " << reg.getNombreDeRecurrencia() << endl;
+        } else {
+            cout << "No" << endl;
+        }
         cout << "Descripcion: " << reg.getDescripcion() << endl;
         cout << "-------------------------------------" << endl;
     }
@@ -235,6 +246,7 @@ void MovimientoManager::menuFiltros() {
             case 4:
                 {
                     mostrarTodos();
+                    clear();
                     break;
                 }
             case 0:
@@ -273,23 +285,29 @@ void MovimientoManager::porTipo(){
     if(!hayRegistros) {
         cout << "No hay movimientos del tipo ";
         (tipoMovimiento==0 ? cout << "Credito." : cout << "Debito.");
+        cout << endl;
     }
 
     pausa();
     clear();
 }
 void MovimientoManager::porCategoria(){
+    CategoriaManager categoriaManager;
     int idCategoria;
     cout << "Ingrese el ID de la categoria:" << endl;
-    // TODO: Mostrar categorias existentes al usuario
+    categoriaManager.mostrarTodasInline();
     idCategoria = ingresoEntero();
+    clear();
+    cout << "Filtrando por: " << categoriaManager.getNombreCategoria(idCategoria) << endl;
     cout << "----------------------------------------" << endl;
 
     MovimientoArchivo archivoMovimiento("movimientos.dat");
+    Movimiento reg;
     int cantidad = archivoMovimiento.contarRegistros();
+
     bool hayRegistros = false;
     for(int i = 0; i < cantidad; i++) {
-        Movimiento reg = archivoMovimiento.leer(i);
+        reg = archivoMovimiento.leer(i);
 
         if(reg.getIdCategoria() == idCategoria && reg.getEstado()) {
             hayRegistros = true;
@@ -298,7 +316,7 @@ void MovimientoManager::porCategoria(){
     }
 
     if(!hayRegistros) {
-        cout << "No hay movimientos para el ID seleccionado." << endl;
+        cout << "No hay movimientos de esta categoria." << endl;
     }
 
     pausa();
@@ -313,7 +331,9 @@ void MovimientoManager::porFecha(){
     cout << "----------------------------------------" << endl;
 
     MovimientoArchivo archivoMovimiento("movimientos.dat");
+    Movimiento reg;
     int cantidad = archivoMovimiento.contarRegistros();
+
     bool hayRegistros = false;
 
     for(int i = 0; i < cantidad; i++) {
@@ -335,6 +355,7 @@ void MovimientoManager::porFecha(){
 
 void MovimientoManager::eliminarMovimiento() {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
+    Movimiento reg;
     int cantidad = archivoMovimiento.contarRegistros();
 
     if(cantidad == 0) {
@@ -349,7 +370,7 @@ void MovimientoManager::eliminarMovimiento() {
 
     if(opcion == 0) return;
 
-    bool existe= false;
+    bool existe = false;
     if(opcion == 1){
         clear();
         int id;
@@ -357,8 +378,13 @@ void MovimientoManager::eliminarMovimiento() {
         id = ingresoEntero();
 
         for (int i = 0; i < cantidad; i++) {
+<<<<<<< HEAD
+            reg = archivoMovimiento.leer(i);
+            if(reg.getIdMovimiento()==id){
+=======
             Movimiento reg = archivoMovimiento.leer(i);
             if(reg.getIdMovimiento() == id){
+>>>>>>> main
                 existe = true;
                 int confirmar;
                 cout << "Esta seguro que desea eliminar el movimiento?\n1-Si\n2-No\n";
