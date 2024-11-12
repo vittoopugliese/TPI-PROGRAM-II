@@ -39,14 +39,16 @@ void MovimientoManager::cargar() {
 
         while(seguirCargando == 1){
             categoriaManager.mostrarTodasInline();
-            cout << endl << "Ingrese el ID de categoria:";
+            cout << endl << "Ingrese el ID de categoria: ";
             int idCategoria = ingresoEntero();
             while(idCategoria < 1 || idCategoria > 20) {
                 cout << "Opcion invalida.";
                 idCategoria = ingresoEntero();
             }
+            aux.setIdCategoria(idCategoria);
             clear();
             int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
+            aux.setIdTipo(tipoMovimiento);
 
             int esFijo;
             cout << "Es un monto fijo? \n 1-Si \n 2-No \n";
@@ -63,14 +65,12 @@ void MovimientoManager::cargar() {
             cout << "------------------------------------" << endl;
             cout << "Categoria: " << categoriaManager.getNombreCategoria(idCategoria) << " | Tipo: " << (tipoMovimiento == 0 ? "Credito" : "Debito") << endl;
 
-            int idMovimiento = aux.generarIdDeMovimiento(mes, dia);
+            int idMovimiento= archivoMovimiento.contarRegistros();
             aux.setIdMovimiento(idMovimiento);
 
-            aux.setIdTipo(tipoMovimiento);
-            aux.setIdCategoria(idCategoria);
 
             float importe;
-            cout << "Ingrese el importe del movimiento: $";
+            cout << "Ingrese el importe: $";
             cin >> importe; // FALTA VERIFICACION
 
             bool primero = true;
@@ -107,17 +107,17 @@ void MovimientoManager::cargar() {
             int tipoDeRecurrencia = 0;
 
             if(respuesta == 1) {
-                cout << "Ingrese el tipo de recurrencia:\n0-Unico\n1-Mensual\n2-Bimestral\n3-Anual\n";
+                cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
                 int tipoDeRecurrencia = ingresoEntero();
 
-                while(tipoDeRecurrencia < 0 || tipoDeRecurrencia > 3) {
-                    cout << "Tipo de recurrencia incorrecto. \n0-Unico\n1-Mensual\n2-Bimestral\n3-Anual\n";
+                while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
+                    cout << "Tipo de recurrencia incorrecto. \n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
                     tipoDeRecurrencia = ingresoEntero();
                 }
 
+                aux.setTipoDeRecurrencia(tipoDeRecurrencia-1);
             }
 
-            aux.setTipoDeRecurrencia(tipoDeRecurrencia);
 
             char descripcion[100];
             cout << "Ingrese descripcion: ";
