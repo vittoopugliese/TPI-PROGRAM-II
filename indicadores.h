@@ -3,13 +3,7 @@
 #include "movimiento.h"
 
 class Indicadores {
-private:
-    //MovimientoManager* movimientoManager;
-
 public:
-    // Constructor que recibe una referencia al MovimientoManager para obtener datos
-    //Indicadores(MovimientoManager* mManager);
-
     // Calcula la relación entre ingresos y gastos totales
     float calcularRelacionIngresoGasto();
 

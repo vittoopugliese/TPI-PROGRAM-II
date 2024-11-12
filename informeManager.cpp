@@ -9,7 +9,7 @@ void InformeManager::menu(const Usuario &user) {
 
     while (true) {
         clear();
-        cout << "------ INFORMES ------" << endl;
+        cout << "--------- INFORMES ---------" << endl;
         cout << "1 - BALANCE MENSUAL O ANUAL" << endl;
         cout << "2 - INGRESOS POR CATEGORIA" << endl;
         cout << "3 - EGRESOS POR CATEGORIA" << endl;
@@ -17,7 +17,7 @@ void InformeManager::menu(const Usuario &user) {
         //cout << "5 - GASTOS POR USUARIO (ADMIN)" << endl << endl;
 
         cout << "0 - SALIR" << endl;
-        cout << "-----------------------" << endl;
+        cout << "----------------------------" << endl;
 
         cout << "INGRESE OPCION: ";
         opcion = ingresoEntero();;
