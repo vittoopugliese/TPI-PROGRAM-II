@@ -378,13 +378,9 @@ void MovimientoManager::eliminarMovimiento() {
         id = ingresoEntero();
 
         for (int i = 0; i < cantidad; i++) {
-<<<<<<< HEAD
             reg = archivoMovimiento.leer(i);
-            if(reg.getIdMovimiento()==id){
-=======
-            Movimiento reg = archivoMovimiento.leer(i);
+            
             if(reg.getIdMovimiento() == id){
->>>>>>> main
                 existe = true;
                 int confirmar;
                 cout << "Esta seguro que desea eliminar el movimiento?\n1-Si\n2-No\n";
