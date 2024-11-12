@@ -18,6 +18,13 @@ Usuario UsuarioManager::registrarUsuario() {
     std::cout << "Nombre de usuario: ";
     std::cin >> userName;
 
+    while (userName.size() > 30) {
+        clear();
+        std::cout << "El nombre de usuario no debe tener más de 30 caracteres.";
+        std::cout << "Nombre de usuario:";
+        std::cin >> userName;
+    }
+
     std::cout << "Contrasenia: ";
     std::cin >> userPassword;
 

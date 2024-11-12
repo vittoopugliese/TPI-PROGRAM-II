@@ -65,5 +65,5 @@ void InformeManager::mostrarEgresosPorCategoria() { //Juli
 
 void InformeManager::mostrarIndicadores() { // Fran
     Indicadores aux;
-    aux.showIndicadores();
+    //aux.showIndicadores();
 }

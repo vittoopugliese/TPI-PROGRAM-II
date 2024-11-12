@@ -28,6 +28,6 @@ bool Usuario::validarPassword(std::string password) {
 }
 
 //GET
-int Usuario::getUsuarioID() {return _usuarioID;}
+int Usuario::getUsuarioID() const {return _usuarioID;}
 std::string Usuario::getNombreUsuario() const {return _nombreUsuario;}
 size_t Usuario::getPassword() {size_t _password;}
