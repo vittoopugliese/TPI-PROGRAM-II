@@ -281,11 +281,13 @@ void MovimientoManager::porTipo(){
             mostrar(reg);
         }
     }
+    
     if(!hayRegistros) {
         cout << "No hay movimientos del tipo ";
         (tipoMovimiento==0 ? cout << "Credito." : cout << "Debito.");
         cout << endl;
     }
+
     pausa();
     clear();
 }
@@ -312,9 +314,11 @@ void MovimientoManager::porCategoria(){
             mostrar(reg);
         }
     }
+
     if(!hayRegistros) {
         cout << "No hay movimientos de esta categoria." << endl;
     }
+
     pausa();
     clear();
 }
@@ -331,6 +335,7 @@ void MovimientoManager::porFecha(){
     int cantidad = archivoMovimiento.contarRegistros();
 
     bool hayRegistros = false;
+
     for(int i = 0; i < cantidad; i++) {
         Movimiento reg = archivoMovimiento.leer(i);
 
@@ -339,9 +344,11 @@ void MovimientoManager::porFecha(){
             mostrar(reg);
         }
     }
+
     if(!hayRegistros) {
         cout << "No hay movimientos para la fecha seleccionada." << endl;
     }
+    
     pausa();
     clear();
 }
@@ -371,8 +378,13 @@ void MovimientoManager::eliminarMovimiento() {
         id = ingresoEntero();
 
         for (int i = 0; i < cantidad; i++) {
+<<<<<<< HEAD
             reg = archivoMovimiento.leer(i);
             if(reg.getIdMovimiento()==id){
+=======
+            Movimiento reg = archivoMovimiento.leer(i);
+            if(reg.getIdMovimiento() == id){
+>>>>>>> main
                 existe = true;
                 int confirmar;
                 cout << "Esta seguro que desea eliminar el movimiento?\n1-Si\n2-No\n";
@@ -382,7 +394,8 @@ void MovimientoManager::eliminarMovimiento() {
                     reg.setEstado(false);
                     if(archivoMovimiento.modificar(reg, id)){
                         cout << "Movimiento eliminado exitosamente." << endl;
-                    } else {cout << "Hubo un error al intentar eliminar el movimiento." << endl;
+                    } else {
+                        cout << "Hubo un error al intentar eliminar el movimiento." << endl;
                         pausa();
                         return;
                     }
