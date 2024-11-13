@@ -7,9 +7,19 @@ using namespace std;
 class InformeBalance{
     CategoriaManager categoria;
 public:
+    enum TipoMovimiento {
+        CREDITO = 0,
+        DEBITO = 1,
+    };
+
+    enum TipoBalance {
+        MENSUAL = 0,
+        ANUAL = 1
+    };
+
     void mostrarMenuDeBalances();
     void iniciarBalanceMensual();
     void iniciarBalanceAnual();
     void mostrarResultadoBalance(bool hayMovimientos, float balanceTotal, const string&periodo);
-    void mostrarMovimientosDependiendoDeSuTipo(int cantidad, int anio, int tipoDeMovimiento, float&balanceTotal, bool&hayMovimientos);
+    void mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, int tipoDeMovimiento, int cantidad, int anio, int mes, float&balanceTotal, bool&hayMovimientos);
 };

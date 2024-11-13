@@ -34,7 +34,7 @@ void InformeBalance::mostrarMenuDeBalances() {
             iniciarBalanceMensual();
             break;
         case 2:
-            inicialBalanceAnual();
+            iniciarBalanceAnual();
             break;
         case 0:
             return;
@@ -74,38 +74,8 @@ void InformeBalance::iniciarBalanceMensual() {
     float balanceTotal = 0;
     bool hayMovimientos = false;
 
-    cout << "INGRESOS (CREDITOS):" << endl;
-    cout << "----------------------------------------" << endl;
-
-    for (int i = 0; i < cantidad; i++) {
-        Movimiento mov = archivoMovimiento.leer(i);
-        bool mostrarIngreso = mov.getEstado() && mov.getFecha().getMes() == mes && mov.getFecha().getAnio() == anio && mov.getIdTipo() == 0;
-        string nombreDeCategoria = categoria.getNombreCategoria(mov.getIdCategoria());
-
-        if (mostrarIngreso) {
-            hayMovimientos = true;
-            cout << "- $" << mov.getImporte() << " | " << nombreDeCategoria << " | " << mov.getDescripcion() << endl;;
-            balanceTotal += mov.getImporte();
-        }
-    }
-
-    cout << endl;
-
-    cout << "EGRESOS (DEBITOS):" << endl;
-    cout << "----------------------------------------" << endl;
-
-    for (int i = 0; i < cantidad; i++) {
-        Movimiento mov = archivoMovimiento.leer(i);
-        bool mostrarEgreso = mov.getEstado() && mov.getFecha().getMes() == mes && mov.getFecha().getAnio() == anio && mov.getIdTipo() == 1;
-        string nombreDeCategoria = categoria.getNombreCategoria(mov.getIdCategoria());
-
-        if (mostrarEgreso) {
-            hayMovimientos = true;
-            cout << "- $" << mov.getImporte() << " | " << nombreDeCategoria << " | " << mov.getDescripcion() << endl;;
-            balanceTotal -= mov.getImporte();
-        }
-    }
-
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::MENSUAL, TipoMovimiento::CREDITO, cantidad, anio, mes, balanceTotal, hayMovimientos);
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::MENSUAL, TipoMovimiento::DEBITO, cantidad, anio, mes, balanceTotal, hayMovimientos);
     mostrarResultadoBalance(hayMovimientos, balanceTotal, "el periodo " + to_string(mes) + "/" + to_string(anio));
 }
 
@@ -136,18 +106,32 @@ void InformeBalance::iniciarBalanceAnual() {
     float balanceTotal = 0;
     bool hayMovimientos = false;
 
-    mostrarMovimientosDependiendoDeSuTipo(cantidad, anio, 0, balanceTotal, hayMovimientos);
-    mostrarMovimientosDependiendoDeSuTipo(cantidad, anio, 1, balanceTotal, hayMovimientos);
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::ANUAL, TipoMovimiento::CREDITO, cantidad, anio, 0, balanceTotal, hayMovimientos);
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::ANUAL, TipoMovimiento::DEBITO, cantidad, anio, 0, balanceTotal, hayMovimientos);
     mostrarResultadoBalance(hayMovimientos, balanceTotal, "el anio " + to_string(anio));
 }
 
-void InformeBalance::mostrarMovimientosDependiendoDeSuTipo(int cantidad, int anio, int tipoDeMovimiento, float&balanceTotal, bool&hayMovimientos) {
-    cout << tipoDeMovimiento == 0 ? "INGRESOS (CREDITOS):" : "EGRESOS (DEBITOS):" << endl;
+void InformeBalance::mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, int tipoDeMovimiento, int cantidad, int anio, int mes, float&balanceTotal, bool&hayMovimientos) {
+    if(tipoDeMovimiento == 0){
+        cout << "INGRESOS (CREDITOS):" << endl;
+    } else {
+        cout << "EGRESOS (DEBITOS):" << endl;
+    }
+
     cout << "----------------------------------------" << endl;
-    
+
     for (int i = 0; i < cantidad; i++) {
+        MovimientoArchivo archivoMovimiento("movimientos.dat");
         Movimiento mov = archivoMovimiento.leer(i);
-        bool mostrarEgreso = mov.getEstado() && mov.getFecha().getAnio() == anio && mov.getIdTipo() == tipoDeMovimiento;
+
+        bool mostrarEgreso;
+
+        if(tipoDeBalance == TipoBalance::ANUAL){
+            mostrarEgreso = mov.getEstado() && mov.getFecha().getAnio() == anio && mov.getIdTipo() == tipoDeMovimiento;
+        } else if(tipoDeBalance == TipoBalance::MENSUAL){
+            mostrarEgreso = mov.getEstado() && mov.getFecha().getAnio() == anio && mov.getFecha().getMes() == mes && mov.getIdTipo() == tipoDeMovimiento;
+        }
+        
         string nombreDeCategoria = categoria.getNombreCategoria(mov.getIdCategoria());
 
         if (mostrarEgreso) {
@@ -179,7 +163,7 @@ void InformeBalance::mostrarResultadoBalance(bool hayMovimientos, float balanceT
             cout << "Balance NEUTRO" << endl;
         }
     }
-    
+
     cout << "----------------------------------------" << endl;
     pausa();
 }
