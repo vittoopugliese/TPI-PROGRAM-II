@@ -49,6 +49,7 @@ void MovimientoManager::cargar() {
             clear();
             int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
             aux.setIdTipo(tipoMovimiento);
+            aux.setIdUsuario(user.getUsuarioID());
 
             int esFijo;
             cout << "Es un monto fijo? \n 1-Si \n 2-No \n";
@@ -76,7 +77,7 @@ void MovimientoManager::cargar() {
             bool primero = true;
             while(importe < 0) {
                 if (primero) {
-                    cout << "No se admiten montos negativos, ya que esto se infiere por la categoria." << endl; 
+                    cout << "No se admiten montos negativos, ya que esto se infiere por la categoria." << endl;
                     primero = false;
                 }
                 cout << "Ingrese nuevamente: $";
@@ -178,7 +179,7 @@ void MovimientoManager::mostrar(Movimiento reg) {
     }
 }
 
-void MovimientoManager::mostrarTodos() {
+void MovimientoManager::mostrarTodos(const Usuario &user) {
     clear();
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     int cantidad = archivoMovimiento.contarRegistros();
@@ -191,7 +192,9 @@ void MovimientoManager::mostrarTodos() {
 
     for(int i = 0; i < cantidad; i++) {
         Movimiento reg = archivoMovimiento.leer(i);
-        if(reg.getEstado()) mostrar(reg);
+        if (reg.getIdUsuario() == user.getUsuarioID()) {
+            if (reg.getEstado()) mostrar(reg);
+        }
     }
 
     cout << "Fin de la lista de movimientos." << endl;
@@ -199,7 +202,7 @@ void MovimientoManager::mostrarTodos() {
     pausa();
 }
 
-void MovimientoManager::menuFiltros() {
+void MovimientoManager::menuFiltros(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     CategoriaManager categoriaManager;
 
@@ -230,22 +233,22 @@ void MovimientoManager::menuFiltros() {
         switch(opcion) {
             case 1:
                 {
-                    porTipo();
+                    porTipo(user);
                     break;
                 }
             case 2:
                 {
-                    porCategoria();
+                    porCategoria(user);
                     break;
                 }
             case 3:
                 {
-                    porFecha();
+                    porFecha(user);
                     break;
                 }
             case 4:
                 {
-                    mostrarTodos();
+                    mostrarTodos(user);
                     clear();
                     break;
                 }
@@ -262,7 +265,7 @@ void MovimientoManager::menuFiltros() {
         }
     }
 }
-void MovimientoManager::porTipo(){
+void MovimientoManager::porTipo(const Usuario &user){
     int tipoMovimiento;
     cout << "Ingrese el tipo de movimiento:\n0-Credito\n1-Debito\n";
     tipoMovimiento = ingresoEntero();
@@ -275,13 +278,14 @@ void MovimientoManager::porTipo(){
     bool hayRegistros = false;
     for(int i = 0; i < cantidad; i++) {
         Movimiento reg = archivoMovimiento.leer(i);
-
-        if(reg.getIdTipo() == tipoMovimiento && reg.getEstado()) {
-            hayRegistros = true;
-            mostrar(reg);
+        if (reg.getIdUsuario() == user.getUsuarioID()) {
+            if(reg.getIdTipo() == tipoMovimiento && reg.getEstado()) {
+                hayRegistros = true;
+                mostrar(reg);
+            }
         }
     }
-    
+
     if(!hayRegistros) {
         cout << "No hay movimientos del tipo ";
         (tipoMovimiento==0 ? cout << "Credito." : cout << "Debito.");
@@ -291,7 +295,7 @@ void MovimientoManager::porTipo(){
     pausa();
     clear();
 }
-void MovimientoManager::porCategoria(){
+void MovimientoManager::porCategoria(const Usuario &user){
     CategoriaManager categoriaManager;
     int idCategoria;
     cout << "Ingrese el ID de la categoria:" << endl;
@@ -308,10 +312,11 @@ void MovimientoManager::porCategoria(){
     bool hayRegistros = false;
     for(int i = 0; i < cantidad; i++) {
         reg = archivoMovimiento.leer(i);
-
-        if(reg.getIdCategoria() == idCategoria && reg.getEstado()) {
-            hayRegistros = true;
-            mostrar(reg);
+        if (reg.getIdUsuario() == user.getUsuarioID()) {
+            if(reg.getIdCategoria() == idCategoria && reg.getEstado()) {
+                hayRegistros = true;
+                mostrar(reg);
+            }
         }
     }
 
@@ -322,7 +327,7 @@ void MovimientoManager::porCategoria(){
     pausa();
     clear();
 }
-void MovimientoManager::porFecha(){
+void MovimientoManager::porFecha(const Usuario &user){
     cout << "Ingrese el anio: "; int anio = ingresoEntero();
     cout << "Ingrese el mes: "; int mes = ingresoEntero();
 
@@ -338,22 +343,23 @@ void MovimientoManager::porFecha(){
 
     for(int i = 0; i < cantidad; i++) {
         Movimiento reg = archivoMovimiento.leer(i);
-
-        if(reg.getFecha().getMes() == mes && reg.getFecha().getAnio() == anio && reg.getEstado()) {
-            hayRegistros = true;
-            mostrar(reg);
+        if (reg.getIdUsuario() == user.getUsuarioID()) {
+            if(reg.getFecha().getMes() == mes && reg.getFecha().getAnio() == anio && reg.getEstado()) {
+                hayRegistros = true;
+                mostrar(reg);
+            }
         }
     }
 
     if(!hayRegistros) {
         cout << "No hay movimientos para la fecha seleccionada." << endl;
     }
-    
+
     pausa();
     clear();
 }
 
-void MovimientoManager::eliminarMovimiento() {
+void MovimientoManager::eliminarMovimiento(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     Movimiento reg;
     int cantidad = archivoMovimiento.contarRegistros();
@@ -379,8 +385,13 @@ void MovimientoManager::eliminarMovimiento() {
 
         for (int i = 0; i < cantidad; i++) {
             reg = archivoMovimiento.leer(i);
-            
+
             if(reg.getIdMovimiento() == id){
+                if (reg.getIdUsuario() != user.getUsuarioID()) {
+                    cout << "No puedes borrar un movimiento que no es tuyo." << endl;
+                    pausa();
+                    return;
+                }
                 existe = true;
                 int confirmar;
                 cout << "Esta seguro que desea eliminar el movimiento?\n1-Si\n2-No\n";
@@ -435,22 +446,22 @@ void MovimientoManager::menu(const Usuario &user) {
         switch(opcion) {
             case 1:
                 {
-                    cargar();
+                    cargar(user);
                     break;
                 }
             case 2:
                 {
-                    mostrarTodos();
+                    mostrarTodos(user);
                     break;
                 }
             case 3:
                 {
-                    menuFiltros();
+                    menuFiltros(user);
                     break;
                 }
             case 4:
                 {
-                    eliminarMovimiento();
+                    eliminarMovimiento(user);
                     break;
                 }
             case 0:

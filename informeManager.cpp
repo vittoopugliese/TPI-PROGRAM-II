@@ -47,7 +47,6 @@ void InformeManager::menu(const Usuario &user) {
                 cout << "OPCION INCORRECTA" << endl;
                 pausa();
         }
-
         clear();
     }
 };

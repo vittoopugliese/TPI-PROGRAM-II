@@ -7,7 +7,7 @@ class InformeManager{
     InformeBalance informeBalance;
 public:
     void menu(const Usuario &user);
-    void mostrarIngresosPorCategoria();
-    void mostrarEgresosPorCategoria();
+    void mostrarIngresosPorCategoria(const Usuario &user);
+    void mostrarEgresosPorCategoria(const Usuario &user);
     void mostrarIndicadores();
 };

@@ -6,4 +6,5 @@ class UsuarioManager {
     public:
         bool esUsuarioExistente(Usuario &usuario);
         Usuario registrarUsuario();
+        bool iniciarSesion(Usuario &usuario);
 };

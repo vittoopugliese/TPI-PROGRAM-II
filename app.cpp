@@ -8,7 +8,6 @@ using namespace std;
 
 void App::menuLogin() {
     int opcion;
-    UsuarioArchivo mgmtArchivoUsuario;
     UsuarioManager mgmtUsuarios;
     while (true) {
         clear();
@@ -30,26 +29,8 @@ void App::menuLogin() {
         switch (opcion) {
             case 1:
                 {
-                    int userID;
-                    std::string password;
-
-                    cout << "Ingrese su ID de usuario: ";
-                    userID = ingresoEntero();
-
                     Usuario usuario;
-                    usuario = mgmtArchivoUsuario.leerUsuario(userID);
-                    if (usuario.getUsuarioID() == -1) {
-                        clear();
-                        cout << "El usuario no existe." << endl;
-                        pausa();
-                        break;
-                    }
-                    cout << "Ingrese su contrasenia: ";
-                    cin >> password;
-
-                    if (!usuario.validarPassword(password)) {
-                        cout << "Contrasenia invalida." << endl;
-                        pausa();
+                    if (!mgmtUsuarios.iniciarSesion(usuario)) {
                         break;
                     }
                     MenuPrincipal(usuario);
