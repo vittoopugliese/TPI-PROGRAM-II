@@ -2,6 +2,7 @@
 #include "funcionesGlobales.h"
 #include "informeManager.h"
 #include "categoriaManager.h"
+#include "porCategoria.h"
 #include "indicadores.h"
 using namespace std;
 
@@ -14,7 +15,7 @@ void InformeManager::menu(const Usuario &user) {
         cout << "1 - BALANCE MENSUAL O ANUAL" << endl;
         cout << "2 - INGRESOS POR CATEGORIA" << endl;
         cout << "3 - EGRESOS POR CATEGORIA" << endl;
-        cout << "4 - INDICADORES" << endl;
+        cout << "4 - INDICADORES" << endl << endl;
         //cout << "5 - GASTOS POR USUARIO (ADMIN)" << endl << endl;
 
         cout << "0 - SALIR" << endl;
@@ -53,7 +54,8 @@ void InformeManager::menu(const Usuario &user) {
 };
 
 void InformeManager::mostrarIngresosPorCategoria() { //Juli
-
+    PorCategoria aux;
+    aux.balancePorCateoria();
 }
 
 void InformeManager::mostrarEgresosPorCategoria() { //Juli
