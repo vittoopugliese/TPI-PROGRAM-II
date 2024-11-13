@@ -101,7 +101,7 @@ void InformeBalance::iniciarBalanceAnual() {
     clear();
 
     cout << "BALANCE ANUAL - " << anio << endl;
-    cout << "----------------------------------------" << endl << endl;
+    cout << "----------------------------------------" << endl;
 
     float balanceTotal = 0;
     bool hayMovimientos = false;
@@ -113,9 +113,9 @@ void InformeBalance::iniciarBalanceAnual() {
 
 void InformeBalance::mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, int tipoDeMovimiento, int cantidad, int anio, int mes, float&balanceTotal, bool&hayMovimientos) {
     if(tipoDeMovimiento == 0){
-        cout << "INGRESOS (CREDITOS):" << endl;
+        cout << endl << endl << "INGRESOS (CREDITOS):" << endl;
     } else {
-        cout << "EGRESOS (DEBITOS):" << endl;
+        cout << endl << endl << "EGRESOS (DEBITOS):" << endl;
     }
 
     cout << "----------------------------------------" << endl;
@@ -152,7 +152,7 @@ void InformeBalance::mostrarResultadoBalance(bool hayMovimientos, float balanceT
         clear();
         cout << "No hay movimientos registrados para " << periodo << endl;
     } else {
-        cout << endl << "----------------------------------------" << endl;
+        cout << endl << endl << "----------------------------------------" << endl;
         cout << "BALANCE FINAL: $" << balanceTotal << endl;
 
         if (balanceTotal > 0) {
