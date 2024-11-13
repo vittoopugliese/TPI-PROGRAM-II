@@ -24,10 +24,13 @@ size_t Usuario::hashPassword(std::string password) {
 }
 
 bool Usuario::validarPassword(std::string password) {
+    std::cout << _password << std::endl;
+    std::cout << (password) << std::endl;
+
     return _password == hashPassword(password);
 }
 
 //GET
-int Usuario::getUsuarioID() {return _usuarioID;}
+int Usuario::getUsuarioID() const {return _usuarioID;}
 std::string Usuario::getNombreUsuario() const {return _nombreUsuario;}
 size_t Usuario::getPassword() {size_t _password;}
