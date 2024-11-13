@@ -4,13 +4,13 @@
 class Usuario {
     private:
         int _usuarioID;
-        char _nombreUsuario[15];
+        char _nombreUsuario[33];
         size_t _password;
     public:
         Usuario();
         Usuario(std::string nombreUsuario, std::string password);
 
-        int getUsuarioID();
+        int getUsuarioID() const;
         std::string getNombreUsuario() const;
         size_t getPassword();
         size_t hashPassword(std::string password);
