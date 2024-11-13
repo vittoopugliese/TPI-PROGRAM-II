@@ -76,7 +76,7 @@ void MovimientoManager::cargar() {
             bool primero = true;
             while(importe < 0) {
                 if (primero) {
-                    cout << "No se admiten montos negativos, ya que esto se infiere por la categoria." << endl; 
+                    cout << "No se admiten montos negativos, ya que esto se infiere por la categoria." << endl;
                     primero = false;
                 }
                 cout << "Ingrese nuevamente: $";
@@ -104,7 +104,6 @@ void MovimientoManager::cargar() {
             respuesta = ingresoEntero();
 
             (respuesta == 1 ? aux.setRecurrencia(true) : aux.setRecurrencia(false));
-            int tipoDeRecurrencia = 0;
 
             if(respuesta == 1) {
                 cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
@@ -281,7 +280,7 @@ void MovimientoManager::porTipo(){
             mostrar(reg);
         }
     }
-    
+
     if(!hayRegistros) {
         cout << "No hay movimientos del tipo ";
         (tipoMovimiento==0 ? cout << "Credito." : cout << "Debito.");
@@ -348,7 +347,7 @@ void MovimientoManager::porFecha(){
     if(!hayRegistros) {
         cout << "No hay movimientos para la fecha seleccionada." << endl;
     }
-    
+
     pausa();
     clear();
 }
@@ -378,13 +377,9 @@ void MovimientoManager::eliminarMovimiento() {
         id = ingresoEntero();
 
         for (int i = 0; i < cantidad; i++) {
-<<<<<<< HEAD
             reg = archivoMovimiento.leer(i);
-            if(reg.getIdMovimiento()==id){
-=======
-            Movimiento reg = archivoMovimiento.leer(i);
+
             if(reg.getIdMovimiento() == id){
->>>>>>> main
                 existe = true;
                 int confirmar;
                 cout << "Esta seguro que desea eliminar el movimiento?\n1-Si\n2-No\n";
@@ -402,18 +397,19 @@ void MovimientoManager::eliminarMovimiento() {
                 }
             }
         }
-    }
-    if(!existe) {
-        cout << "No se encontro el movimiento con el ID ingresado." << endl;
-        pausa();
-        return;
-    }
 
+        if(!existe) {
+            cout << "No se encontro el movimiento con el ID ingresado." << endl;
+            pausa();
+            return;
+        }
+    }
     if(opcion == 2) {
         cout << "----------------------------------------" << endl;
         mostrarTodos();
         return;
     }
+
 }
 
 
