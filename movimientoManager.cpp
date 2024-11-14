@@ -125,7 +125,7 @@ void MovimientoManager::cargar(const Usuario &user) {
 
             if(respuesta == 1) {
                 cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
-                int tipoDeRecurrencia = ingresoEntero();
+                tipoDeRecurrencia = ingresoEntero();
 
                 while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
                     cout << "Tipo de recurrencia incorrecto. \n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
