@@ -4,6 +4,7 @@
 #include "indicadores.h"
 #include "movimientoManager.h"  // Incluye MovimientoArchivo para acceder a sus métodos
 #include "funcionesGlobales.h"
+#include "asciichart/ascii.h"
 
 float Indicadores::calcularRelacionIngresoGasto() {
     float ingresosTotales = 0;
@@ -38,7 +39,7 @@ void Indicadores::calcularDistribucionGastos(float &gastosFijos, float &gastosVa
         if (movimiento.getIdTipo() == 1) { // Gasto
             gastosTotales += movimiento.getImporte();
 
-            // Aquí asumimos que existe un método getEsFijo() que verifica el tipo de gasto
+
             if (movimiento.getEsFijo()) {
                 gastosFijos += movimiento.getImporte();
             } else {
@@ -57,32 +58,82 @@ void Indicadores::calcularDistribucionGastos(float &gastosFijos, float &gastosVa
 
 void Indicadores::mostrarGraficoRelacion() {
     float relacion = calcularRelacionIngresoGasto();
+    std::cout << "=== Relacion Ingreso vs. Gasto ===" << std::endl;
     std::cout << "Relacion Ingreso vs. Gasto: " << relacion << "%" << std::endl;
+
+    cout << "Superavit: Ingresos superan gastos." << endl;
+    cout << "La relacion representa la proporcion porcentual de los gastos sobre el ingreso, y se representa en un eje porcentual de 0 a 100." << endl;
+    cout << "La linea Roja representa el porcentaje del gasto sobre el Ingreso." << endl;
+    cout <<"\n"<<endl;
     if (relacion > 100) {
         std::cout << "Deficit: Gastos superan ingresos." << std::endl;
     } else {
-        std::cout << "Superavit: Ingresos superan gastos." << std::endl;
+
+        const int puntosGrafico = 30; //eje X
+        std::vector<double> lineaRelacion(puntosGrafico, relacion); // Línea gasto
+
+        // Configurar el gráfico ASCII
+        ascii::Asciichart grafico({
+            {"Relacion del Gasto", lineaRelacion}
+        });
+
+        grafico.height(10)
+               .min(0)
+               .max(100)
+               .show_legend(true)
+               .styles({
+                   ascii::Style().fg(ascii::Foreground::From(ascii::Color::BRIGHT_RED))
+               });
+
+
+
+        std::cout << grafico.Plot() << std::endl;
     }
 }
 
 void Indicadores::mostrarGraficoDistribucion() {
     float gastosFijos = 0, gastosVariables = 0;
     calcularDistribucionGastos(gastosFijos, gastosVariables);
-    std::cout << "Distribucion de Gastos:" << std::endl;
-    std::cout << "Gastos Fijos: " << gastosFijos << "%" << std::endl;
-    std::cout << "Gastos Variables: " << gastosVariables << "%" << std::endl;
+
+    const int puntosGrafico = 30;
+    std::vector<double> lineaGastosFijos(puntosGrafico, gastosFijos);
+    std::vector<double> lineaGastosVariables(puntosGrafico, gastosVariables);
+
+
+    ascii::Asciichart graficoDistribucion({
+        {"Gastos Fijos (%)", lineaGastosFijos},
+        {"Gastos Variables (%)", lineaGastosVariables}
+    });
+
+    graficoDistribucion.height(10)
+                       .min(0)
+                       .max(100)
+                       .show_legend(true)
+                       .styles({
+                           ascii::Style().fg(ascii::Foreground::From(ascii::Color::BRIGHT_CYAN)),
+                           ascii::Style().fg(ascii::Foreground::From(ascii::Color::BRIGHT_RED))
+                       });
+
+
+
+    std::cout << graficoDistribucion.Plot() << std::endl;
 }
 
 void Indicadores::showIndicadores() {
-    cout << "RELACION INGRESO VS GASTO" << endl;
+
     mostrarGraficoRelacion(); //Agrego para indicadores --> FRAN
 
     float gastosFijos =0; //Agrego para indicadores --> FRAN
     float gastosVariables = 0;//Agrego para indicadores --> FRAN
+
+
     calcularDistribucionGastos(gastosFijos, gastosVariables); //Agrego para indicadores --> FRAN
 
-    cout << "\n=== Distribución de Gastos ===" << endl;
+    cout << "=== Distribución de Gastos ===" << endl;
     cout << "Gastos Fijos: " << gastosFijos << "%" << endl;
     cout << "Gastos Variables: " << gastosVariables << "%" << endl;
+    cout << "\n" << endl;
+    mostrarGraficoDistribucion();
+
     pausa();
 }
