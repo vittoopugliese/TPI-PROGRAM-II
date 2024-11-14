@@ -52,11 +52,11 @@ Usuario UsuarioManager::registrarUsuario() {
     cin.ignore();
     getline(cin, userName);
 
-    while (userName.size() > 32) {
+    while (userName.size() < 4 || userName.size() > 32) {
         clear();
         std::cout << "-- REGISTRAR USUARIO NUEVO --" << std::endl;
         std::cout << endl;
-        std::cout << "ERROR: El nombre de usuario no debe tener mas de 32 caracteres." << endl;
+        std::cout << "ERROR: El nombre de usuario debe tener entre 4 y 32 caracteres." << endl;
         std::cout << "Nombre de usuario: ";
         getline(cin, userName);
     }
