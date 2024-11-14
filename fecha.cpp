@@ -74,3 +74,8 @@ string Fecha::toString()
 {
     return to_string(_dia) + "/" + to_string (_mes) + "/" + to_string (_anio);
 }
+
+string Fecha::getNombreDelMes(int mes) {
+    string meses[12] = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+    return meses[mes - 1];
+}
