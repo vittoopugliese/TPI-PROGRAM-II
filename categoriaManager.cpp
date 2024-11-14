@@ -72,8 +72,8 @@ void CategoriaManager::buscarPorIdCategoria(){
     Categoria aux;
     int id;
 
-    cout << "Ingrese el ID: ";
-    cin >> id;
+    cout << "Ingrese el ID (0 para salir): ";
+    id = ingresoEntero();
     cout << endl;
 
     int posicion = _archivo.buscar(id);

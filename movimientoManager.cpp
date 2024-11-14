@@ -12,7 +12,7 @@ void MovimientoManager::cargar(const Usuario &user) {
     CategoriaArchivo categoriaArchivo("categorias.dat");
     CategoriaManager categoriaManager;
 
-    float subtotalDia[31] = {};
+    float subtotalDia[30] = {};
     float subtotalMes = 0;
 
     //Seteamos ID usuario en base al Usuario actual
@@ -143,6 +143,7 @@ void MovimientoManager::cargar(const Usuario &user) {
 
             // Guardo el movimiento en el archivo
             if(archivoMovimiento.guardarArchivo(movimientoAuxiliar)) {
+                clear();
                 cout << "------------------------------------" << endl;
                 cout << "Movimiento guardado exitosamente!" << endl;
                 cout << "------------------------------------" << endl;
@@ -151,7 +152,12 @@ void MovimientoManager::cargar(const Usuario &user) {
                 cout << endl << "Error al guardar el movimiento." << endl << endl;
             }
 
-            cout << "Subtotal dia " << dia << ": $" << subtotalDia[dia-1] << endl;
+            //cout << "Subtotal dia " << dia << ": $" << subtotalDia[dia-1] << endl;
+            for (int i = 0; i < 30; i++) {
+                if (subtotalDia[i] != 0) {
+                    cout << "Total dia " << i + 1 << ": $" << subtotalDia[i] << endl;
+                }
+            }
             cout << "------------------------------------" << endl;
 
             cout << "Cargar otro movimiento para este dia? \n 1-Si \n 2-No \n";

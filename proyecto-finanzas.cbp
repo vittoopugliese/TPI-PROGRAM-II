@@ -62,6 +62,7 @@
 		<Unit filename="movimientoArchivo.h" />
 		<Unit filename="movimientoManager.cpp" />
 		<Unit filename="movimientoManager.h" />
+		<Unit filename="porCategoria.cpp" />
 		<Unit filename="porCategoria.h" />
 		<Unit filename="usuario.cpp" />
 		<Unit filename="usuario.h" />
