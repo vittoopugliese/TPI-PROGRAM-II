@@ -12,7 +12,7 @@ void MovimientoManager::cargar(const Usuario &user) {
     CategoriaArchivo categoriaArchivo("categorias.dat");
     CategoriaManager categoriaManager;
 
-    float subtotalDia = 0;
+    float subtotalDia[31] = {};
     float subtotalMes = 0;
 
     //Seteamos ID usuario en base al Usuario actual
@@ -38,13 +38,13 @@ void MovimientoManager::cargar(const Usuario &user) {
     for(int dia = 1; dia <= fecha.getDiasMes(); dia++) {
         clear();
 
-        subtotalDia = 0;
+        //subtotalDia = 0;
 
         int seguirCargando = 1;
         while(seguirCargando == 1){
             //Seteamos ID de movimiento
             movimientoAuxiliar.setIdMovimiento(archivoMovimiento.contarRegistros());
-            
+
             //Al inicio del ciclo, seteamos fecha
             fecha.setDia(dia);
             movimientoAuxiliar.setFecha(fecha);
@@ -110,10 +110,10 @@ void MovimientoManager::cargar(const Usuario &user) {
             movimientoAuxiliar.setImporte(importe);
 
             if(tipoMovimiento == 0) {
-                subtotalDia += importe;
+                subtotalDia[dia-1] += importe;
                 subtotalMes += importe;
             } else {
-                subtotalDia -= importe;
+                subtotalDia[dia-1] -= importe;
                 subtotalMes -= importe;
             }
 
@@ -126,19 +126,16 @@ void MovimientoManager::cargar(const Usuario &user) {
             int respuesta;
             cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
             respuesta = ingresoEntero();
-
             (respuesta == 1 ? movimientoAuxiliar.setRecurrencia(true) : movimientoAuxiliar.setRecurrencia(false));
             int tipoDeRecurrencia = 0;
-
             if(respuesta == 1) {
                 cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
-                int tipoDeRecurrencia = ingresoEntero();
+                tipoDeRecurrencia = ingresoEntero();
 
                 while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
-                    cout << "Tipo de recurrencia incorrecto. \n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
+                    cout << "Tipo de recurrencia invalido.";
                     tipoDeRecurrencia = ingresoEntero();
                 }
-
                 movimientoAuxiliar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
             }
 
@@ -146,24 +143,27 @@ void MovimientoManager::cargar(const Usuario &user) {
 
             // Guardo el movimiento en el archivo
             if(archivoMovimiento.guardarArchivo(movimientoAuxiliar)) {
-                cout << endl << "Movimiento guardado exitosamente!" << endl << endl;
+                cout << "------------------------------------" << endl;
+                cout << "Movimiento guardado exitosamente!" << endl;
+                cout << "------------------------------------" << endl;
+                mostrar(movimientoAuxiliar);
             } else {
                 cout << endl << "Error al guardar el movimiento." << endl << endl;
             }
 
-            cout << "Subtotal del dia: $" << subtotalDia << endl;
+            cout << "Subtotal dia " << dia << ": $" << subtotalDia[dia-1] << endl;
             cout << "------------------------------------" << endl;
 
             cout << "Cargar otro movimiento para este dia? \n 1-Si \n 2-No \n";
             seguirCargando = ingresoEntero();
-
-            while (seguirCargando < 1 || seguirCargando > 2) {
+            while (!(seguirCargando == 1 || seguirCargando == 2)) {
                 cout << "Opcion invalida.";
                 seguirCargando == ingresoEntero();
             }
 
             if (seguirCargando == 2) {
-                cout << "Desea seguir cargando movimientos para el mes en curso? \n 1-Si \n 2-No \n";
+                cout << "------------------------------------" << endl;
+                cout << "Desea seguir cargando movimientos para este mes? \n 1-Si \n 2-No \n";
                 seguirCargando = ingresoEntero();
                 while (seguirCargando < 1 || seguirCargando > 2) {
                     cout << "Opcion invalida.";
@@ -171,22 +171,29 @@ void MovimientoManager::cargar(const Usuario &user) {
                 }
                 if (seguirCargando == 2) {
                     clear();
-                    cout << "Total del dia " << dia << ": $" << subtotalDia << endl;
-                    cout << "Resumen del mes " << fecha.getNombreDelMes(mes) << ":" << endl;
-                    cout << "Total del mes: $" << subtotalMes << endl;
-                    pausa();
-                    return; // Detiene la ejecución de la funcion, y deja de cargar movimientos
+                    for (int i = 0; i < 30; i++) {
+                        if (subtotalDia[i]>0) {
+                            cout << "Total dia " << i+1 << ": $" << subtotalDia[i] << endl;
+                        }
+                    }
+                cout << "------------------------------------" << endl;
+                cout << "Total mes " << fecha.getNombreDelMes(mes) << ": $" << subtotalMes << endl;
+                pausa();
+                return; // Detiene la ejecución de la funcion, y deja de cargar movimientos
                 }
                 break; // Rompe el while, y pasa al día siguiente
             }
             clear();
         }
-        cout << "Total del dia " << dia << ": $" << subtotalDia << endl;
         pausa();
     }
     clear();
-    cout << "Resumen del mes " << fecha.getNombreDelMes(mes) << ":" << endl;
-    cout << "Total del mes: $" << subtotalMes << endl;
+    for (int i = 0; i < 30; i++) {
+        if (subtotalDia[i]>0) {
+            cout << "Total dia " << i+1 << ": $" << subtotalDia[i] << endl;
+        }
+    }
+    cout << "Total del mes " << fecha.getNombreDelMes(mes) << ": $" << subtotalMes << endl;
     pausa();
 }
 
@@ -423,13 +430,9 @@ void MovimientoManager::eliminarMovimiento(const Usuario &user) {
 
         for (int i = 0; i < cantidad; i++) {
             reg = archivoMovimiento.leer(i);
-            if(reg.getIdMovimiento() == id){
-            Movimiento reg = archivoMovimiento.leer(i);
-                if (reg.getIdUsuario() != user.getUsuarioID()) {
-                    cout << "No puedes borrar un movimiento que no es tuyo." << endl;
-                    pausa();
-                    return;
-                }
+            //Si coincide ID de movimiento y usuario, eliminar
+            if(reg.getIdMovimiento() == id && reg.getIdUsuario() == user.getUsuarioID()){
+                reg = archivoMovimiento.leer(i);
                 existe = true;
                 int confirmar;
                 cout << "Esta seguro que desea eliminar el movimiento?\n1-Si\n2-No\n";

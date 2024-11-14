@@ -216,7 +216,7 @@ void CategoriaManager::menu(const Usuario &user)
     while(true){
         clear();
         cout << "----- CATEGORIAS -----" << endl;
-        cout << "1 - CREAR NUEVA" << endl;
+        cout << "1 - NUEVA CATEGORIA" << endl;
         cout << "2 - ELIMINAR EXISTENTE" << endl;
         cout << "3 - MOSTRAR TODAS" << endl;
         cout << "4 - EDITAR EXISTENTE" << endl << endl;
