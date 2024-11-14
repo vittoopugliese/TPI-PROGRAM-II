@@ -24,6 +24,9 @@ size_t Usuario::hashPassword(std::string password) {
 }
 
 bool Usuario::validarPassword(std::string password) {
+    std::cout << _password << std::endl;
+    std::cout << (password) << std::endl;
+
     return _password == hashPassword(password);
 }
 

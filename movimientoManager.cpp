@@ -64,8 +64,11 @@ void MovimientoManager::cargar(const Usuario &user) {
             movimientoAuxiliar.setIdCategoria(idCategoria);
             clear();
             int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
+<<<<<<< HEAD
             movimientoAuxiliar.setIdTipo(tipoMovimiento);
             movimientoAuxiliar.setIdUsuario(user.getUsuarioID());
+=======
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
 
             int esFijo;
             cout << "Es un monto fijo? \n 1-Si \n 2-No \n";
@@ -82,8 +85,14 @@ void MovimientoManager::cargar(const Usuario &user) {
             cout << "------------------------------------" << endl;
             cout << "Categoria: " << categoriaManager.getNombreCategoria(idCategoria) << " | Tipo: " << (tipoMovimiento == 0 ? "Credito" : "Debito") << endl;
 
+<<<<<<< HEAD
             int idMovimiento= archivoMovimiento.contarRegistros();
             movimientoAuxiliar.setIdMovimiento(idMovimiento);
+=======
+            int idMovimiento = aux.generarIdDeMovimiento(mes, dia);
+            aux.setIdMovimiento(idMovimiento);
+            aux.setIdUsuario(user.getUsuarioID());
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
 
 
             float importe;
@@ -213,7 +222,11 @@ void MovimientoManager::mostrarTodos(const Usuario &user) {
     for(int i = 0; i < cantidad; i++) {
         Movimiento reg = archivoMovimiento.leer(i);
         if (reg.getIdUsuario() == user.getUsuarioID()) {
+<<<<<<< HEAD
             if (reg.getEstado()) mostrar(reg);
+=======
+            if(reg.getEstado()) mostrar(reg);
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
         }
     }
 
@@ -269,7 +282,10 @@ void MovimientoManager::menuFiltros(const Usuario &user) {
             case 4:
                 {
                     mostrarTodos(user);
+<<<<<<< HEAD
                     clear();
+=======
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
                     break;
                 }
             case 0:
@@ -315,8 +331,13 @@ void MovimientoManager::porTipo(const Usuario &user){
     pausa();
     clear();
 }
+<<<<<<< HEAD
 void MovimientoManager::porCategoria(const Usuario &user){
     CategoriaManager categoriaManager;
+=======
+
+void MovimientoManager::porCategoria(const Usuario &user){
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
     int idCategoria;
     cout << "Ingrese el ID de la categoria:" << endl;
     categoriaManager.mostrarTodasInline();
@@ -331,7 +352,11 @@ void MovimientoManager::porCategoria(const Usuario &user){
 
     bool hayRegistros = false;
     for(int i = 0; i < cantidad; i++) {
+<<<<<<< HEAD
         reg = archivoMovimiento.leer(i);
+=======
+        Movimiento reg = archivoMovimiento.leer(i);
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
         if (reg.getIdUsuario() == user.getUsuarioID()) {
             if(reg.getIdCategoria() == idCategoria && reg.getEstado()) {
                 hayRegistros = true;
@@ -347,6 +372,10 @@ void MovimientoManager::porCategoria(const Usuario &user){
     pausa();
     clear();
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
 void MovimientoManager::porFecha(const Usuario &user){
     cout << "Ingrese el anio: "; int anio = ingresoEntero();
     cout << "Ingrese el mes: "; int mes = ingresoEntero();
@@ -404,9 +433,14 @@ void MovimientoManager::eliminarMovimiento(const Usuario &user) {
         id = ingresoEntero();
 
         for (int i = 0; i < cantidad; i++) {
+<<<<<<< HEAD
             reg = archivoMovimiento.leer(i);
 
             if(reg.getIdMovimiento() == id){
+=======
+            Movimiento reg = archivoMovimiento.leer(i);
+            if(reg.getIdMovimiento()==id){
+>>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
                 if (reg.getIdUsuario() != user.getUsuarioID()) {
                     cout << "No puedes borrar un movimiento que no es tuyo." << endl;
                     pausa();
