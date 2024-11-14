@@ -1,0 +1,152 @@
+# depslib dependency file v1.0
+1731536400 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"usuario.h"
+	"usuarioArchivo.h"
+	"usuarioManager.h"
+	"app.h"
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\funcionesglobales.h
+	<iostream>
+	<cstring>
+
+1731538066 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.h
+	<iostream>
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuarioarchivo.h
+	<iostream>
+	"usuario.h"
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuariomanager.h
+	<iostream>
+	"usuario.h"
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.h
+	"movimientoManager.h"
+	"categoriaManager.h"
+	"informeManager.h"
+	"usuarioManager.h"
+
+1731538094 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.h
+	"movimiento.h"
+	"movimientoArchivo.h"
+	"usuarioManager.h"
+	<string>
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.h
+	"fecha.h"
+
+1731466785 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.h
+	<string>
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientoarchivo.h
+	"movimiento.h"
+
+1731540292 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.h
+	"categoria.h"
+	"categoriaArchivo.h"
+	"usuarioManager.h"
+	<cstring>
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoria.h
+	<cstring>
+
+1731368446 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriaarchivo.h
+	"categoria.h"
+
+1731537712 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.h
+	"usuarioManager.h"
+	"informeBalance.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoria.cpp
+	<iostream>
+	"categoria.h"
+	"categoriaManager.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriaarchivo.cpp
+	"categoriaArchivo.h"
+	<iostream>
+
+1731541751 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.cpp
+	<iostream>
+	"categoriaManager.h"
+	"funcionesGlobales.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.cpp
+	<iostream>
+	"fecha.h"
+	<ctime>
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\funcionesglobales.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	<iostream>
+	<cstdlib>
+
+1731537718 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"informeManager.h"
+	"categoriaManager.h"
+	"indicadores.h"
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.h
+	"movimientoManager.h"
+	"movimiento.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\main.cpp
+	<iostream>
+	"usuarioManager.h"
+	"app.h"
+
+1731536906 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.cpp
+	<iostream>
+	"movimiento.h"
+	"funcionesGlobales.h"
+	"movimientoArchivo.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientoarchivo.cpp
+	"movimientoArchivo.h"
+	<cstdio>
+	<string.h>
+
+1731539208 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.cpp
+	"usuario.h"
+	"usuarioArchivo.h"
+	<cstring>
+	<functional>
+
+1731368446 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuarioarchivo.cpp
+	"usuarioArchivo.h"
+
+1731535865 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuariomanager.cpp
+	"funcionesGlobales.h"
+	"usuarioManager.h"
+	"usuarioArchivo.h"
+
+1731540720 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.cpp
+	<iostream>
+	"usuarioManager.h"
+	"movimientoManager.h"
+	"categoriaManager.h"
+	"funcionesGlobales.h"
+	"fecha.h"
+
+1731539127 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.h
+	"funcionesGlobales.h"
+	"categoriaManager.h"
+
+1731536906 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.cpp
+	<iostream>
+	<vector>
+	<cstring>
+	"indicadores.h"
+	"movimientoManager.h"
+	"funcionesGlobales.h"
+
+1731537668 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.cpp
+	<iostream>
+	"informeBalance.h"
+	"movimientoArchivo.h"
+
