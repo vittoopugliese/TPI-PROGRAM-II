@@ -19,4 +19,5 @@ class CategoriaManager {
         int getTipoDeMovimientoFromIdCategoria(int idCategoria);
         void mostrarTodasInline();
         string getNombreCategoria(int idCategoria);
+        int contarCategoriasActivas();
 };

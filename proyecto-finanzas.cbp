@@ -44,6 +44,10 @@
 		<Unit filename="fecha.h" />
 		<Unit filename="funcionesGlobales.cpp" />
 		<Unit filename="funcionesGlobales.h" />
+		<Unit filename="indicadores.cpp" />
+		<Unit filename="indicadores.h" />
+		<Unit filename="informeBalance.cpp" />
+		<Unit filename="informeBalance.h" />
 		<Unit filename="informeManager.cpp" />
 		<Unit filename="informeManager.h" />
 		<Unit filename="main.cpp" />
@@ -53,6 +57,7 @@
 		<Unit filename="movimientoArchivo.h" />
 		<Unit filename="movimientoManager.cpp" />
 		<Unit filename="movimientoManager.h" />
+		<Unit filename="porCategoria.h" />
 		<Unit filename="usuario.cpp" />
 		<Unit filename="usuario.h" />
 		<Unit filename="usuarioArchivo.cpp" />

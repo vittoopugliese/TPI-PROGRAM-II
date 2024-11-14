@@ -6,10 +6,11 @@ using namespace std;
 #include "funcionesGlobales.h"
 #include "fecha.h"
 
-void MovimientoManager::cargar() {
+void MovimientoManager::cargar(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
-    Movimiento aux;
+    Movimiento movimientoAuxiliar;
     CategoriaManager categoriaManager;
+    CategoriaArchivo categoriaArchivo("categorias.dat");
 
     float subtotalDia = 0;
     float subtotalMes = 0;
@@ -41,15 +42,30 @@ void MovimientoManager::cargar() {
             categoriaManager.mostrarTodasInline();
             cout << endl << "Ingrese el ID de categoria: ";
             int idCategoria = ingresoEntero();
-            while(idCategoria < 1 || idCategoria > 20) {
-                cout << "Opcion invalida.";
+
+            int cantReg = categoriaArchivo.contarRegistros();
+            Categoria categoriaAuxiliar;
+
+            bool * categoriasActivas = new bool[cantReg];
+            if (categoriasActivas == nullptr) exit(-1);
+
+            for(int i = 0; i < cantReg; i++){
+                categoriaAuxiliar = categoriaArchivo.leerRegistro(i);
+                categoriasActivas[i] = categoriaAuxiliar.getEstado();
+                cout << i << " = " << categoriaAuxiliar.getEstado() << endl;
+            }
+            while (!categoriasActivas[idCategoria - 1]) {
+                cout << "Opcion invalida." << endl;
                 idCategoria = ingresoEntero();
             }
-            aux.setIdCategoria(idCategoria);
+
+            delete []categoriasActivas;
+
+            movimientoAuxiliar.setIdCategoria(idCategoria);
             clear();
             int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
-            aux.setIdTipo(tipoMovimiento);
-            aux.setIdUsuario(user.getUsuarioID());
+            movimientoAuxiliar.setIdTipo(tipoMovimiento);
+            movimientoAuxiliar.setIdUsuario(user.getUsuarioID());
 
             int esFijo;
             cout << "Es un monto fijo? \n 1-Si \n 2-No \n";
@@ -58,7 +74,7 @@ void MovimientoManager::cargar() {
                 cout << "Opcion invalida.";
                 idCategoria = ingresoEntero();
             }
-            (esFijo==1 ? aux.setEsFijo(true) : aux.setEsFijo(false) );
+            (esFijo==1 ? movimientoAuxiliar.setEsFijo(true) : movimientoAuxiliar.setEsFijo(false) );
 
             clear();
 
@@ -67,7 +83,7 @@ void MovimientoManager::cargar() {
             cout << "Categoria: " << categoriaManager.getNombreCategoria(idCategoria) << " | Tipo: " << (tipoMovimiento == 0 ? "Credito" : "Debito") << endl;
 
             int idMovimiento= archivoMovimiento.contarRegistros();
-            aux.setIdMovimiento(idMovimiento);
+            movimientoAuxiliar.setIdMovimiento(idMovimiento);
 
 
             float importe;
@@ -84,7 +100,7 @@ void MovimientoManager::cargar() {
                 cin >> importe;
             }
 
-            aux.setImporte(importe);
+            movimientoAuxiliar.setImporte(importe);
 
             if(tipoMovimiento == 0) {
                 subtotalDia += importe;
@@ -98,13 +114,13 @@ void MovimientoManager::cargar() {
             fecha.setDia(dia);
             fecha.setMes(mes);
             fecha.setAnio(anio);
-            aux.setFecha(fecha);
+            movimientoAuxiliar.setFecha(fecha);
 
             int respuesta;
             cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
             respuesta = ingresoEntero();
 
-            (respuesta == 1 ? aux.setRecurrencia(true) : aux.setRecurrencia(false));
+            (respuesta == 1 ? movimientoAuxiliar.setRecurrencia(true) : movimientoAuxiliar.setRecurrencia(false));
             int tipoDeRecurrencia = 0;
 
             if(respuesta == 1) {
@@ -116,7 +132,7 @@ void MovimientoManager::cargar() {
                     tipoDeRecurrencia = ingresoEntero();
                 }
 
-                aux.setTipoDeRecurrencia(tipoDeRecurrencia-1);
+                movimientoAuxiliar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
             }
 
 
@@ -124,12 +140,12 @@ void MovimientoManager::cargar() {
             cout << "Ingrese descripcion: ";
             cin.ignore();
             cin.getline(descripcion, 100);
-            aux.setDescripcion(descripcion);
+            movimientoAuxiliar.setDescripcion(descripcion);
 
-            aux.setEstado(true);
+            movimientoAuxiliar.setEstado(true);
 
             // Guardo el movimiento en el archivo
-            if(archivoMovimiento.guardarArchivo(aux)) {
+            if(archivoMovimiento.guardarArchivo(movimientoAuxiliar)) {
                 cout << endl << "Movimiento guardado exitosamente!" << endl << endl;
             } else {
                 cout << endl << "Error al guardar el movimiento." << endl << endl;
@@ -141,9 +157,13 @@ void MovimientoManager::cargar() {
             cout << "Cargar otro movimiento para este dia? \n 1-Si \n 2-No \n";
             seguirCargando = ingresoEntero();
 
-            while(seguirCargando < 1 || seguirCargando > 2) {
+            while (seguirCargando < 1 || seguirCargando > 2) {
                 cout << "Opcion invalida.";
                 cin >> seguirCargando;
+            }
+
+            if (seguirCargando == 2) {
+                return;
             }
 
             clear();
@@ -418,7 +438,7 @@ void MovimientoManager::eliminarMovimiento(const Usuario &user) {
 
     if(opcion == 2) {
         cout << "----------------------------------------" << endl;
-        mostrarTodos();
+        mostrarTodos(user);
         return;
     }
 }

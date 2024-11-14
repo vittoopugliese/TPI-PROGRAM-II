@@ -8,6 +8,8 @@ using namespace std;
 void InformeManager::menu(const Usuario &user) {
     int opcion;
 
+    InformeBalance informeBalance;
+
     while (true) {
         clear();
         cout << "--------- INFORMES ---------" << endl;
@@ -27,19 +29,19 @@ void InformeManager::menu(const Usuario &user) {
 
         switch (opcion) {
             case 1:
-                informeBalance.mostrarMenuDeBalances();
+                informeBalance.mostrarMenuDeBalances(user);
                 break;
             case 2:
-                mostrarIngresosPorCategoria();
+                mostrarIngresosPorCategoria(user);
                 break;
             case 3:
-                mostrarEgresosPorCategoria();
+                mostrarEgresosPorCategoria(user);
                 break;
             case 4:
-                mostrarIndicadores();
+                mostrarIndicadores(user);
                 break;
             case 5:
-                //mostrarGastosPorUsuario();
+                //mostrarGastosPorUsuario(user);
                 break;
             case 0:
                 return;
@@ -51,15 +53,15 @@ void InformeManager::menu(const Usuario &user) {
     }
 };
 
-void InformeManager::mostrarIngresosPorCategoria() { //Juli
+void InformeManager::mostrarIngresosPorCategoria(const Usuario &user) { //Juli
 
 }
 
-void InformeManager::mostrarEgresosPorCategoria() { //Juli
+void InformeManager::mostrarEgresosPorCategoria(const Usuario &user) { //Juli
 
 }
 
-void InformeManager::mostrarIndicadores() { // Fran
+void InformeManager::mostrarIndicadores(const Usuario &user) { // Fran
     Indicadores aux;
     aux.showIndicadores();
 }

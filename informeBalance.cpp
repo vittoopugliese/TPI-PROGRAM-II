@@ -3,7 +3,7 @@
 #include "movimientoArchivo.h"
 using namespace std;
 
-void InformeBalance::mostrarMenuDeBalances() {
+void InformeBalance::mostrarMenuDeBalances(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     int cantidad = archivoMovimiento.contarRegistros();
     int opcion;
@@ -131,7 +131,7 @@ void InformeBalance::mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, in
         } else if(tipoDeBalance == TipoBalance::MENSUAL){
             mostrarEgreso = mov.getEstado() && mov.getFecha().getAnio() == anio && mov.getFecha().getMes() == mes && mov.getIdTipo() == tipoDeMovimiento;
         }
-        
+
         string nombreDeCategoria = categoria.getNombreCategoria(mov.getIdCategoria());
 
         if (mostrarEgreso) {

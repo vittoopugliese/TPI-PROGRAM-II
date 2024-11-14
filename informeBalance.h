@@ -4,7 +4,7 @@
 
 using namespace std;
 
-class InformeBalance{
+class InformeBalance {
     CategoriaManager categoria;
 public:
     enum TipoMovimiento {
@@ -17,9 +17,11 @@ public:
         ANUAL = 1
     };
 
-    void mostrarMenuDeBalances();
+    void mostrarMenuDeBalances(const Usuario &user);
     void iniciarBalanceMensual();
     void iniciarBalanceAnual();
     void mostrarResultadoBalance(bool hayMovimientos, float balanceTotal, const string&periodo);
     void mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, int tipoDeMovimiento, int cantidad, int anio, int mes, float&balanceTotal, bool&hayMovimientos);
 };
+
+

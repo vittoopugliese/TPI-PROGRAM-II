@@ -32,8 +32,8 @@ Categoria CategoriaManager::Cargar(){
     return aux;
 }
 
-void CategoriaManager::Mostrar(Categoria categoria){
-    if (categoria.getEstado() || true){
+void CategoriaManager::Mostrar(Categoria categoria) {
+    if (categoria.getEstado() == true){
         cout << "Tipo: ";
         cout << (categoria.getTipoMovimiento()==0 ? "Credito (+)" : "Debito (-)") << endl;
         cout << "ID: " << categoria.getIdCategoria() << endl;
@@ -44,6 +44,18 @@ void CategoriaManager::Mostrar(Categoria categoria){
     }
 }
 
+int CategoriaManager::contarCategoriasActivas() {
+    int cantReg = _archivo.contarRegistros();
+    Categoria aux;
+    int cantidadActivos = 0;
+
+    for(int i = 0; i< cantReg; i++){
+        if (aux.getEstado() == true) {
+            cantidadActivos++;
+        }
+    }
+    return cantidadActivos;
+}
 
 void CategoriaManager::mostrarTodos(){
     int cantReg = _archivo.contarRegistros();
@@ -52,6 +64,7 @@ void CategoriaManager::mostrarTodos(){
     for(int i = 0; i<cantReg; i++){
         Mostrar(_archivo.leerRegistro(i));
     }
+    pausa();
 }
 
 void CategoriaManager::buscarPorIdCategoria(){
@@ -86,25 +99,27 @@ void CategoriaManager::baja(){
     if (posicion >= 0 && categoria.getIdCategoria() != 0){
         Categoria aux = _archivo.leerRegistro(posicion);
         Mostrar(aux);
-        pausa();
     }else{
-        cout << "NO EXISTE EL ID INGRESADO" << endl;
+        cout << "No existe el ID ingresado." << endl;
         return;
     }
 
     int respuesta;
-    cout << "ESTA SEGURO QUE QUIERE ELIMINAR EL REGISTRO?" << endl;
-    cout << "(1 - SI | 0 - NO)" << endl;
-    cin >> respuesta;
-    cout << endl;
+    cout << "Estas seguro que deseas eliminar la categoria?" << endl;
+    cout << "1 - Si\n2 - No\n" << endl;
+    respuesta = ingresoEntero();
+    while (respuesta < 1 || respuesta > 2) {
+        cout << "Opcion invalida.";
+        respuesta = ingresoEntero();
+    }
 
     if (respuesta == 1){
         categoria.setEstado(false);
         if (_archivo.modificar(categoria, posicion)){
-            cout << "REGISTRO ELIMINADO CON EXITO!" << endl;
+            cout << "Categoria eliminada con exito!" << endl;
             pausa();
-        }else{
-            cout << "NO SE PUDO ELIMINAR EL REGISTRO!" << endl;
+        } else {
+            cout << "No se pudo borrar la categoria!" << endl;
             pausa();
         }
     }

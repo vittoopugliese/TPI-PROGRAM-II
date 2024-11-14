@@ -8,13 +8,13 @@ using namespace std;
 class MovimientoManager{
 public:
     void menu(const Usuario &user);
-    void cargar();
+    void cargar(const Usuario &user);
     void mostrar(Movimiento reg);
-    void eliminarMovimiento();
-    void mostrarTodos();
+    void eliminarMovimiento(const Usuario &user);
+    void mostrarTodos(const Usuario &user);
     //-------FILTROS------
-    void menuFiltros();
-    void porTipo();
-    void porCategoria();
-    void porFecha();
+    void menuFiltros(const Usuario &user);
+    void porTipo(const Usuario &user);
+    void porCategoria(const Usuario &user);
+    void porFecha(const Usuario &user);
 };
