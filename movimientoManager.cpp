@@ -219,9 +219,143 @@ void MovimientoManager::mostrar(Movimiento reg) {
             cout << "No" << endl;
         }
         cout << "Descripcion: " << reg.getDescripcion() << endl;
+        cout << "Es Fijo: " << reg.getEsFijo() << endl;
         cout << "-------------------------------------" << endl;
     }
 }
+
+void MovimientoManager::modificarMovimientoCategoria(Movimiento &movimientoAModificar) {
+    mostrar(movimientoAModificar);
+    CategoriaManager categoriaManager;
+    CategoriaArchivo categoriaArchivo("categorias.dat");
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+
+    categoriaManager.mostrarTodasInline();
+
+    cout << endl << "Ingrese el ID de categoria: ";
+    int idCategoria = ingresoEntero();
+
+    int cantReg = categoriaArchivo.contarRegistros();
+    Categoria categoriaAuxiliar;
+
+    bool * categoriasActivas = new bool[cantReg];
+    if (categoriasActivas == nullptr) exit(-1);
+
+    //Verificamos que ingrese solo categorias activas
+    for(int i = 0; i < cantReg; i++){
+        categoriaAuxiliar = categoriaArchivo.leerRegistro(i);
+        categoriasActivas[i] = categoriaAuxiliar.getEstado();
+    }
+    while (!categoriasActivas[idCategoria - 1]) {
+        cout << "Esta categoria no existe." << endl;
+        idCategoria = ingresoEntero();
+    }
+    delete []categoriasActivas;
+    movimientoAModificar.setIdCategoria(idCategoria);
+    archivoMovimiento.modificarFromID(movimientoAModificar);
+}
+
+void MovimientoManager::modificarMovimientoFecha(Movimiento &movimientoAModificar) {
+    mostrar(movimientoAModificar);
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+
+    int anio;
+    int mes;
+    int dia;
+
+    cout << endl << "Ingrese el dia: ";
+    dia = ingresoEntero();
+
+    while (dia < 0 || dia > 31) {
+        cout << "Dia incorrecto. Por favor, entre 1 - 31: ";
+        dia = ingresoEntero();
+        return;
+    }
+
+    cout << "Mes de los movimientos (1-12): ";
+    mes = ingresoEntero();
+
+    while(mes < 1 || mes > 12) {
+        cout << "Mes incorrecto. Por favor, entre 1-12: ";
+        mes = ingresoEntero();
+    }
+
+    cout << "Ingrese el año: ";
+    anio = ingresoEntero();
+
+    Fecha fecha(dia, mes, anio);
+    fecha.setMes(mes);
+    fecha.setAnio(anio);
+    movimientoAModificar.setFecha(fecha);
+
+    archivoMovimiento.modificarFromID(movimientoAModificar);
+}
+
+void MovimientoManager::modificarMovimientoImporte(Movimiento &movimientoAModificar) {
+    mostrar(movimientoAModificar);
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+
+    float newImporte;
+
+    cin >> newImporte;
+
+    while (newImporte < 0) {
+        cout << "No puedes ingresar numeros negativos.";
+        cin >> newImporte;
+    }
+    movimientoAModificar.setImporte(newImporte);
+
+    archivoMovimiento.modificarFromID(movimientoAModificar);
+}
+
+void MovimientoManager::modificarMovimientoRecurrencia(Movimiento &movimientoAModificar) {
+    mostrar(movimientoAModificar);
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+
+    int respuesta;
+    cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
+    respuesta = ingresoEntero();
+    (respuesta == 1 ? movimientoAModificar.setRecurrencia(true) : movimientoAModificar.setRecurrencia(false));
+
+    archivoMovimiento.modificarFromID(movimientoAModificar);
+}
+
+void MovimientoManager::modificarMovimientoTipoDeRecurrencia(Movimiento &movimientoAModificar) {
+    mostrar(movimientoAModificar);
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+
+    int tipoDeRecurrencia = 0;
+    int respuesta;
+    respuesta = ingresoEntero();
+    if(respuesta == 1) {
+        cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
+        tipoDeRecurrencia = ingresoEntero();
+
+        while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
+            cout << "Tipo de recurrencia invalido.";
+                tipoDeRecurrencia = ingresoEntero();
+            }
+            movimientoAModificar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
+    }
+
+    archivoMovimiento.modificarFromID(movimientoAModificar);
+}
+
+void MovimientoManager::modificarMovimientoEsFijo(Movimiento &movimientoAModificar) {
+    mostrar(movimientoAModificar);
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+
+    int esFijo;
+            cout << "Es un monto fijo? \n 1-Si \n 2-No \n";
+            esFijo = ingresoEntero();
+            while(esFijo < 1 || esFijo > 2) {
+                cout << "Opcion invalida.";
+            }
+            (esFijo==1 ? movimientoAModificar.setEsFijo(true) : movimientoAModificar.setEsFijo(false) );
+
+    archivoMovimiento.modificarFromID(movimientoAModificar);
+}
+
 
 void MovimientoManager::mostrarTodos(const Usuario &user) {
     clear();
@@ -470,6 +604,101 @@ void MovimientoManager::eliminarMovimiento(const Usuario &user) {
     }
 }
 
+void MovimientoManager::menuModificarMovimiento(const Usuario &user) {
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+    Movimiento movimientoAuxiliar;
+    int id;
+    clear();
+    cout << "----- MODIFICAR MOVIMIENTO -----" << endl;
+    cout << "Ingrese el ID del movimiento (0 para salir): ";
+    id = ingresoEntero();
+
+    if (id == 0) {
+        return;
+    }
+    movimientoAuxiliar = archivoMovimiento.getMovimientoFromId(id);
+    if (movimientoAuxiliar.getIdMovimiento() == 0) {
+        cout << "ERROR: El ID de movimiento no existe";
+        pausa();
+        return;
+    }
+    if (movimientoAuxiliar.getIdUsuario() != user.getUsuarioID()) {
+        cout << "ERROR: No puedes modificar un movimiento que no es tuyo.";
+        pausa();
+        return;
+    }
+
+
+
+    int opcion;
+
+    while(true) {
+        clear();
+        cout << "----- MODIFICAR MOVIMIENTO -----" << endl;
+        cout << endl;
+        mostrar(movimientoAuxiliar);
+        cout << endl;
+        cout << "Selecciona el atributo que quieras modificar:" << endl << endl;
+
+        cout << "1 - CATEGORIA" << endl;
+        cout << "2 - FECHA" << endl;
+        cout << "3 - IMPORTE" << endl;
+        cout << "4 - RECURRENCIA" << endl;
+        cout << "5 - TIPO DE RECURRENCIA" << endl;
+        cout << "6 - ES FIJO" << endl << endl;
+
+        cout << "0 - SALIR" << endl;
+        cout << "-----------------------" << endl;
+
+        cout << "INGRESE OPCION: ";
+        opcion = ingresoEntero();
+
+        clear();
+
+        switch(opcion) {
+            case 1:
+                {
+                    modificarMovimientoCategoria(movimientoAuxiliar);
+                    break;
+                }
+            case 2:
+                {
+                    modificarMovimientoFecha(movimientoAuxiliar);
+                    break;
+                }
+            case 3:
+                {
+                    modificarMovimientoImporte(movimientoAuxiliar);
+                    break;
+                }
+            case 4:
+                {
+                    modificarMovimientoRecurrencia(movimientoAuxiliar);
+                    break;
+                }
+            case 5:
+                {
+                    modificarMovimientoTipoDeRecurrencia(movimientoAuxiliar);
+                    break;
+                }
+            case 6:
+                {
+                    modificarMovimientoEsFijo(movimientoAuxiliar);
+                    break;
+                }
+            case 0:
+                {
+                    return;
+                }
+            default:
+                {
+                    cout << "OPCION INCORRECTA" << endl;
+                }
+        }
+        clear();
+    }
+}
+
 
 void MovimientoManager::menu(const Usuario &user) {
     int opcion;
@@ -480,7 +709,8 @@ void MovimientoManager::menu(const Usuario &user) {
         cout << "1 - NUEVO MOVIMIENTO" << endl;
         cout << "2 - MOSTRAR TODOS" << endl;
         cout << "3 - FILTRAR" << endl;
-        cout << "4 - ELIMINAR POR ID" << endl << endl;
+        cout << "4 - ELIMINAR POR ID" << endl;
+        cout << "5 - MODIFICAR MOVIMIENTO" << endl << endl;
 
         cout << "0 - SALIR" << endl;
         cout << "-----------------------" << endl;
@@ -509,6 +739,11 @@ void MovimientoManager::menu(const Usuario &user) {
             case 4:
                 {
                     eliminarMovimiento(user);
+                    break;
+                }
+            case 5:
+                {
+                    menuModificarMovimiento(user);
                     break;
                 }
             case 0:

@@ -10,4 +10,7 @@ public:
     Movimiento leer(int pos);
     int contarRegistros();
     bool modificar(Movimiento reg, int pos);
+    bool modificarFromID(Movimiento reg);
+    Movimiento getMovimientoFromId(int idMovimiento);
+
 };

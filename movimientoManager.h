@@ -12,9 +12,19 @@ public:
     void mostrar(Movimiento reg);
     void eliminarMovimiento(const Usuario &user);
     void mostrarTodos(const Usuario &user);
+    void modificar(const Usuario &user);
     //-------FILTROS------
     void menuFiltros(const Usuario &user);
+    void menuModificarMovimiento(const Usuario &user);
     void porTipo(const Usuario &user);
     void porCategoria(const Usuario &user);
     void porFecha(const Usuario &user);
+
+    // ---------- MODIFICADORES DE MOVIMIENTO ----------
+    void modificarMovimientoCategoria(Movimiento &movimientoAModificar);
+    void modificarMovimientoFecha(Movimiento &movimientoAModificar);
+    void modificarMovimientoImporte(Movimiento &movimientoAModificar);
+    void modificarMovimientoRecurrencia(Movimiento &movimientoAModificar);
+    void modificarMovimientoTipoDeRecurrencia(Movimiento &movimientoAModificar);
+    void modificarMovimientoEsFijo(Movimiento &movimientoAModificar);
 };

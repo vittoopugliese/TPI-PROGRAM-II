@@ -26,6 +26,17 @@ Movimiento MovimientoArchivo::leer(int pos) {
     return reg;
 }
 
+Movimiento MovimientoArchivo::getMovimientoFromId(int idMovimiento) {
+    Movimiento aux;
+    for (int i = 0; i < contarRegistros(); i++) {
+        aux = leer(i);
+        if (aux.getIdMovimiento() == idMovimiento) {
+            return aux;
+        }
+    }
+    return aux;
+}
+
 int MovimientoArchivo::contarRegistros() {
     FILE *p = fopen(nombreArchivo, "rb");
     if (p == NULL) return 0;
@@ -41,5 +52,22 @@ bool MovimientoArchivo::modificar(Movimiento reg, int pos) {
     fseek(p, pos * sizeof(Movimiento), SEEK_SET);
     bool escribio = fwrite(&reg, sizeof(Movimiento), 1, p);
     fclose(p);
+    return escribio;
+}
+
+bool MovimientoArchivo::modificarFromID(Movimiento reg) {
+    FILE *p = fopen(nombreArchivo, "rb+");
+    bool escribio;
+    if (p == NULL) return false;
+
+    Movimiento aux;
+    for (int i = 0; i < contarRegistros(); i++) {
+        aux = leer(i);
+        if (aux.getIdMovimiento() == reg.getIdMovimiento()) {
+            fseek(p, i * sizeof(Movimiento), SEEK_SET);
+            escribio = fwrite(&reg, sizeof(Movimiento), 1, p);
+            fclose(p);
+        }
+    }
     return escribio;
 }
