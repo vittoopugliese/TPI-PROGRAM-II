@@ -4,11 +4,7 @@
 class Usuario {
     private:
         int _usuarioID;
-<<<<<<< HEAD
-        char _nombreUsuario[31];
-=======
         char _nombreUsuario[33];
->>>>>>> 164c5c886e3c2ad990c6e7a0708ec533b57a9039
         size_t _password;
     public:
         Usuario();
