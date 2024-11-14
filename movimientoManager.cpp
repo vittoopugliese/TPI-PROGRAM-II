@@ -9,11 +9,14 @@ using namespace std;
 void MovimientoManager::cargar(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     Movimiento movimientoAuxiliar;
-    CategoriaManager categoriaManager;
     CategoriaArchivo categoriaArchivo("categorias.dat");
+    CategoriaManager categoriaManager;
 
     float subtotalDia = 0;
     float subtotalMes = 0;
+
+    //Seteamos ID usuario en base al Usuario actual
+    movimientoAuxiliar.setIdUsuario(user.getUsuarioID());
 
     int anio;
     cout << "Anio de los movimientos: ";
@@ -29,14 +32,23 @@ void MovimientoManager::cargar(const Usuario &user) {
     }
 
     Fecha fecha(1, mes, anio);
+    fecha.setMes(mes);
+    fecha.setAnio(anio);
 
     for(int dia = 1; dia <= fecha.getDiasMes(); dia++) {
         clear();
 
         subtotalDia = 0;
-        int seguirCargando = 1;
 
+        int seguirCargando = 1;
         while(seguirCargando == 1){
+            //Seteamos ID de movimiento
+            movimientoAuxiliar.setIdMovimiento(archivoMovimiento.contarRegistros());
+            
+            //Al inicio del ciclo, seteamos fecha
+            fecha.setDia(dia);
+            movimientoAuxiliar.setFecha(fecha);
+
             cout << "Dia " << dia << " | Mes " << mes << " | Anio " << anio  << endl;
             cout << "---------------------------------------" << endl;
             categoriaManager.mostrarTodasInline();
@@ -49,6 +61,7 @@ void MovimientoManager::cargar(const Usuario &user) {
             bool * categoriasActivas = new bool[cantReg];
             if (categoriasActivas == nullptr) exit(-1);
 
+            //Verificamos que ingrese solo categorias activas
             for(int i = 0; i < cantReg; i++){
                 categoriaAuxiliar = categoriaArchivo.leerRegistro(i);
                 categoriasActivas[i] = categoriaAuxiliar.getEstado();
@@ -61,10 +74,9 @@ void MovimientoManager::cargar(const Usuario &user) {
             delete []categoriasActivas;
 
             movimientoAuxiliar.setIdCategoria(idCategoria);
-            clear();
             int tipoMovimiento = categoriaManager.getTipoDeMovimientoFromIdCategoria(idCategoria);
             movimientoAuxiliar.setIdTipo(tipoMovimiento);
-            movimientoAuxiliar.setIdUsuario(user.getUsuarioID());
+            clear();
 
             int esFijo;
             cout << "Es un monto fijo? \n 1-Si \n 2-No \n";
@@ -105,11 +117,11 @@ void MovimientoManager::cargar(const Usuario &user) {
                 subtotalMes -= importe;
             }
 
-            Fecha fecha;
-            fecha.setDia(dia);
-            fecha.setMes(mes);
-            fecha.setAnio(anio);
-            movimientoAuxiliar.setFecha(fecha);
+            char descripcion[100];
+            cout << "Ingrese descripcion: ";
+            cin.ignore();
+            cin.getline(descripcion, 100);
+            movimientoAuxiliar.setDescripcion(descripcion);
 
             int respuesta;
             cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
@@ -129,13 +141,6 @@ void MovimientoManager::cargar(const Usuario &user) {
 
                 movimientoAuxiliar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
             }
-
-
-            char descripcion[100];
-            cout << "Ingrese descripcion: ";
-            cin.ignore();
-            cin.getline(descripcion, 100);
-            movimientoAuxiliar.setDescripcion(descripcion);
 
             movimientoAuxiliar.setEstado(true);
 
@@ -293,8 +298,13 @@ void MovimientoManager::menuFiltros(const Usuario &user) {
 }
 void MovimientoManager::porTipo(const Usuario &user){
     int tipoMovimiento;
-    cout << "Ingrese el tipo de movimiento:\n0-Credito\n1-Debito\n";
+    cout << "Ingrese el tipo de movimiento:\n1-Credito\n2-Debito\n";
     tipoMovimiento = ingresoEntero();
+    while(tipoMovimiento < 1 || tipoMovimiento > 2) {
+        cout << "Opcion invalida.";
+        tipoMovimiento = ingresoEntero();
+    }
+    tipoMovimiento--; //Resto 1 asi el codigo es correcto
 
     clear();
 
