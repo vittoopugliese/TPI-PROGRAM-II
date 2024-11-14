@@ -167,10 +167,17 @@ private:
   void InitSymbols() {
     switch (type_) {
     case LINE:
-      symbols_ = {{"empty", " "}, {"center", "┼"},  {"axis", "┤"},
-                  {"c1", "╶"},    {"c2", "╴"},      {"parellel", "─"},
-                  {"down", "╰"},  {"up", "╭"},      {"ldown", "╮"},
-                  {"lup", "╯"},   {"vertical", "│"}};
+      symbols_ = {
+    {"empty", " "},
+    {"center", "+"},
+    {"axis", "|"},
+    {"parellel", "-"},
+    {"down", "\\"},
+    {"up", "/"},
+    {"ldown", "/"},
+    {"lup", "\\"},
+    {"vertical", "|"}
+};
     case CIRCLE:
       break;
     default:
