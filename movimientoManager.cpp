@@ -41,6 +41,7 @@ void MovimientoManager::cargar() {
             categoriaManager.mostrarTodasInline();
             cout << endl << "Ingrese el ID de categoria: ";
             int idCategoria = ingresoEntero();
+
             while(idCategoria < 1 || idCategoria > 20) {
                 cout << "Opcion invalida.";
                 idCategoria = ingresoEntero();
@@ -143,6 +144,9 @@ void MovimientoManager::cargar() {
                 cout << "Opcion invalida.";
                 cin >> seguirCargando;
             }
+            if (seguirCargando == 2) {
+                return;
+            }
 
             clear();
         }
@@ -155,6 +159,12 @@ void MovimientoManager::cargar() {
     cout << "Resumen del mes " << mes << ":" << endl;
     cout << "Total del mes: $" << subtotalMes << endl;
     pausa();
+
+
+
+
+
+
 }
 
 void MovimientoManager::mostrar(Movimiento reg) {
