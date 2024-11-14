@@ -3,8 +3,7 @@ using namespace std;
 #include "usuarioManager.h"
 #include "informeBalance.h"
 
-class InformeManager {
-    InformeBalance informeBalance;
+class InformeGenerador {
 public:
-    void menu(const Usuario &user);
+    void generarInformeTXT(const Usuario &user);
 };
