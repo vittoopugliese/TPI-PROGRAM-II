@@ -309,19 +309,8 @@ void MovimientoManager::modificarMovimientoImporte(Movimiento &movimientoAModifi
 }
 
 void MovimientoManager::modificarMovimientoRecurrencia(Movimiento &movimientoAModificar) {
-    mostrar(movimientoAModificar);
-    MovimientoArchivo archivoMovimiento("movimientos.dat");
 
-    int respuesta;
-    cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
-    respuesta = ingresoEntero();
-    (respuesta == 1 ? movimientoAModificar.setRecurrencia(true) : movimientoAModificar.setRecurrencia(false));
-
-    archivoMovimiento.modificarFromID(movimientoAModificar);
-}
-
-void MovimientoManager::modificarMovimientoTipoDeRecurrencia(Movimiento &movimientoAModificar) {
-    mostrar(movimientoAModificar);
+     mostrar(movimientoAModificar);
     MovimientoArchivo archivoMovimiento("movimientos.dat");
 
     int tipoDeRecurrencia = 0;
@@ -337,6 +326,21 @@ void MovimientoManager::modificarMovimientoTipoDeRecurrencia(Movimiento &movimie
             }
             movimientoAModificar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
     }
+
+    archivoMovimiento.modificarFromID(movimientoAModificar);
+
+
+
+}
+
+void MovimientoManager::modificarMovimientoTipoDeRecurrencia(Movimiento &movimientoAModificar) {
+    mostrar(movimientoAModificar);
+    MovimientoArchivo archivoMovimiento("movimientos.dat");
+
+    int respuesta;
+    cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
+    respuesta = ingresoEntero();
+    (respuesta == 1 ? movimientoAModificar.setRecurrencia(true) : movimientoAModificar.setRecurrencia(false));
 
     archivoMovimiento.modificarFromID(movimientoAModificar);
 }
