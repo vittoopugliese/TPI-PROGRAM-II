@@ -4,7 +4,7 @@
 class Usuario {
     private:
         int _usuarioID;
-        char _nombreUsuario[31];
+        char _nombreUsuario[33];
         size_t _password;
     public:
         Usuario();

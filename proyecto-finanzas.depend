@@ -11,15 +11,13 @@
 	<iostream>
 	<cstring>
 
-1731538066 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.h
+1731551561 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.h
 	<iostream>
 
-1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuarioarchivo.h
-	<iostream>
+1731551277 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuarioarchivo.h
 	"usuario.h"
 
-1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuariomanager.h
-	<iostream>
+1731551277 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuariomanager.h
 	"usuario.h"
 
 1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.h
@@ -28,22 +26,22 @@
 	"informeManager.h"
 	"usuarioManager.h"
 
-1731538094 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.h
+1731544336 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.h
 	"movimiento.h"
 	"movimientoArchivo.h"
 	"usuarioManager.h"
 	<string>
 
-1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.h
+1731551266 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.h
 	"fecha.h"
 
-1731466785 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.h
+1731552530 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.h
 	<string>
 
 1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientoarchivo.h
 	"movimiento.h"
 
-1731540292 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.h
+1731551266 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.h
 	"categoria.h"
 	"categoriaArchivo.h"
 	"usuarioManager.h"
@@ -55,7 +53,7 @@
 1731368446 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriaarchivo.h
 	"categoria.h"
 
-1731537712 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.h
+1731551266 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.h
 	"usuarioManager.h"
 	"informeBalance.h"
 
@@ -68,12 +66,12 @@
 	"categoriaArchivo.h"
 	<iostream>
 
-1731541751 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.cpp
+1731551277 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.cpp
 	<iostream>
 	"categoriaManager.h"
 	"funcionesGlobales.h"
 
-1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.cpp
+1731552538 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.cpp
 	<iostream>
 	"fecha.h"
 	<ctime>
@@ -84,14 +82,14 @@
 	<iostream>
 	<cstdlib>
 
-1731537718 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.cpp
+1731551277 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.cpp
 	<iostream>
 	"funcionesGlobales.h"
 	"informeManager.h"
 	"categoriaManager.h"
 	"indicadores.h"
 
-1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.h
+1731551266 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.h
 	"movimientoManager.h"
 	"movimiento.h"
 
@@ -100,7 +98,7 @@
 	"usuarioManager.h"
 	"app.h"
 
-1731536906 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.cpp
+1731551266 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.cpp
 	<iostream>
 	"movimiento.h"
 	"funcionesGlobales.h"
@@ -111,7 +109,7 @@
 	<cstdio>
 	<string.h>
 
-1731539208 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.cpp
+1731551719 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.cpp
 	"usuario.h"
 	"usuarioArchivo.h"
 	<cstring>
@@ -125,7 +123,7 @@
 	"usuarioManager.h"
 	"usuarioArchivo.h"
 
-1731540720 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.cpp
+1731553140 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.cpp
 	<iostream>
 	"usuarioManager.h"
 	"movimientoManager.h"
@@ -133,11 +131,11 @@
 	"funcionesGlobales.h"
 	"fecha.h"
 
-1731539127 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.h
+1731551266 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.h
 	"funcionesGlobales.h"
 	"categoriaManager.h"
 
-1731536906 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.cpp
+1731551266 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.cpp
 	<iostream>
 	<vector>
 	<cstring>
@@ -145,7 +143,7 @@
 	"movimientoManager.h"
 	"funcionesGlobales.h"
 
-1731537668 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.cpp
+1731551266 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.cpp
 	<iostream>
 	"informeBalance.h"
 	"movimientoArchivo.h"
