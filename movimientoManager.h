@@ -27,4 +27,5 @@ public:
     void modificarMovimientoRecurrencia(Movimiento &movimientoAModificar);
     void modificarMovimientoTipoDeRecurrencia(Movimiento &movimientoAModificar);
     void modificarMovimientoEsFijo(Movimiento &movimientoAModificar);
+    void modificarMovimientoDescripcion(Movimiento &movimientoAModificar);
 };

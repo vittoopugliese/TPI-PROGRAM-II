@@ -16,7 +16,7 @@ Movimiento::Movimiento(int idMovimiento, bool idTipo, int idUsuario, int idCateg
     strcpy(_descripcion, descripcion);
     _estado = estado;
     _esFijo = esFijo; // LO AGREGUE PARA INDICADORES, NECESITO IDENTIFICAR QUE ES FIJO
-};
+}
 
 Movimiento::Movimiento(){
     _idMovimiento = 0;
@@ -30,7 +30,7 @@ Movimiento::Movimiento(){
     strcpy(_descripcion, "S/D"); // SD = Sin Descripcion
     _estado = true;
     _esFijo = false; // 0-No es fijo, 1-Es fijo
-};
+}
 
 
 // SETTERS

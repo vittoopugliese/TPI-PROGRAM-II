@@ -46,4 +46,4 @@ void InformeManager::menu(const Usuario &user) {
         }
         clear();
     }
-};
+}

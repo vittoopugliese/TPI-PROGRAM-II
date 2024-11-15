@@ -38,4 +38,4 @@ void PorCategoria::balancePorCateoria(const Usuario &user) {
     cout << "------------------------------" << endl;
     delete []ingresoCat;
     pausa();
-};
+}
