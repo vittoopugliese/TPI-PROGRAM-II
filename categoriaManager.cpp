@@ -13,7 +13,7 @@ Categoria CategoriaManager::Cargar(){
     idCategoria = archiCategorias.contarRegistros()+1;
     aux.setIdCategoria(idCategoria);
 
-    cout << "Tipo de moviminento:" << endl; // 0 o 1
+    cout << "Tipo de movimiento:" << endl; // 0 o 1
     cout << "(0-Credito | 1-Debito) ";
     cin >> tipoMovimiento;
     //valdiarIngreso.entero(tipoMovimiento); -- Verificaria que se ingresen solo enteros, ademas de solo 0 o 1.
@@ -42,6 +42,7 @@ void CategoriaManager::Mostrar(Categoria categoria) {
         cout << endl;
         cout << "-------------------------------" << endl;
     }
+
 }
 
 int CategoriaManager::contarCategoriasActivas() {
@@ -71,8 +72,8 @@ void CategoriaManager::buscarPorIdCategoria(){
     Categoria aux;
     int id;
 
-    cout << "Ingrese el ID: ";
-    cin >> id;
+    cout << "Ingrese el ID (0 para salir): ";
+    id = ingresoEntero();
     cout << endl;
 
     int posicion = _archivo.buscar(id);
@@ -215,7 +216,7 @@ void CategoriaManager::menu(const Usuario &user)
     while(true){
         clear();
         cout << "----- CATEGORIAS -----" << endl;
-        cout << "1 - CREAR NUEVA" << endl;
+        cout << "1 - NUEVA CATEGORIA" << endl;
         cout << "2 - ELIMINAR EXISTENTE" << endl;
         cout << "3 - MOSTRAR TODAS" << endl;
         cout << "4 - EDITAR EXISTENTE" << endl << endl;

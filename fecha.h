@@ -27,4 +27,5 @@ class Fecha{
         void Mostrar();
         //-----------
         string toString();
+        string getNombreDelMes(int mes);
 };

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "informeBalance.h"
 #include "movimientoArchivo.h"
+#include "usuario.h"
 using namespace std;
 
 void InformeBalance::mostrarMenuDeBalances(const Usuario &user) {
@@ -31,10 +32,10 @@ void InformeBalance::mostrarMenuDeBalances(const Usuario &user) {
 
     switch (opcion) {
         case 1:
-            iniciarBalanceMensual();
+            iniciarBalanceMensual(user);
             break;
         case 2:
-            iniciarBalanceAnual();
+            iniciarBalanceAnual(user);
             break;
         case 0:
             return;
@@ -44,7 +45,7 @@ void InformeBalance::mostrarMenuDeBalances(const Usuario &user) {
     return;
 }
 
-void InformeBalance::iniciarBalanceMensual() {
+void InformeBalance::iniciarBalanceMensual(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     int cantidad = archivoMovimiento.contarRegistros();
     int anio;
@@ -74,12 +75,12 @@ void InformeBalance::iniciarBalanceMensual() {
     float balanceTotal = 0;
     bool hayMovimientos = false;
 
-    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::MENSUAL, TipoMovimiento::CREDITO, cantidad, anio, mes, balanceTotal, hayMovimientos);
-    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::MENSUAL, TipoMovimiento::DEBITO, cantidad, anio, mes, balanceTotal, hayMovimientos);
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::MENSUAL, TipoMovimiento::CREDITO, cantidad, anio, mes, balanceTotal, hayMovimientos, user);
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::MENSUAL, TipoMovimiento::DEBITO, cantidad, anio, mes, balanceTotal, hayMovimientos, user);
     mostrarResultadoBalance(hayMovimientos, balanceTotal, "el periodo " + to_string(mes) + "/" + to_string(anio));
 }
 
-void InformeBalance::iniciarBalanceAnual() {
+void InformeBalance::iniciarBalanceAnual(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     int cantidad = archivoMovimiento.contarRegistros();
     int anio;
@@ -106,12 +107,12 @@ void InformeBalance::iniciarBalanceAnual() {
     float balanceTotal = 0;
     bool hayMovimientos = false;
 
-    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::ANUAL, TipoMovimiento::CREDITO, cantidad, anio, 0, balanceTotal, hayMovimientos);
-    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::ANUAL, TipoMovimiento::DEBITO, cantidad, anio, 0, balanceTotal, hayMovimientos);
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::ANUAL, TipoMovimiento::CREDITO, cantidad, anio, 0, balanceTotal, hayMovimientos, user);
+    mostrarMovimientosDependiendoDeSuTipo(TipoBalance::ANUAL, TipoMovimiento::DEBITO, cantidad, anio, 0, balanceTotal, hayMovimientos, user);
     mostrarResultadoBalance(hayMovimientos, balanceTotal, "el anio " + to_string(anio));
 }
 
-void InformeBalance::mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, int tipoDeMovimiento, int cantidad, int anio, int mes, float&balanceTotal, bool&hayMovimientos) {
+void InformeBalance::mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, int tipoDeMovimiento, int cantidad, int anio, int mes, float&balanceTotal, bool&hayMovimientos, const Usuario &user) {
     if(tipoDeMovimiento == 0){
         cout << endl << endl << "INGRESOS (CREDITOS):" << endl;
     } else {
@@ -123,6 +124,10 @@ void InformeBalance::mostrarMovimientosDependiendoDeSuTipo(int tipoDeBalance, in
     for (int i = 0; i < cantidad; i++) {
         MovimientoArchivo archivoMovimiento("movimientos.dat");
         Movimiento mov = archivoMovimiento.leer(i);
+
+        if (user.getUsuarioID() != mov.getIdUsuario()) {
+            continue; // TODO
+        }
 
         bool mostrarEgreso;
 
