@@ -150,7 +150,7 @@
 	"informeBalance.h"
 	"movimientoArchivo.h"
 
-1731546476 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/app.cpp
+1731722611 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/app.cpp
 	<iostream>
 	"funcionesGlobales.h"
 	"usuario.h"
@@ -162,15 +162,13 @@
 	<iostream>
 	<cstring>
 
-1731546476 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuario.h
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuario.h
 	<iostream>
 
-1731546476 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioArchivo.h
-	<iostream>
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioArchivo.h
 	"usuario.h"
 
-1731546476 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.h
-	<iostream>
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.h
 	"usuario.h"
 
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/app.h
@@ -188,7 +186,7 @@
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimiento.h
 	"fecha.h"
 
-1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/fecha.h
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/fecha.h
 	<string>
 
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoArchivo.h
@@ -206,11 +204,11 @@
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaArchivo.h
 	"categoria.h"
 
-1731546476 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.h
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.h
 	"usuarioManager.h"
 	"informeBalance.h"
 
-1731546476 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeBalance.h
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeBalance.h
 	"funcionesGlobales.h"
 	"categoriaManager.h"
 
@@ -223,12 +221,12 @@
 	"categoriaArchivo.h"
 	<iostream>
 
-1731546476 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
+1731722629 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
 	<iostream>
 	"categoriaManager.h"
 	"funcionesGlobales.h"
 
-1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/fecha.cpp
+1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/fecha.cpp
 	<iostream>
 	"fecha.h"
 	<ctime>
@@ -239,32 +237,41 @@
 	<iostream>
 	<cstdlib>
 
-1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/indicadores.cpp
+1731717869 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/indicadores.cpp
 	<iostream>
 	<vector>
 	<cstring>
 	"indicadores.h"
 	"movimientoManager.h"
 	"funcionesGlobales.h"
+	"asciichart/ascii.h"
 
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/indicadores.h
 	"movimientoManager.h"
 	"movimiento.h"
 
-1731546476 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeBalance.cpp
+1731722331 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeBalance.cpp
 	<iostream>
 	"informeBalance.h"
 	"movimientoArchivo.h"
+	"usuario.h"
 
-1731546476 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.cpp
+1731722404 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.cpp
 	<iostream>
+	<fstream>
+	<ctime>
 	"funcionesGlobales.h"
 	"informeManager.h"
 	"categoriaManager.h"
 	"indicadores.h"
+	"porCategoria.h"
+	"movimientoArchivo.h"
+	"informeGenerador.h"
+	"fecha.h"
 
-1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/main.cpp
+1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/main.cpp
 	<iostream>
+	<iomanip>
 	"usuarioManager.h"
 	"app.h"
 
@@ -288,16 +295,73 @@
 1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioArchivo.cpp
 	"usuarioArchivo.h"
 
-1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.cpp
+1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.cpp
 	"funcionesGlobales.h"
 	"usuarioManager.h"
 	"usuarioArchivo.h"
 
-1731546740 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.cpp
+1731720530 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.cpp
 	<iostream>
 	"usuarioManager.h"
 	"movimientoManager.h"
 	"categoriaManager.h"
 	"funcionesGlobales.h"
 	"fecha.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/ascii.h
+	<cmath>
+	<codecvt>
+	<iomanip>
+	<map>
+	<sstream>
+	<string>
+	<unordered_map>
+	<vector>
+	"color.h"
+	"constants.h"
+	"text.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/color.h
+	<iostream>
+	<ostream>
+	<sstream>
+	<string>
+	<type_traits>
+	<vector>
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/constants.h
+	<limits>
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/text.h
+	"style.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/style.h
+	"color.h"
+
+1731722509 /home/juli/Documents/UTN/1-Progra2-2024/TPI/porCategoria.h
+	"categoriaManager.h"
+	"usuario.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeGenerador.h
+	"usuarioManager.h"
+	"informeBalance.h"
+
+1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/porCategoria.cpp
+	<iostream>
+	"usuario.h"
+	"porCategoria.h"
+	"categoriaManager.h"
+	"movimientoManager.h"
+	"funcionesGlobales.h"
+
+1731714035 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeGenerador.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	"funcionesGlobales.h"
+	"movimientoArchivo.h"
+	"fecha.h"
+	"categoriaManager.h"
+	"usuario.h"
+	"movimiento.h"
 

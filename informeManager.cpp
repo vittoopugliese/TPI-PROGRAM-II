@@ -23,12 +23,12 @@ void InformeManager::menu(const Usuario &user) {
     while (true) {
         clear();
         cout << "--------- INFORMES ---------" << endl;
-        cout << "1 - BALANCE MENSUAL O ANUAL" << endl;
-        cout << "2 - BALANCES POR CATEGORIA" << endl;
-        cout << "3 - INDICADORES" << endl;
-        cout << "4 - GENERAR " << endl;
-
-        cout << "0 - SALIR" << endl;
+        cout << "[1] BALANCE MENSUAL O ANUAL" << endl;
+        cout << "[2] BALANCES POR CATEGORIA" << endl;
+        cout << "[3] INDICADORES" << endl;
+        cout << "[4] GENERAR " << endl;
+        cout << endl;
+        cout << "[0] SALIR" << endl;
         cout << "----------------------------" << endl;
 
         cout << "INGRESE OPCION: ";

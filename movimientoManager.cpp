@@ -117,35 +117,35 @@ void MovimientoManager::cargar(const Usuario &user) {
                 subtotalMes -= importe;
             }
 
-<<<<<<< HEAD
-            Fecha fecha;
-            fecha.setDia(dia);
-            fecha.setMes(mes);
-            fecha.setAnio(anio);
-            movimientoAuxiliar.setFecha(fecha);
-
-            int respuesta;
-            cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
-            respuesta = ingresoEntero();
-
-            (respuesta == 1 ? movimientoAuxiliar.setRecurrencia(true) : movimientoAuxiliar.setRecurrencia(false));
-            int tipoDeRecurrencia = 0;
-
-            if(respuesta == 1) {
-                cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
-                tipoDeRecurrencia = ingresoEntero();
-
-                while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
-                    cout << "Tipo de recurrencia incorrecto. \n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
-                    tipoDeRecurrencia = ingresoEntero();
-                }
-
-                movimientoAuxiliar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
-            }
-
-
-=======
->>>>>>> origin/main
+//<<<<<<< HEAD
+//            Fecha fecha;
+//            fecha.setDia(dia);
+//            fecha.setMes(mes);
+//            fecha.setAnio(anio);
+//            movimientoAuxiliar.setFecha(fecha);
+//
+//            int respuesta;
+//            cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
+//            respuesta = ingresoEntero();
+//
+//            (respuesta == 1 ? movimientoAuxiliar.setRecurrencia(true) : movimientoAuxiliar.setRecurrencia(false));
+//            int tipoDeRecurrencia = 0;
+//
+//            if(respuesta == 1) {
+//                cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
+//                tipoDeRecurrencia = ingresoEntero();
+//
+//                while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
+//                    cout << "Tipo de recurrencia incorrecto. \n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
+//                    tipoDeRecurrencia = ingresoEntero();
+//                }
+//
+//                movimientoAuxiliar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
+//            }
+//
+//
+//=======
+//>>>>>>> origin/main
             char descripcion[100];
             cout << "Ingrese descripcion: ";
             cin.ignore();
@@ -305,36 +305,24 @@ void MovimientoManager::menuFiltros(const Usuario &user) {
 
         switch(opcion) {
             case 1:
-                {
                     porTipo(user);
                     break;
-                }
             case 2:
-                {
                     porCategoria(user);
                     break;
-                }
             case 3:
-                {
                     porFecha(user);
                     break;
-                }
             case 4:
-                {
                     mostrarTodos(user);
                     clear();
                     break;
-                }
             case 0:
-                {
                     return;
-                }
             default:
-                {
                     cout << "OPCION INCORRECTA" << endl;
                     pausa();
                     break;
-                }
         }
     }
 }
@@ -506,12 +494,12 @@ void MovimientoManager::menu(const Usuario &user) {
     while(true) {
         clear();
         cout << "----- MOVIMIENTOS -----" << endl;
-        cout << "1 - NUEVO MOVIMIENTO" << endl;
-        cout << "2 - MOSTRAR TODOS" << endl;
-        cout << "3 - FILTRAR" << endl;
-        cout << "4 - ELIMINAR POR ID" << endl << endl;
+        cout << "[1] NUEVO MOVIMIENTO" << endl;
+        cout << "[2] MOSTRAR TODOS" << endl;
+        cout << "[3] FILTRAR" << endl;
+        cout << "[4] ELIMINAR POR ID" << endl << endl;
 
-        cout << "0 - SALIR" << endl;
+        cout << "[0] SALIR" << endl;
         cout << "-----------------------" << endl;
 
         cout << "INGRESE OPCION: ";
@@ -521,33 +509,21 @@ void MovimientoManager::menu(const Usuario &user) {
 
         switch(opcion) {
             case 1:
-                {
-                    cargar(user);
-                    break;
-                }
+                cargar(user);
+                break;
             case 2:
-                {
-                    mostrarTodos(user);
-                    break;
-                }
+                mostrarTodos(user);
+                break;
             case 3:
-                {
-                    menuFiltros(user);
-                    break;
-                }
+                menuFiltros(user);
+                break;
             case 4:
-                {
-                    eliminarMovimiento(user);
-                    break;
-                }
+                eliminarMovimiento(user);
+                break;
             case 0:
-                {
-                    return;
-                }
+                return;
             default:
-                {
-                    cout << "OPCION INCORRECTA" << endl;
-                }
+                cout << "OPCION INCORRECTA" << endl;
         }
         clear();
     }

@@ -16,9 +16,10 @@ void InformeBalance::mostrarMenuDeBalances(const Usuario &user) {
     }
 
     cout << "----- BALANCES -----" << endl;
-    cout << "1 - BALANCE MENSUAL" << endl;
-    cout << "2 - BALANCE ANUAL" << endl;
-    cout << "0 - VOLVER" << endl;
+    cout << "[1] BALANCE MENSUAL" << endl;
+    cout << "[2] BALANCE ANUAL" << endl;
+    cout << endl;
+    cout << "[0] - VOLVER" << endl;
     cout << "---------------------" << endl << endl;
     cout << "INGRESE OPCION: ";
     opcion = ingresoEntero();

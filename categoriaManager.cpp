@@ -14,7 +14,7 @@ Categoria CategoriaManager::Cargar(){
     aux.setIdCategoria(idCategoria);
 
     cout << "Tipo de movimiento:" << endl; // 0 o 1
-    cout << "(0-Credito | 1-Debito) ";
+    cout << "[0] Credito \n [1] Debito \n ";
     cin >> tipoMovimiento;
     //valdiarIngreso.entero(tipoMovimiento); -- Verificaria que se ingresen solo enteros, ademas de solo 0 o 1.
     aux.setTipoMovimiento(tipoMovimiento);
@@ -76,16 +76,18 @@ void CategoriaManager::buscarPorIdCategoria(){
     id = ingresoEntero();
     cout << endl;
 
+    if (id==0) return;
+
     int posicion = _archivo.buscar(id);
     if (posicion >= 0){
         aux = _archivo.leerRegistro(posicion);
         if (aux.getIdCategoria() == 0){
-            cout << "ESTE REGISTRO NO PUEDE SER LISTADO" << endl;
+            cout << "El registro no pudo ser listado" << endl;
             return;
         }
         Mostrar(aux);
     }else{
-        cout << "NO EXISTE EL NUMERO DE DNI INGRESADO" << endl;
+        cout << "No existe el ID ingresado" << endl;
     }
 }
 
@@ -107,7 +109,6 @@ void CategoriaManager::baja(){
 
     int respuesta;
     cout << "Estas seguro que deseas eliminar la categoria?" << endl;
-    cout << "1 - Si\n2 - No\n" << endl;
     respuesta = ingresoEntero();
     while (respuesta < 1 || respuesta > 2) {
         cout << "Opcion invalida.";
@@ -129,7 +130,7 @@ void CategoriaManager::baja(){
 void CategoriaManager::modificar(){
     Categoria aux;
     int id;
-    cout << "INGRESE EL ID: ";
+    cout << "Ingrese el ID: ";
     cin >> id;
     cout << endl;
 
@@ -138,12 +139,12 @@ void CategoriaManager::modificar(){
         Categoria aux = _archivo.leerRegistro(posicion);
         Mostrar(aux);
     }else{
-        cout << "NO EXISTE EL ID INGRESADO" << endl;
+        cout << "No existe el ID ingresado" << endl;
         return;
     }
     int respuesta;
-    cout << "ESTA SEGURO QUE QUIERE MODIFICAR EL REGISTRO?" << endl;
-    cout << "(1 - SI | 0 - NO)" << endl;
+    cout << "Esta seguro que quiere modificar el registro?" << endl;
+    cout << "[1] Si \n [2] No\n" << endl;
     cin >> respuesta;
     cout << endl;
 
@@ -151,10 +152,10 @@ void CategoriaManager::modificar(){
     char nombre[20], descripcion[50];
 
     if (respuesta == 1){
-        cout << "INGRESE NUEVAMENTE LOS CAMPOS A MODIFICAR..." << endl;
+        cout << "Ingrese nuevamente los campos a modificar..." << endl;
 
         cout << "Tipo de moviminento:" << endl; // 0 o 1
-        cout << "(0-Credito | 1-Debito) ";
+        cout << "[0] Credito \n [1] Debito \n ";
         cin >> tipoMovimiento;
         aux.setTipoMovimiento(tipoMovimiento);
 
@@ -167,9 +168,9 @@ void CategoriaManager::modificar(){
         aux.setDescripcion(descripcion);
 
         if (_archivo.modificar(aux, posicion)){
-            cout << "REGISTRO MODIFICADO CON EXITO!" << endl;
+            cout << "Registro modificado con exito!" << endl;
         }else{
-            cout << "NO SE PUDO MODIFICAR EL REGISTRO!" << endl;
+            cout << "No se pudo modificar el registro!" << endl;
         }
     }
 }
@@ -207,7 +208,7 @@ string CategoriaManager::getNombreCategoria(int idCategoria){
         return aux.getNombre();
     }
 
-    return "NO SE ENCONTRO LA CATEGORIA";
+    return "No se encontro la categoria";
 }
 
 void CategoriaManager::menu(const Usuario &user)
@@ -216,11 +217,12 @@ void CategoriaManager::menu(const Usuario &user)
     while(true){
         clear();
         cout << "----- CATEGORIAS -----" << endl;
-        cout << "1 - NUEVA CATEGORIA" << endl;
-        cout << "2 - ELIMINAR EXISTENTE" << endl;
-        cout << "3 - MOSTRAR TODAS" << endl;
-        cout << "4 - EDITAR EXISTENTE" << endl << endl;
-        cout << "0 - SALIR" << endl;
+        cout << "[1] NUEVA CATEGORIA" << endl;
+        cout << "[2] ELIMINAR EXISTENTE" << endl;
+        cout << "[3] MOSTRAR TODAS" << endl;
+        cout << "[4] EDITAR EXISTENTE" << endl;
+        cout << endl;
+        cout << "[0] SALIR" << endl;
         cout << "----------------------" << endl;
         cout << "INGRESE UNA OPCION: ";
         //cin >> opcion;
@@ -229,33 +231,23 @@ void CategoriaManager::menu(const Usuario &user)
         switch (opcion){
             case 1:
                 {
-                    Categoria aux = Cargar();
-                    _archivo.guardarArchivo(aux);
-                    break;
+                Categoria aux = Cargar();
+                _archivo.guardarArchivo(aux);
+                break;
                 }
             case 2:
-                {
-                    baja();
-                    break;
-                }
+                baja();
+                break;
             case 3:
-                {
-                    mostrarTodos();
-                    break;
-                }
+                mostrarTodos();
+                break;
             case 4:
-                {
-                    modificar();
-                    break;
-                }
+                modificar();
+                break;
             case 0:
-                {
-                    return;
-                }
+                return;
             default:
-                {
-                    cout << "OPCION INCORRECTA" << endl;
-                }
+                cout << "OPCION INCORRECTA" << endl;
         }
         clear();
     }

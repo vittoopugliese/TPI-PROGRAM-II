@@ -58,7 +58,9 @@ void Indicadores::calcularDistribucionGastos(float &gastosFijos, float &gastosVa
 
 void Indicadores::mostrarGraficoRelacion() {
     float relacion = calcularRelacionIngresoGasto();
-    std::cout << "=== Relacion Ingreso vs. Gasto ===" << std::endl;
+    std::cout << "==========================================================" << std::endl;
+    std::cout << "=============== Relacion Ingreso vs. Gasto ===============" << std::endl;
+    std::cout << "==========================================================" << std::endl;
     std::cout << "Relacion Ingreso vs. Gasto: " << relacion << "%" << std::endl;
 
     cout << "Superavit: Ingresos superan gastos." << endl;
@@ -129,7 +131,9 @@ void Indicadores::showIndicadores() {
 
     calcularDistribucionGastos(gastosFijos, gastosVariables); //Agrego para indicadores --> FRAN
 
-    cout << "=== Distribución de Gastos ===" << endl;
+    cout << "======================================================" << endl;
+    cout << "=============== Distribución de Gastos ===============" << endl;
+    cout << "======================================================" << endl;
     cout << "Gastos Fijos: " << gastosFijos << "%" << endl;
     cout << "Gastos Variables: " << gastosVariables << "%" << endl;
     cout << "\n" << endl;

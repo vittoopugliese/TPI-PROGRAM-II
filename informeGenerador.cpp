@@ -6,8 +6,8 @@
 #include "movimientoArchivo.h"
 #include "fecha.h"
 #include "categoriaManager.h"
-#include "Usuario.h"
-#include "Movimiento.h"
+#include "usuario.h"
+#include "movimiento.h"
 
 using namespace std;
 
