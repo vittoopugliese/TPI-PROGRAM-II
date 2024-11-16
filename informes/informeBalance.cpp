@@ -1,7 +1,7 @@
 #include <iostream>
 #include "informeBalance.h"
-#include "movimientoArchivo.h"
-#include "usuario.h"
+#include "../movimientoArchivo.h"
+#include "../usuario.h"
 using namespace std;
 
 void InformeBalance::mostrarMenuDeBalances(const Usuario &user) {

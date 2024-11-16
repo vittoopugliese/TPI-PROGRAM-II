@@ -2,21 +2,18 @@
 #include <fstream>
 #include <ctime>
 
-#include "funcionesGlobales.h"
 #include "informeManager.h"
-#include "categoriaManager.h"
-#include "indicadores.h"
-#include "porCategoria.h"
-#include "movimientoArchivo.h"
-#include "informeGenerador.h"
-#include "fecha.h"
+#include "../movimientoManager.h"
+#include "../categoriaManager.h"
+#include "../fecha.h"
+#include "../funcionesGlobales.h"
 
 using namespace std;
 
 void InformeManager::menu(const Usuario &user) {
     InformeBalance informeBalance;
-    PorCategoria balancePorCategorias;
-    Indicadores indicadores;
+    InformePorCategoria balancePorCategorias;
+    InformeIndicadores indicadores;
     InformeGenerador informeGenerador;
     int opcion;
 

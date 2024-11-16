@@ -2,12 +2,12 @@
 #include <fstream>
 #include <ctime>
 
-#include "funcionesGlobales.h"
-#include "movimientoArchivo.h"
-#include "fecha.h"
-#include "categoriaManager.h"
-#include "usuario.h"
-#include "movimiento.h"
+#include "../funcionesGlobales.h"
+#include "../movimientoArchivo.h"
+#include "../fecha.h"
+#include "../categoriaManager.h"
+#include "../usuario.h"
+#include "../movimientoManager.h"
 
 using namespace std;
 

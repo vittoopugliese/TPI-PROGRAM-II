@@ -171,10 +171,10 @@
 1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.h
 	"usuario.h"
 
-1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/app.h
+1731752260 /home/juli/Documents/UTN/1-Progra2-2024/TPI/app.h
 	"movimientoManager.h"
 	"categoriaManager.h"
-	"informeManager.h"
+	"informes/informeManager.h"
 	"usuarioManager.h"
 
 1731749320 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.h
@@ -221,7 +221,7 @@
 	"categoriaArchivo.h"
 	<iostream>
 
-1731749396 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
+1731749812 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
 	<iostream>
 	"categoriaManager.h"
 	"funcionesGlobales.h"
@@ -256,18 +256,18 @@
 	"movimientoArchivo.h"
 	"usuario.h"
 
-1731722404 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.cpp
+1731750758 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.cpp
 	<iostream>
 	<fstream>
 	<ctime>
-	"funcionesGlobales.h"
 	"informeManager.h"
-	"categoriaManager.h"
-	"indicadores.h"
-	"porCategoria.h"
 	"movimientoArchivo.h"
+	"categoriaManager.h"
+	"informePorCategoria.h"
+	"informeIndicadores.h"
 	"informeGenerador.h"
 	"fecha.h"
+	"funcionesGlobales.h"
 
 1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/main.cpp
 	<iostream>
@@ -346,10 +346,10 @@
 	"usuarioManager.h"
 	"informeBalance.h"
 
-1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/porCategoria.cpp
+1731750349 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/porCategoria.cpp
 	<iostream>
 	"usuario.h"
-	"porCategoria.h"
+	"informePorCategoria.h"
 	"categoriaManager.h"
 	"movimientoManager.h"
 	"funcionesGlobales.h"
@@ -364,4 +364,88 @@
 	"categoriaManager.h"
 	"usuario.h"
 	"movimiento.h"
+
+1731750062 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informePorCategoria.h
+	"categoriaManager.h"
+	"usuario.h"
+
+1731750659 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeIndicadores.h
+	"movimientoManager.h"
+	"movimiento.h"
+
+1731750627 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeIndicadores.cpp
+	<iostream>
+	<vector>
+	<cstring>
+	"informeIndicadores.h"
+	"movimientoManager.h"
+	"funcionesGlobales.h"
+	"asciichart/ascii.h"
+
+1731752947 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeManager.h
+	"../usuarioManager.h"
+	"informeBalance.h"
+	"informePorCategoria.h"
+	"informeIndicadores.h"
+	"informeGenerador.h"
+
+1731752285 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeBalance.h
+	"../funcionesGlobales.h"
+	"../categoriaManager.h"
+
+1731752663 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeBalance.cpp
+	<iostream>
+	"informeBalance.h"
+	"../movimientoArchivo.h"
+	"../usuario.h"
+
+1731752723 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	"../funcionesGlobales.h"
+	"../movimientoArchivo.h"
+	"../fecha.h"
+	"../categoriaManager.h"
+	"../usuario.h"
+	"../movimientoManager.h"
+
+1731752766 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.cpp
+	<iostream>
+	<vector>
+	<cstring>
+	"informeIndicadores.h"
+	"../movimientoManager.h"
+	"../funcionesGlobales.h"
+	"../asciichart/ascii.h"
+
+1731752737 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.h
+	"../movimientoManager.h"
+	"../movimiento.h"
+
+1731752845 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informePorCategoria.cpp
+	<iostream>
+	"../usuario.h"
+	"informePorCategoria.h"
+	"../categoriaManager.h"
+	"../movimientoManager.h"
+	"../funcionesGlobales.h"
+
+1731752830 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informePorCategoria.h
+	"../categoriaManager.h"
+	"../usuarioManager.h"
+
+1731752871 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.h
+	"../usuarioManager.h"
+	"informeBalance.h"
+
+1731752912 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeManager.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	"informeManager.h"
+	"../movimientoManager.h"
+	"../categoriaManager.h"
+	"../fecha.h"
+	"../funcionesGlobales.h"
 
