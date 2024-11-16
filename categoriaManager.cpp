@@ -3,7 +3,49 @@ using namespace std;
 #include "categoriaManager.h"
 #include "funcionesGlobales.h"
 
-Categoria CategoriaManager::Cargar(){
+void CategoriaManager::menu(const Usuario &user) {
+    int opcion;
+    while(true){
+        clear();
+        cout << "----- CATEGORIAS -----" << endl;
+        cout << "[1] NUEVA CATEGORIA" << endl;
+        cout << "[2] ELIMINAR EXISTENTE" << endl;
+        cout << "[3] MOSTRAR TODAS" << endl;
+        cout << "[4] EDITAR EXISTENTE" << endl;
+        cout << endl;
+        cout << "[0] SALIR" << endl;
+        cout << "----------------------" << endl;
+        cout << "INGRESE UNA OPCION: ";
+        //cin >> opcion;
+        opcion = ingresoEntero();
+        clear();
+        switch (opcion){
+            case 1:
+                {
+                    Categoria aux = cargar();
+                    _archivo.guardarArchivo(aux);
+                    break;
+                }
+            case 2:
+                baja();
+                break;
+            case 3:
+                mostrarTodos();
+                break;
+            case 4:
+                modificar();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION INCORRECTA" << endl;
+        }
+        clear();
+    }
+    return;
+}
+
+Categoria CategoriaManager::cargar() {
     Categoria aux;
     CategoriaArchivo archiCategorias("categorias.dat");
     int tipoMovimiento, idCategoria;
@@ -32,7 +74,7 @@ Categoria CategoriaManager::Cargar(){
     return aux;
 }
 
-void CategoriaManager::Mostrar(Categoria categoria) {
+void CategoriaManager::mostrar(Categoria categoria) {
     if (categoria.getEstado() == true){
         cout << "Tipo: ";
         cout << (categoria.getTipoMovimiento()==0 ? "Credito (+)" : "Debito (-)") << endl;
@@ -58,12 +100,12 @@ int CategoriaManager::contarCategoriasActivas() {
     return cantidadActivos;
 }
 
-void CategoriaManager::mostrarTodos(){
+void CategoriaManager::mostrarTodos() {
     int cantReg = _archivo.contarRegistros();
     Categoria aux;
 
     for(int i = 0; i<cantReg; i++){
-        Mostrar(_archivo.leerRegistro(i));
+        mostrar(_archivo.leerRegistro(i));
     }
     pausa();
 }
@@ -85,13 +127,13 @@ void CategoriaManager::buscarPorIdCategoria(){
             cout << "El registro no pudo ser listado" << endl;
             return;
         }
-        Mostrar(aux);
+        mostrar(aux);
     }else{
         cout << "No existe el ID ingresado" << endl;
     }
 }
 
-void CategoriaManager::baja(){
+void CategoriaManager::baja() {
     Categoria categoria;
     int id;
     cout << "Ingrese el ID: ";
@@ -101,7 +143,7 @@ void CategoriaManager::baja(){
     int posicion = _archivo.buscar(id);
     if (posicion >= 0 && categoria.getIdCategoria() != 0){
         Categoria aux = _archivo.leerRegistro(posicion);
-        Mostrar(aux);
+        mostrar(aux);
     }else{
         cout << "No existe el ID ingresado." << endl;
         return;
@@ -127,7 +169,7 @@ void CategoriaManager::baja(){
     }
 }
 
-void CategoriaManager::modificar(){
+void CategoriaManager::modificar() {
     Categoria aux;
     int id;
     cout << "Ingrese el ID: ";
@@ -137,7 +179,7 @@ void CategoriaManager::modificar(){
     int posicion = _archivo.buscar(id);
     if (posicion >= 0){
         Categoria aux = _archivo.leerRegistro(posicion);
-        Mostrar(aux);
+        mostrar(aux);
     }else{
         cout << "No existe el ID ingresado" << endl;
         return;
@@ -175,7 +217,7 @@ void CategoriaManager::modificar(){
     }
 }
 
-int CategoriaManager::getTipoDeMovimientoFromIdCategoria(int idCategoria){
+int CategoriaManager::getTipoDeMovimientoFromIdCategoria(int idCategoria) {
     Categoria aux;
     int posicion = _archivo.buscar(idCategoria);
 
@@ -199,7 +241,7 @@ void CategoriaManager::mostrarTodasInline() {
     }
 }
 
-string CategoriaManager::getNombreCategoria(int idCategoria){
+string CategoriaManager::getNombreCategoria(int idCategoria) {
     Categoria aux;
     int posicion = _archivo.buscar(idCategoria);
 
@@ -209,47 +251,4 @@ string CategoriaManager::getNombreCategoria(int idCategoria){
     }
 
     return "No se encontro la categoria";
-}
-
-void CategoriaManager::menu(const Usuario &user)
- {
-  int opcion;
-    while(true){
-        clear();
-        cout << "----- CATEGORIAS -----" << endl;
-        cout << "[1] NUEVA CATEGORIA" << endl;
-        cout << "[2] ELIMINAR EXISTENTE" << endl;
-        cout << "[3] MOSTRAR TODAS" << endl;
-        cout << "[4] EDITAR EXISTENTE" << endl;
-        cout << endl;
-        cout << "[0] SALIR" << endl;
-        cout << "----------------------" << endl;
-        cout << "INGRESE UNA OPCION: ";
-        //cin >> opcion;
-        opcion = ingresoEntero();
-        clear();
-        switch (opcion){
-            case 1:
-                {
-                Categoria aux = Cargar();
-                _archivo.guardarArchivo(aux);
-                break;
-                }
-            case 2:
-                baja();
-                break;
-            case 3:
-                mostrarTodos();
-                break;
-            case 4:
-                modificar();
-                break;
-            case 0:
-                return;
-            default:
-                cout << "OPCION INCORRECTA" << endl;
-        }
-        clear();
-    }
-    return;
 }

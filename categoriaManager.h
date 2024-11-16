@@ -11,8 +11,8 @@ class CategoriaManager {
         void modificar();
     public:
         void menu(const Usuario &user);
-        Categoria Cargar();
-        void Mostrar (Categoria categoria);
+        Categoria cargar();
+        void mostrar (Categoria categoria);
         void baja(); // Eliminar
         void mostrarTodos();
         void buscarPorIdCategoria(); // a definir

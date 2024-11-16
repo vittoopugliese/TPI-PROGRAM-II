@@ -177,7 +177,7 @@
 	"informeManager.h"
 	"usuarioManager.h"
 
-1731546476 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.h
+1731749320 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.h
 	"movimiento.h"
 	"movimientoArchivo.h"
 	"usuarioManager.h"
@@ -192,7 +192,7 @@
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoArchivo.h
 	"movimiento.h"
 
-1731546476 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.h
+1731749593 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.h
 	"categoria.h"
 	"categoriaArchivo.h"
 	"usuarioManager.h"
@@ -221,7 +221,7 @@
 	"categoriaArchivo.h"
 	<iostream>
 
-1731722629 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
+1731749396 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
 	<iostream>
 	"categoriaManager.h"
 	"funcionesGlobales.h"
@@ -300,7 +300,7 @@
 	"usuarioManager.h"
 	"usuarioArchivo.h"
 
-1731720530 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.cpp
+1731749318 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.cpp
 	<iostream>
 	"usuarioManager.h"
 	"movimientoManager.h"

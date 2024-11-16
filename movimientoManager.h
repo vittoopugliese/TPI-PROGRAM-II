@@ -10,7 +10,7 @@ public:
     void menu(const Usuario &user);
     void cargar(const Usuario &user);
     void mostrar(Movimiento reg);
-    void eliminarMovimiento(const Usuario &user);
+    void baja(const Usuario &user);
     void mostrarTodos(const Usuario &user);
     //-------FILTROS------
     void menuFiltros(const Usuario &user);

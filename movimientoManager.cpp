@@ -427,7 +427,7 @@ void MovimientoManager::porFecha(const Usuario &user){
     clear();
 }
 
-void MovimientoManager::eliminarMovimiento(const Usuario &user) {
+void MovimientoManager::baja(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     Movimiento reg;
     int cantidad = archivoMovimiento.contarRegistros();
@@ -518,7 +518,7 @@ void MovimientoManager::menu(const Usuario &user) {
                 menuFiltros(user);
                 break;
             case 4:
-                eliminarMovimiento(user);
+                baja(user);
                 break;
             case 0:
                 return;
