@@ -42,10 +42,9 @@ void CategoriaManager::Mostrar(Categoria categoria) {
         cout << endl;
         cout << "-------------------------------" << endl;
     }
-
 }
 
-int CategoriaManager::contarCategoriasActivas() {
+int CategoriaManager::contarCategoriasActivas(userID) {
     int cantReg = _archivo.contarRegistros();
     Categoria aux;
     int cantidadActivos = 0;
@@ -58,7 +57,7 @@ int CategoriaManager::contarCategoriasActivas() {
     return cantidadActivos;
 }
 
-void CategoriaManager::mostrarTodos(){
+void CategoriaManager::mostrarTodos(userID){
     int cantReg = _archivo.contarRegistros();
     Categoria aux;
 
