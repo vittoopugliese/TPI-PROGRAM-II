@@ -419,7 +419,7 @@
 1731753773 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.h
 	"../movimientoManager.h"
 
-1731752845 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informePorCategoria.cpp
+1731754749 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informePorCategoria.cpp
 	<iostream>
 	"../usuario.h"
 	"informePorCategoria.h"

@@ -11,8 +11,8 @@ void MovimientoManager::menu(const Usuario &user) {
         cout << "[1] NUEVO MOVIMIENTO" << endl;
         cout << "[2] MOSTRAR TODOS" << endl;
         cout << "[3] FILTRAR" << endl;
-        cout << "[4] ELIMINAR POR ID" << endl << endl;
-
+        cout << "[4] ELIMINAR POR ID" << endl;
+        cout << endl;
         cout << "[0] SALIR" << endl;
         cout << "-----------------------" << endl;
 
@@ -226,7 +226,8 @@ void MovimientoManager::cargar(const Usuario &user) {
             }
             cout << "------------------------------------" << endl;
 
-            cout << "Cargar otro movimiento para este dia? \n 1-Si \n 2-No \n";
+            cout << "Cargar otro movimiento para este dia?" << endl;
+            cout << "\n 1-Si \n 2-No \n";
             seguirCargando = ingresoEntero();
             while (!(seguirCargando == 1 || seguirCargando == 2)) {
                 cout << "Opcion invalida.";
@@ -235,7 +236,8 @@ void MovimientoManager::cargar(const Usuario &user) {
 
             if (seguirCargando == 2) {
                 cout << "------------------------------------" << endl;
-                cout << "Desea seguir cargando movimientos para este mes? \n 1-Si \n 2-No \n";
+                cout << "Desea seguir cargando movimientos para este mes?" << endl;
+                cout << "\n 1-Si \n 2-No \n";
                 seguirCargando = ingresoEntero();
                 while (seguirCargando < 1 || seguirCargando > 2) {
                     cout << "Opcion invalida.";
@@ -328,12 +330,12 @@ void MovimientoManager::menuFiltros(const Usuario &user) {
     int opcion;
     while(true) {
         cout << "---- FILTRAR POR... ---" << endl;
-        cout << "1 - TIPO DE MOVIMIENTO" << endl;
-        cout << "2 - CATEGORIA" << endl;
-        cout << "3 - FECHA" << endl;
-        cout << "4 - MOSTRAR TODOS" << endl << endl;
-
-        cout << "0 - SALIR" << endl;
+        cout << "[1] TIPO DE MOVIMIENTO" << endl;
+        cout << "[2] CATEGORIA" << endl;
+        cout << "[3] FECHA" << endl;
+        cout << "[4] MOSTRAR TODOS" << endl;
+        cout << endl;
+        cout << "[0] SALIR" << endl;
         cout << "------------------------" << endl;
         cout << "INGRESE OPCION: ";
         opcion = ingresoEntero();
