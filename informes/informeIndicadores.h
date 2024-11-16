@@ -1,8 +1,7 @@
 #pragma once
-#include "movimientoManager.h"
-#include "movimiento.h"
+#include "../movimientoManager.h"
 
-class Indicadores {
+class InformeIndicadores {
 public:
     // Calcula la relación entre ingresos y gastos totales
     float calcularRelacionIngresoGasto();

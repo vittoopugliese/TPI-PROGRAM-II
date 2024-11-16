@@ -1,7 +1,7 @@
 #pragma once
 #include "movimientoManager.h"
 #include "categoriaManager.h"
-#include "informeManager.h"
+#include "informes/informeManager.h"
 #include "usuarioManager.h"
 
 class App {

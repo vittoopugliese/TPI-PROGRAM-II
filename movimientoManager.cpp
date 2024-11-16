@@ -1,10 +1,47 @@
 #include <iostream>
 using namespace std;
-#include "usuarioManager.h"
 #include "movimientoManager.h"
-#include "categoriaManager.h"
-#include "funcionesGlobales.h"
-#include "fecha.h"
+
+void MovimientoManager::menu(const Usuario &user) {
+    int opcion;
+
+    while(true) {
+        clear();
+        cout << "----- MOVIMIENTOS -----" << endl;
+        cout << "[1] NUEVO MOVIMIENTO" << endl;
+        cout << "[2] MOSTRAR TODOS" << endl;
+        cout << "[3] FILTRAR" << endl;
+        cout << "[4] ELIMINAR POR ID" << endl;
+        cout << endl;
+        cout << "[0] SALIR" << endl;
+        cout << "-----------------------" << endl;
+
+        cout << "INGRESE OPCION: ";
+        opcion = ingresoEntero();
+
+        clear();
+
+        switch(opcion) {
+            case 1:
+                cargar(user);
+                break;
+            case 2:
+                mostrarTodos(user);
+                break;
+            case 3:
+                menuFiltros(user);
+                break;
+            case 4:
+                baja(user);
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION INCORRECTA" << endl;
+        }
+        clear();
+    }
+}
 
 void MovimientoManager::cargar(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
@@ -117,6 +154,35 @@ void MovimientoManager::cargar(const Usuario &user) {
                 subtotalMes -= importe;
             }
 
+//<<<<<<< HEAD
+//            Fecha fecha;
+//            fecha.setDia(dia);
+//            fecha.setMes(mes);
+//            fecha.setAnio(anio);
+//            movimientoAuxiliar.setFecha(fecha);
+//
+//            int respuesta;
+//            cout << "Es un movimiento recurrente? \n 1-Si \n 2-No \n";
+//            respuesta = ingresoEntero();
+//
+//            (respuesta == 1 ? movimientoAuxiliar.setRecurrencia(true) : movimientoAuxiliar.setRecurrencia(false));
+//            int tipoDeRecurrencia = 0;
+//
+//            if(respuesta == 1) {
+//                cout << "Ingrese el tipo de recurrencia:\n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
+//                tipoDeRecurrencia = ingresoEntero();
+//
+//                while(tipoDeRecurrencia < 1 || tipoDeRecurrencia > 4) {
+//                    cout << "Tipo de recurrencia incorrecto. \n1-Unico\n2-Mensual\n3-Bimestral\n4-Anual\n";
+//                    tipoDeRecurrencia = ingresoEntero();
+//                }
+//
+//                movimientoAuxiliar.setTipoDeRecurrencia(tipoDeRecurrencia-1);
+//            }
+//
+//
+//=======
+//>>>>>>> origin/main
             char descripcion[100];
             cout << "Ingrese descripcion: ";
             cin.ignore();
@@ -160,7 +226,8 @@ void MovimientoManager::cargar(const Usuario &user) {
             }
             cout << "------------------------------------" << endl;
 
-            cout << "Cargar otro movimiento para este dia? \n 1-Si \n 2-No \n";
+            cout << "Cargar otro movimiento para este dia?" << endl;
+            cout << "\n 1-Si \n 2-No \n";
             seguirCargando = ingresoEntero();
             while (!(seguirCargando == 1 || seguirCargando == 2)) {
                 cout << "Opcion invalida.";
@@ -169,7 +236,8 @@ void MovimientoManager::cargar(const Usuario &user) {
 
             if (seguirCargando == 2) {
                 cout << "------------------------------------" << endl;
-                cout << "Desea seguir cargando movimientos para este mes? \n 1-Si \n 2-No \n";
+                cout << "Desea seguir cargando movimientos para este mes?" << endl;
+                cout << "\n 1-Si \n 2-No \n";
                 seguirCargando = ingresoEntero();
                 while (seguirCargando < 1 || seguirCargando > 2) {
                     cout << "Opcion invalida.";
@@ -262,12 +330,12 @@ void MovimientoManager::menuFiltros(const Usuario &user) {
     int opcion;
     while(true) {
         cout << "---- FILTRAR POR... ---" << endl;
-        cout << "1 - TIPO DE MOVIMIENTO" << endl;
-        cout << "2 - CATEGORIA" << endl;
-        cout << "3 - FECHA" << endl;
-        cout << "4 - MOSTRAR TODOS" << endl << endl;
-
-        cout << "0 - SALIR" << endl;
+        cout << "[1] TIPO DE MOVIMIENTO" << endl;
+        cout << "[2] CATEGORIA" << endl;
+        cout << "[3] FECHA" << endl;
+        cout << "[4] MOSTRAR TODOS" << endl;
+        cout << endl;
+        cout << "[0] SALIR" << endl;
         cout << "------------------------" << endl;
         cout << "INGRESE OPCION: ";
         opcion = ingresoEntero();
@@ -276,36 +344,24 @@ void MovimientoManager::menuFiltros(const Usuario &user) {
 
         switch(opcion) {
             case 1:
-                {
                     porTipo(user);
                     break;
-                }
             case 2:
-                {
                     porCategoria(user);
                     break;
-                }
             case 3:
-                {
                     porFecha(user);
                     break;
-                }
             case 4:
-                {
                     mostrarTodos(user);
                     clear();
                     break;
-                }
             case 0:
-                {
                     return;
-                }
             default:
-                {
                     cout << "OPCION INCORRECTA" << endl;
                     pausa();
                     break;
-                }
         }
     }
 }
@@ -410,7 +466,7 @@ void MovimientoManager::porFecha(const Usuario &user){
     clear();
 }
 
-void MovimientoManager::eliminarMovimiento(const Usuario &user) {
+void MovimientoManager::baja(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
     Movimiento reg;
     int cantidad = archivoMovimiento.contarRegistros();
@@ -467,59 +523,5 @@ void MovimientoManager::eliminarMovimiento(const Usuario &user) {
         cout << "----------------------------------------" << endl;
         mostrarTodos(user);
         return;
-    }
-}
-
-
-void MovimientoManager::menu(const Usuario &user) {
-    int opcion;
-
-    while(true) {
-        clear();
-        cout << "----- MOVIMIENTOS -----" << endl;
-        cout << "1 - NUEVO MOVIMIENTO" << endl;
-        cout << "2 - MOSTRAR TODOS" << endl;
-        cout << "3 - FILTRAR" << endl;
-        cout << "4 - ELIMINAR POR ID" << endl << endl;
-
-        cout << "0 - SALIR" << endl;
-        cout << "-----------------------" << endl;
-
-        cout << "INGRESE OPCION: ";
-        opcion = ingresoEntero();
-
-        clear();
-
-        switch(opcion) {
-            case 1:
-                {
-                    cargar(user);
-                    break;
-                }
-            case 2:
-                {
-                    mostrarTodos(user);
-                    break;
-                }
-            case 3:
-                {
-                    menuFiltros(user);
-                    break;
-                }
-            case 4:
-                {
-                    eliminarMovimiento(user);
-                    break;
-                }
-            case 0:
-                {
-                    return;
-                }
-            default:
-                {
-                    cout << "OPCION INCORRECTA" << endl;
-                }
-        }
-        clear();
     }
 }

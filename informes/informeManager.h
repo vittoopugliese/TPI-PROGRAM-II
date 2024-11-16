@@ -1,7 +1,10 @@
 #pragma once
 using namespace std;
-#include "usuarioManager.h"
+#include "../usuarioManager.h"
 #include "informeBalance.h"
+#include "informePorCategoria.h"
+#include "informeIndicadores.h"
+#include "informeGenerador.h"
 
 class InformeManager {
     InformeBalance informeBalance;

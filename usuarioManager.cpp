@@ -1,6 +1,4 @@
-#include "funcionesGlobales.h"
 #include "usuarioManager.h"
-#include "usuarioArchivo.h"
 
 bool UsuarioManager::esUsuarioExistente(Usuario &usuario) {
     if (usuario.getUsuarioID() == -1) {
@@ -79,7 +77,9 @@ Usuario UsuarioManager::registrarUsuario() {
     std::cout << "Usuario creado exitosamente!" << std::endl;
     std::cout << "Tu numero de usuario es: " << newUser.getUsuarioID() << std::endl;
     std::cout << "----------------------------------------" << std::endl;
-    std::cout << "Guarda este numero en un lugar seguro." << std::endl;
+    std::cout << "--------!!!-----ATENCION-----!!!--------" << std::endl;
+    std::cout << "----------------------------------------" << std::endl;
+    std::cout << "GUARDE ESTE NUMERO EN UN LUGAR SEGURO." << std::endl;
     std::cout << "Deberas usarlo luego para poder ingresar." << std::endl;
     std::cout << "----------------------------------------" << std::endl;
     pausa();

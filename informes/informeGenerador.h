@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
-#include "usuarioManager.h"
 #include "informeBalance.h"
+#include "../usuarioManager.h"
 
 class InformeGenerador {
 public:

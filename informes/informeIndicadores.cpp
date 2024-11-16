@@ -1,12 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
-#include "indicadores.h"
-#include "movimientoManager.h"  // Incluye MovimientoArchivo para acceder a sus métodos
-#include "funcionesGlobales.h"
-#include "asciichart/ascii.h"
 
-float Indicadores::calcularRelacionIngresoGasto() {
+#include "informeIndicadores.h"
+#include "../movimientoManager.h"  // Incluye MovimientoArchivo para acceder a sus métodos
+#include "../funcionesGlobales.h"
+#include "../asciichart/ascii.h"
+
+float InformeIndicadores::calcularRelacionIngresoGasto() {
     float ingresosTotales = 0;
     float gastosTotales = 0;
 
@@ -26,7 +27,7 @@ float Indicadores::calcularRelacionIngresoGasto() {
     return (gastosTotales / ingresosTotales) * 100;
 }
 
-void Indicadores::calcularDistribucionGastos(float &gastosFijos, float &gastosVariables) {
+void InformeIndicadores::calcularDistribucionGastos(float &gastosFijos, float &gastosVariables) {
     gastosFijos = 0;
     gastosVariables = 0;
     float gastosTotales = 0;
@@ -56,9 +57,11 @@ void Indicadores::calcularDistribucionGastos(float &gastosFijos, float &gastosVa
     }
 }
 
-void Indicadores::mostrarGraficoRelacion() {
+void InformeIndicadores::mostrarGraficoRelacion() {
     float relacion = calcularRelacionIngresoGasto();
-    std::cout << "=== Relacion Ingreso vs. Gasto ===" << std::endl;
+    std::cout << "==========================================================================" << std::endl;
+    std::cout << "======================= Relacion Ingreso vs. Gasto =======================" << std::endl;
+    std::cout << "==========================================================================" << std::endl;
     std::cout << "Relacion Ingreso vs. Gasto: " << relacion << "%" << std::endl;
 
     cout << "Superavit: Ingresos superan gastos." << endl;
@@ -91,7 +94,7 @@ void Indicadores::mostrarGraficoRelacion() {
     }
 }
 
-void Indicadores::mostrarGraficoDistribucion() {
+void InformeIndicadores::mostrarGraficoDistribucion() {
     float gastosFijos = 0, gastosVariables = 0;
     calcularDistribucionGastos(gastosFijos, gastosVariables);
 
@@ -119,7 +122,7 @@ void Indicadores::mostrarGraficoDistribucion() {
     std::cout << graficoDistribucion.Plot() << std::endl;
 }
 
-void Indicadores::showIndicadores() {
+void InformeIndicadores::showIndicadores() {
 
     mostrarGraficoRelacion(); //Agrego para indicadores --> FRAN
 
@@ -129,7 +132,9 @@ void Indicadores::showIndicadores() {
 
     calcularDistribucionGastos(gastosFijos, gastosVariables); //Agrego para indicadores --> FRAN
 
-    cout << "=== Distribución de Gastos ===" << endl;
+    cout << "============================================================================" << endl;
+    cout << "========================== Distribución de Gastos ==========================" << endl;
+    cout << "============================================================================" << endl;
     cout << "Gastos Fijos: " << gastosFijos << "%" << endl;
     cout << "Gastos Variables: " << gastosVariables << "%" << endl;
     cout << "\n" << endl;

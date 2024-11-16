@@ -1,0 +1,447 @@
+# depslib dependency file v1.0
+1731536400 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"usuario.h"
+	"usuarioArchivo.h"
+	"usuarioManager.h"
+	"app.h"
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\funcionesglobales.h
+	<iostream>
+	<cstring>
+
+1731538066 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.h
+	<iostream>
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuarioarchivo.h
+	<iostream>
+	"usuario.h"
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuariomanager.h
+	<iostream>
+	"usuario.h"
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\app.h
+	"movimientoManager.h"
+	"categoriaManager.h"
+	"informeManager.h"
+	"usuarioManager.h"
+
+1731538094 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.h
+	"movimiento.h"
+	"movimientoArchivo.h"
+	"usuarioManager.h"
+	<string>
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.h
+	"fecha.h"
+
+1731466785 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.h
+	<string>
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientoarchivo.h
+	"movimiento.h"
+
+1731540292 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.h
+	"categoria.h"
+	"categoriaArchivo.h"
+	"usuarioManager.h"
+	<cstring>
+
+1731369398 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoria.h
+	<cstring>
+
+1731368446 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriaarchivo.h
+	"categoria.h"
+
+1731537712 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.h
+	"usuarioManager.h"
+	"informeBalance.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoria.cpp
+	<iostream>
+	"categoria.h"
+	"categoriaManager.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriaarchivo.cpp
+	"categoriaArchivo.h"
+	<iostream>
+
+1731541751 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\categoriamanager.cpp
+	<iostream>
+	"categoriaManager.h"
+	"funcionesGlobales.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\fecha.cpp
+	<iostream>
+	"fecha.h"
+	<ctime>
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\funcionesglobales.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	<iostream>
+	<cstdlib>
+
+1731537718 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informemanager.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"informeManager.h"
+	"categoriaManager.h"
+	"indicadores.h"
+
+1731536906 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.h
+	"movimientoManager.h"
+	"movimiento.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\main.cpp
+	<iostream>
+	"usuarioManager.h"
+	"app.h"
+
+1731536906 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimiento.cpp
+	<iostream>
+	"movimiento.h"
+	"funcionesGlobales.h"
+	"movimientoArchivo.h"
+
+1731369398 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientoarchivo.cpp
+	"movimientoArchivo.h"
+	<cstdio>
+	<string.h>
+
+1731539208 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuario.cpp
+	"usuario.h"
+	"usuarioArchivo.h"
+	<cstring>
+	<functional>
+
+1731368446 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuarioarchivo.cpp
+	"usuarioArchivo.h"
+
+1731535865 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\usuariomanager.cpp
+	"funcionesGlobales.h"
+	"usuarioManager.h"
+	"usuarioArchivo.h"
+
+1731540720 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\movimientomanager.cpp
+	<iostream>
+	"usuarioManager.h"
+	"movimientoManager.h"
+	"categoriaManager.h"
+	"funcionesGlobales.h"
+	"fecha.h"
+
+1731539127 h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.h
+	"funcionesGlobales.h"
+	"categoriaManager.h"
+
+1731536906 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\indicadores.cpp
+	<iostream>
+	<vector>
+	<cstring>
+	"indicadores.h"
+	"movimientoManager.h"
+	"funcionesGlobales.h"
+
+1731537668 source:h:\salchy\utn\cursada 2024\prog ii\tpi-progii\informebalance.cpp
+	<iostream>
+	"informeBalance.h"
+	"movimientoArchivo.h"
+
+1731722611 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/app.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	"usuario.h"
+	"usuarioArchivo.h"
+	"usuarioManager.h"
+	"app.h"
+
+1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/funcionesGlobales.h
+	<iostream>
+	<cstring>
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuario.h
+	<iostream>
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioArchivo.h
+	"usuario.h"
+
+1731754340 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.h
+	"usuario.h"
+	"usuarioArchivo.h"
+	"funcionesGlobales.h"
+
+1731752260 /home/juli/Documents/UTN/1-Progra2-2024/TPI/app.h
+	"movimientoManager.h"
+	"categoriaManager.h"
+	"informes/informeManager.h"
+	"usuarioManager.h"
+
+1731754224 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.h
+	"usuarioManager.h"
+	"movimiento.h"
+	"movimientoArchivo.h"
+	"categoriaManager.h"
+	"funcionesGlobales.h"
+	"fecha.h"
+	<string>
+
+1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimiento.h
+	"fecha.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/fecha.h
+	<string>
+
+1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoArchivo.h
+	"movimiento.h"
+
+1731754038 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.h
+	"categoria.h"
+	"categoriaArchivo.h"
+	"usuarioManager.h"
+	"funcionesGlobales.h"
+	<cstring>
+
+1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoria.h
+	<cstring>
+
+1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaArchivo.h
+	"categoria.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.h
+	"usuarioManager.h"
+	"informeBalance.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeBalance.h
+	"funcionesGlobales.h"
+	"categoriaManager.h"
+
+1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoria.cpp
+	<iostream>
+	"categoria.h"
+	"categoriaManager.h"
+
+1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaArchivo.cpp
+	"categoriaArchivo.h"
+	<iostream>
+
+1731754043 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
+	<iostream>
+	"categoriaManager.h"
+
+1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/fecha.cpp
+	<iostream>
+	"fecha.h"
+	<ctime>
+
+1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/funcionesGlobales.cpp
+	<iostream>
+	"funcionesGlobales.h"
+	<iostream>
+	<cstdlib>
+
+1731717869 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/indicadores.cpp
+	<iostream>
+	<vector>
+	<cstring>
+	"indicadores.h"
+	"movimientoManager.h"
+	"funcionesGlobales.h"
+	"asciichart/ascii.h"
+
+1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/indicadores.h
+	"movimientoManager.h"
+	"movimiento.h"
+
+1731722331 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeBalance.cpp
+	<iostream>
+	"informeBalance.h"
+	"movimientoArchivo.h"
+	"usuario.h"
+
+1731750758 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeManager.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	"informeManager.h"
+	"movimientoArchivo.h"
+	"categoriaManager.h"
+	"informePorCategoria.h"
+	"informeIndicadores.h"
+	"informeGenerador.h"
+	"fecha.h"
+	"funcionesGlobales.h"
+
+1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/main.cpp
+	<iostream>
+	<iomanip>
+	"usuarioManager.h"
+	"app.h"
+
+1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimiento.cpp
+	<iostream>
+	"movimiento.h"
+	"funcionesGlobales.h"
+	"movimientoArchivo.h"
+
+1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoArchivo.cpp
+	"movimientoArchivo.h"
+	<cstdio>
+	<string.h>
+
+1731546476 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuario.cpp
+	"usuario.h"
+	"usuarioArchivo.h"
+	<cstring>
+	<functional>
+
+1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioArchivo.cpp
+	"usuarioArchivo.h"
+
+1731754345 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.cpp
+	"usuarioManager.h"
+
+1731754229 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.cpp
+	<iostream>
+	"movimientoManager.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/ascii.h
+	<cmath>
+	<codecvt>
+	<iomanip>
+	<map>
+	<sstream>
+	<string>
+	<unordered_map>
+	<vector>
+	"color.h"
+	"constants.h"
+	"text.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/color.h
+	<iostream>
+	<ostream>
+	<sstream>
+	<string>
+	<type_traits>
+	<vector>
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/constants.h
+	<limits>
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/text.h
+	"style.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/style.h
+	"color.h"
+
+1731722509 /home/juli/Documents/UTN/1-Progra2-2024/TPI/porCategoria.h
+	"categoriaManager.h"
+	"usuario.h"
+
+1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeGenerador.h
+	"usuarioManager.h"
+	"informeBalance.h"
+
+1731750349 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/porCategoria.cpp
+	<iostream>
+	"usuario.h"
+	"informePorCategoria.h"
+	"categoriaManager.h"
+	"movimientoManager.h"
+	"funcionesGlobales.h"
+
+1731714035 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeGenerador.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	"funcionesGlobales.h"
+	"movimientoArchivo.h"
+	"fecha.h"
+	"categoriaManager.h"
+	"usuario.h"
+	"movimiento.h"
+
+1731750062 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informePorCategoria.h
+	"categoriaManager.h"
+	"usuario.h"
+
+1731750659 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informeIndicadores.h
+	"movimientoManager.h"
+	"movimiento.h"
+
+1731750627 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informeIndicadores.cpp
+	<iostream>
+	<vector>
+	<cstring>
+	"informeIndicadores.h"
+	"movimientoManager.h"
+	"funcionesGlobales.h"
+	"asciichart/ascii.h"
+
+1731752947 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeManager.h
+	"../usuarioManager.h"
+	"informeBalance.h"
+	"informePorCategoria.h"
+	"informeIndicadores.h"
+	"informeGenerador.h"
+
+1731752285 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeBalance.h
+	"../funcionesGlobales.h"
+	"../categoriaManager.h"
+
+1731753820 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeBalance.cpp
+	<iostream>
+	"informeBalance.h"
+	"../movimientoManager.h"
+	"../usuario.h"
+
+1731753734 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	"../funcionesGlobales.h"
+	"../fecha.h"
+	"../categoriaManager.h"
+	"../movimientoManager.h"
+
+1731753257 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.cpp
+	<iostream>
+	<vector>
+	<cstring>
+	"informeIndicadores.h"
+	"../movimientoManager.h"
+	"../funcionesGlobales.h"
+	"../asciichart/ascii.h"
+
+1731753773 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.h
+	"../movimientoManager.h"
+
+1731754749 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informePorCategoria.cpp
+	<iostream>
+	"../usuario.h"
+	"informePorCategoria.h"
+	"../categoriaManager.h"
+	"../movimientoManager.h"
+	"../funcionesGlobales.h"
+
+1731752830 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informePorCategoria.h
+	"../categoriaManager.h"
+	"../usuarioManager.h"
+
+1731753700 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.h
+	"informeBalance.h"
+	"../usuarioManager.h"
+
+1731753649 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeManager.cpp
+	<iostream>
+	<fstream>
+	<ctime>
+	"informeManager.h"
+	"../movimientoManager.h"
+	"../categoriaManager.h"
+	"../fecha.h"
+	"../funcionesGlobales.h"
+

@@ -1,16 +1,14 @@
 #include <iostream>
-#include "usuario.h"
+#include "../usuario.h"
 #include "informePorCategoria.h"
-#include "categoriaManager.h"
-#include "movimientoManager.h"
-#include "funcionesGlobales.h"
+#include "../categoriaManager.h"
+#include "../movimientoManager.h"
+#include "../funcionesGlobales.h"
 
 void InformePorCategoria::balancePorCateoria(const Usuario &user) {
     MovimientoArchivo movArch("movimientos.dat");
-    CategoriaArchivo categoriaArchivo("categorias.dat");
-    int cantMov = movArch.contarRegistros();
     Movimiento mov;
-
+    CategoriaArchivo categoriaArchivo("categorias.dat");
     int cantReg = categoriaArchivo.contarRegistros();
     Categoria categoriaAuxiliar;
 
