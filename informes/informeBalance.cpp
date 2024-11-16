@@ -1,6 +1,6 @@
 #include <iostream>
 #include "informeBalance.h"
-#include "../movimientoArchivo.h"
+#include "../movimientoManager.h"
 #include "../usuario.h"
 using namespace std;
 

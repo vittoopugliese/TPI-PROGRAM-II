@@ -3,10 +3,8 @@
 #include <ctime>
 
 #include "../funcionesGlobales.h"
-#include "../movimientoArchivo.h"
 #include "../fecha.h"
 #include "../categoriaManager.h"
-#include "../usuario.h"
 #include "../movimientoManager.h"
 
 using namespace std;
@@ -30,9 +28,9 @@ void InformeGenerador::generarInformeTXT(const Usuario &user) {
     time_t now = time(0);
     tm* ltm = localtime(&now);
     string nombreArchivo = "informe_" +
-                          to_string(ltm->tm_mday) + "-" +
-                          to_string(1 + ltm->tm_mon) + "-" +
-                          to_string(1900 + ltm->tm_year) + ".txt";
+        to_string(ltm->tm_mday) + "-" +
+        to_string(1 + ltm->tm_mon) + "-" +
+        to_string(1900 + ltm->tm_year) + ".txt";
 
     ofstream archivo(nombreArchivo);
 

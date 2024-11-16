@@ -1,0 +1,20 @@
+INFORME DE MOVIMIENTOS
+======================
+
+INGRESOS (CREDITOS)
+===================
+Fecha: 23/4/2022
+Importe: $200
+Categoría: Vehiculo Particular
+Descripción: Sueldo Enero
+------------------------
+Total Ingresos: $200
+
+EGRESOS (DEBITOS)
+=================
+Total Egresos: $0
+
+BALANCE FINAL
+=============
+Total: $200
+Estado: POSITIVO

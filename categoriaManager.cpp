@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
 #include "categoriaManager.h"
-#include "funcionesGlobales.h"
 
 void CategoriaManager::menu(const Usuario &user) {
     int opcion;

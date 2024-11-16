@@ -1,6 +1,5 @@
 #pragma once
 #include "../movimientoManager.h"
-#include "../movimiento.h"
 
 class InformeIndicadores {
 public:

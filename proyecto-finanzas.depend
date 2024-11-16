@@ -168,8 +168,10 @@
 1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioArchivo.h
 	"usuario.h"
 
-1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.h
+1731754340 /home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.h
 	"usuario.h"
+	"usuarioArchivo.h"
+	"funcionesGlobales.h"
 
 1731752260 /home/juli/Documents/UTN/1-Progra2-2024/TPI/app.h
 	"movimientoManager.h"
@@ -177,10 +179,13 @@
 	"informes/informeManager.h"
 	"usuarioManager.h"
 
-1731749320 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.h
+1731754224 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.h
+	"usuarioManager.h"
 	"movimiento.h"
 	"movimientoArchivo.h"
-	"usuarioManager.h"
+	"categoriaManager.h"
+	"funcionesGlobales.h"
+	"fecha.h"
 	<string>
 
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimiento.h
@@ -192,10 +197,11 @@
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoArchivo.h
 	"movimiento.h"
 
-1731749593 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.h
+1731754038 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.h
 	"categoria.h"
 	"categoriaArchivo.h"
 	"usuarioManager.h"
+	"funcionesGlobales.h"
 	<cstring>
 
 1731545678 /home/juli/Documents/UTN/1-Progra2-2024/TPI/categoria.h
@@ -221,10 +227,9 @@
 	"categoriaArchivo.h"
 	<iostream>
 
-1731749812 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
+1731754043 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/categoriaManager.cpp
 	<iostream>
 	"categoriaManager.h"
-	"funcionesGlobales.h"
 
 1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/fecha.cpp
 	<iostream>
@@ -295,18 +300,12 @@
 1731545678 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioArchivo.cpp
 	"usuarioArchivo.h"
 
-1731709603 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.cpp
-	"funcionesGlobales.h"
+1731754345 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/usuarioManager.cpp
 	"usuarioManager.h"
-	"usuarioArchivo.h"
 
-1731749318 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.cpp
+1731754229 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/movimientoManager.cpp
 	<iostream>
-	"usuarioManager.h"
 	"movimientoManager.h"
-	"categoriaManager.h"
-	"funcionesGlobales.h"
-	"fecha.h"
 
 1731709603 /home/juli/Documents/UTN/1-Progra2-2024/TPI/asciichart/ascii.h
 	<cmath>
@@ -393,24 +392,22 @@
 	"../funcionesGlobales.h"
 	"../categoriaManager.h"
 
-1731752663 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeBalance.cpp
+1731753820 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeBalance.cpp
 	<iostream>
 	"informeBalance.h"
-	"../movimientoArchivo.h"
+	"../movimientoManager.h"
 	"../usuario.h"
 
-1731752723 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.cpp
+1731753734 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.cpp
 	<iostream>
 	<fstream>
 	<ctime>
 	"../funcionesGlobales.h"
-	"../movimientoArchivo.h"
 	"../fecha.h"
 	"../categoriaManager.h"
-	"../usuario.h"
 	"../movimientoManager.h"
 
-1731752766 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.cpp
+1731753257 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.cpp
 	<iostream>
 	<vector>
 	<cstring>
@@ -419,9 +416,8 @@
 	"../funcionesGlobales.h"
 	"../asciichart/ascii.h"
 
-1731752737 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.h
+1731753773 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeIndicadores.h
 	"../movimientoManager.h"
-	"../movimiento.h"
 
 1731752845 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informePorCategoria.cpp
 	<iostream>
@@ -435,11 +431,11 @@
 	"../categoriaManager.h"
 	"../usuarioManager.h"
 
-1731752871 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.h
-	"../usuarioManager.h"
+1731753700 /home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeGenerador.h
 	"informeBalance.h"
+	"../usuarioManager.h"
 
-1731752912 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeManager.cpp
+1731753649 source:/home/juli/Documents/UTN/1-Progra2-2024/TPI/informes/informeManager.cpp
 	<iostream>
 	<fstream>
 	<ctime>

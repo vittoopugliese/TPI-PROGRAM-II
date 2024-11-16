@@ -1,10 +1,47 @@
 #include <iostream>
 using namespace std;
-#include "usuarioManager.h"
 #include "movimientoManager.h"
-#include "categoriaManager.h"
-#include "funcionesGlobales.h"
-#include "fecha.h"
+
+void MovimientoManager::menu(const Usuario &user) {
+    int opcion;
+
+    while(true) {
+        clear();
+        cout << "----- MOVIMIENTOS -----" << endl;
+        cout << "[1] NUEVO MOVIMIENTO" << endl;
+        cout << "[2] MOSTRAR TODOS" << endl;
+        cout << "[3] FILTRAR" << endl;
+        cout << "[4] ELIMINAR POR ID" << endl << endl;
+
+        cout << "[0] SALIR" << endl;
+        cout << "-----------------------" << endl;
+
+        cout << "INGRESE OPCION: ";
+        opcion = ingresoEntero();
+
+        clear();
+
+        switch(opcion) {
+            case 1:
+                cargar(user);
+                break;
+            case 2:
+                mostrarTodos(user);
+                break;
+            case 3:
+                menuFiltros(user);
+                break;
+            case 4:
+                baja(user);
+                break;
+            case 0:
+                return;
+            default:
+                cout << "OPCION INCORRECTA" << endl;
+        }
+        clear();
+    }
+}
 
 void MovimientoManager::cargar(const Usuario &user) {
     MovimientoArchivo archivoMovimiento("movimientos.dat");
@@ -484,47 +521,5 @@ void MovimientoManager::baja(const Usuario &user) {
         cout << "----------------------------------------" << endl;
         mostrarTodos(user);
         return;
-    }
-}
-
-
-void MovimientoManager::menu(const Usuario &user) {
-    int opcion;
-
-    while(true) {
-        clear();
-        cout << "----- MOVIMIENTOS -----" << endl;
-        cout << "[1] NUEVO MOVIMIENTO" << endl;
-        cout << "[2] MOSTRAR TODOS" << endl;
-        cout << "[3] FILTRAR" << endl;
-        cout << "[4] ELIMINAR POR ID" << endl << endl;
-
-        cout << "[0] SALIR" << endl;
-        cout << "-----------------------" << endl;
-
-        cout << "INGRESE OPCION: ";
-        opcion = ingresoEntero();
-
-        clear();
-
-        switch(opcion) {
-            case 1:
-                cargar(user);
-                break;
-            case 2:
-                mostrarTodos(user);
-                break;
-            case 3:
-                menuFiltros(user);
-                break;
-            case 4:
-                baja(user);
-                break;
-            case 0:
-                return;
-            default:
-                cout << "OPCION INCORRECTA" << endl;
-        }
-        clear();
     }
 }

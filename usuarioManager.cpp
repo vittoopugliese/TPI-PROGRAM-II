@@ -1,6 +1,4 @@
-#include "funcionesGlobales.h"
 #include "usuarioManager.h"
-#include "usuarioArchivo.h"
 
 bool UsuarioManager::esUsuarioExistente(Usuario &usuario) {
     if (usuario.getUsuarioID() == -1) {
