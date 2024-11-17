@@ -1,8 +1,8 @@
 #pragma once
-#include "movimientoManager.h"
-#include "categoriaManager.h"
+#include "./movimientos/movimientoManager.h"
+#include "./categorias/categoriaManager.h"
 #include "informes/informeManager.h"
-#include "usuarioManager.h"
+#include "usuarios/usuarioManager.h"
 
 class App {
 private:

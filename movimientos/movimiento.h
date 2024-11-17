@@ -1,6 +1,6 @@
 #pragma once
 using namespace std;
-#include "fecha.h"
+#include "../fecha.h"
 class Movimiento {
 private:
     int _idMovimiento;

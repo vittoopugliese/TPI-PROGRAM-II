@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 #include "movimiento.h"
-#include "funcionesGlobales.h"
+#include "../funcionesGlobales.h"
 #include "movimientoArchivo.h"
 
 Movimiento::Movimiento(int idMovimiento, bool idTipo, int idUsuario, int idCategoria, Fecha fecha, float importe, bool recurrencia, const char *descripcion, bool estado, bool esFijo){

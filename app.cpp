@@ -1,8 +1,6 @@
 #include <iostream>
 #include "funcionesGlobales.h"
-#include "usuario.h"
-#include "usuarioArchivo.h"
-#include "usuarioManager.h"
+#include "./usuarios/usuarioManager.h"
 using namespace std;
 #include "app.h"
 

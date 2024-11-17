@@ -1,6 +1,6 @@
 #pragma once
 #include "../funcionesGlobales.h"
-#include "../categoriaManager.h"
+#include "../categorias/categoriaManager.h"
 
 using namespace std;
 

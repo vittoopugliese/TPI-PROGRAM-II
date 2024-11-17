@@ -1,8 +1,8 @@
 #include <iostream>
-#include "../usuario.h"
 #include "informePorCategoria.h"
-#include "../categoriaManager.h"
-#include "../movimientoManager.h"
+#include "../usuarios/usuario.h"
+#include "../categorias/categoriaManager.h"
+#include "../movimientos/movimientoManager.h"
 #include "../funcionesGlobales.h"
 
 void InformePorCategoria::balancePorCateoria(const Usuario &user) {

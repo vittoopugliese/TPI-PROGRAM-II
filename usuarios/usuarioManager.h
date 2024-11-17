@@ -1,7 +1,7 @@
 #pragma once
 #include "usuario.h"
 #include "usuarioArchivo.h"
-#include "funcionesGlobales.h"
+#include "../funcionesGlobales.h"
 
 class UsuarioManager {
     public:
