@@ -4,8 +4,8 @@
 
 #include "../funcionesGlobales.h"
 #include "../fecha.h"
-#include "../categoriaManager.h"
-#include "../movimientoManager.h"
+#include "../categorias/categoriaManager.h"
+#include "../movimientos/movimientoManager.h"
 
 using namespace std;
 

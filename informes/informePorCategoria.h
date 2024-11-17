@@ -1,6 +1,6 @@
 #pragma once
-#include "../categoriaManager.h"
-#include "../usuarioManager.h"
+#include "../categorias/categoriaManager.h"
+#include "../usuarios/usuarioManager.h"
 
 class InformePorCategoria{
 public:

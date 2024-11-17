@@ -3,7 +3,7 @@
 #include <cstring>
 
 #include "informeIndicadores.h"
-#include "../movimientoManager.h"  // Incluye MovimientoArchivo para acceder a sus métodos
+#include "../movimientos/movimientoManager.h"  // Incluye MovimientoArchivo para acceder a sus métodos
 #include "../funcionesGlobales.h"
 #include "../asciichart/ascii.h"
 

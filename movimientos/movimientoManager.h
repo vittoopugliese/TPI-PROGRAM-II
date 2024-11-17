@@ -1,10 +1,10 @@
 #pragma once
-#include "usuarioManager.h"
+#include "../usuarios/usuarioManager.h"
 #include "movimiento.h"
 #include "movimientoArchivo.h"
-#include "categoriaManager.h"
-#include "funcionesGlobales.h"
-#include "fecha.h"
+#include "../categorias/categoriaManager.h"
+#include "../funcionesGlobales.h"
+#include "../fecha.h"
 #include <string>
 using namespace std;
 

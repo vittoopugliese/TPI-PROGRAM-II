@@ -2,8 +2,8 @@
 using namespace std;
 #include "categoria.h"
 #include "categoriaArchivo.h"
-#include "usuarioManager.h"
-#include "funcionesGlobales.h"
+#include "../usuarios/usuarioManager.h"
+#include "../funcionesGlobales.h"
 #include <cstring>
 
 class CategoriaManager {

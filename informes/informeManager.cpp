@@ -3,8 +3,8 @@
 #include <ctime>
 
 #include "informeManager.h"
-#include "../movimientoManager.h"
-#include "../categoriaManager.h"
+#include "../movimientos/movimientoManager.h"
+#include "../categorias/categoriaManager.h"
 #include "../fecha.h"
 #include "../funcionesGlobales.h"
 
